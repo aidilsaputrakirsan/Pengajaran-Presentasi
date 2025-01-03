@@ -6,90 +6,200 @@
     <title>Pertemuan 1: Pengenalan & Persiapan Lingkungan</title>
     <link rel="stylesheet" href="../../reveal/dist/reveal.css">
     <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
+    <style>
+        /* Watermark Styling */
+        .watermark img {
+            height: 15px;
+            vertical-align: middle;
+        }
+        .watermark {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.3);
+            z-index: 1000;
+            font-style: italic;
+        }
+        @media screen and (max-width: 768px) {
+            /* Adjust layout for mobile */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        .illustration {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .illustration img {
+            max-width: 70%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
+    <div class="watermark">
+        <img src="../assets/logoSI.png" alt="Logo Universitas">© <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+    </div>
     <div class="reveal">
         <div class="slides">
             <!-- Slide 1: Pembukaan -->
-            <section>
+            <section data-transition="zoom">
                 <h1>🎓 Pemrograman Web</h1>
                 <h3>Pertemuan 1: Pengenalan & Persiapan Lingkungan</h3>
-                <p>“Kesuksesan adalah perpaduan antara persiapan dan kesempatan.” – Seneca</p>
-                <img src="https://via.placeholder.com/600x400" alt="Ilustrasi persiapan lingkungan">
             </section>
 
-            <!-- Slide 2: Deskripsi Pekan -->
+            <!-- Slide 2: Apa Itu Pemrograman Web -->
             <section data-transition="slide">
-                <h2>📖 Deskripsi</h2>
-                <p>Pekan ini, mahasiswa mempersiapkan lingkungan pengembangan:</p>
+                <section>
+                    <h2>📖 Apa Itu Pemrograman Web?</h2>
+                    <p>Pemrograman web adalah proses membuat dan memelihara aplikasi berbasis web.</p>
+                    <ul>
+                        <li class="fragment fade-in">Frontend: Bagian yang dilihat dan berinteraksi dengan pengguna. <em>Seperti tampilan restoran (dekorasi, menu).</em></li>
+                        <li class="fragment fade-up">Backend: Logika bisnis dan pengolahan data. <em>Seperti dapur restoran tempat makanan disiapkan.</em></li>
+                        <li class="fragment fade-in">Database: Penyimpanan data. <em>Seperti gudang bahan makanan.</em></li>
+                    </ul>
+                </section>
+                <section data-transition="fade">
+                    <div class="illustration">
+                        <img src="../assets/week1-frontend.png" alt="Ilustrasi Frontend">
+                        <p>Gambar: Tampilan restoran untuk Frontend</p>
+                    </div>
+                </section>
+                <section data-transition="fade">
+                    <div class="illustration">
+                        <img src="../assets/week1-backend.png" alt="Ilustrasi Backend">
+                        <p>Gambar: Dapur restoran untuk Backend</p>
+                    </div>
+                </section>
+                <section data-transition="fade">
+                    <div class="illustration">
+                        <img src="../assets/week1-database.jpeg" alt="Ilustrasi Database">
+                        <p>Gambar: Gudang makanan untuk Database</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Slide 3: Evolusi Teknologi Web -->
+            <section data-transition="convex">
+                <h2>🌐 Evolusi Teknologi Web</h2>
                 <ul>
-                    <li>Node.js</li>
-                    <li>PostgreSQL & pgAdmin</li>
-                    <li>Git & GitHub</li>
-                    <li>Struktur dasar proyek (React + Vite, Express.js)</li>
+                    <li class="fragment fade-in">Web 1.0: Halaman statis, hanya membaca.</li>
+                    <li class="fragment fade-up">Web 2.0: Interaktif, berbagi informasi (media sosial).</li>
+                    <li class="fragment fade-in">Web 3.0: Terdesentralisasi, berbasis blockchain dan AI.</li>
                 </ul>
             </section>
 
-            <!-- Slide 3: Tujuan Pembelajaran -->
+            <!-- Slide 4: Teknologi Utama -->
+            <section data-transition="zoom-in">
+                <h2>🔧 Teknologi Utama dalam Pemrograman Web</h2>
+                <ul>
+                    <li class="fragment fade-in">Frontend:
+                        <ul>
+                            <li class="fragment fade-up">HTML, CSS, JavaScript.</li>
+                            <li class="fragment fade-in">Framework: React, Angular, Vue.js.</li>
+                        </ul>
+                    </li>
+                    <li class="fragment fade-up">Backend:
+                        <ul>
+                            <li class="fragment fade-in">Node.js, Express.js, Django.</li>
+                        </ul>
+                    </li>
+                    <li class="fragment fade-in">Database:
+                        <ul>
+                            <li class="fragment fade-up">Relasional: PostgreSQL, MySQL.</li>
+                            <li class="fragment fade-in">NoSQL: MongoDB, Firebase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Slide 5: Peran Pemrograman Web -->
+            <section data-transition="fade-out">
+                <h2>🏢 Peran Pemrograman Web dalam Industri</h2>
+                <ul>
+                    <li class="fragment fade-in">Aplikasi Utama:
+                        <ul>
+                            <li class="fragment fade-up">E-commerce (Shopee, Amazon).</li>
+                            <li class="fragment fade-up">Media sosial (Instagram, Twitter).</li>
+                            <li class="fragment fade-in">Sistem internal perusahaan (ERP, CRM).</li>
+                        </ul>
+                    </li>
+                    <li class="fragment fade-up">Keterampilan yang Dibutuhkan:
+                        <ul>
+                            <li class="fragment fade-up">Adaptasi teknologi terbaru.</li>
+                            <li class="fragment fade-in">Kemampuan pemecahan masalah.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Slide Baru: Modul Praktikum -->
+            <section data-transition="zoom-in fade-out">
+                <h2>📘 Modul Praktikum</h2>
+            </section>
+
+            <!-- Slide 6: Tujuan Pembelajaran -->
             <section data-transition="zoom">
                 <h2>🎯 Tujuan Pembelajaran</h2>
                 <ul>
-                    <li>💻 Menginstal & mengonfigurasi <strong>Node.js</strong>, <strong>PostgreSQL</strong>, dan <strong>pgAdmin</strong>.</li>
-                    <li>📂 Memahami penggunaan <strong>Git</strong> & <strong>GitHub</strong>.</li>
-                    <li>📦 Memiliki struktur folder proyek dasar (frontend & backend).</li>
+                    <li class="fragment fade-in">💻 Menginstal & mengonfigurasi <strong>Node.js</strong>, <strong>PostgreSQL</strong>, dan <strong>pgAdmin</strong>.</li>
+                    <li class="fragment fade-up">📂 Memahami penggunaan <strong>Git</strong> & <strong>GitHub</strong>.</li>
+                    <li class="fragment fade-in">📦 Memiliki struktur folder proyek dasar (frontend & backend).</li>
                 </ul>
             </section>
 
-            <!-- Slide 4: Langkah Praktikum (Vertical Slides) -->
-            <section>
+            <!-- Slide 7: Langkah Praktikum (Vertical Slides) -->
+            <section data-transition="slide">
                 <h2>🛠️ Langkah-Langkah Praktikum</h2>
                 <!-- Sub-slide 1 -->
                 <section>
                     <h3>1. Instalasi Node.js</h3>
-                    <pre><code>node -v
+                    <pre><code class="fragment fade-in">node -v
 npm -v</code></pre>
                 </section>
                 <!-- Sub-slide 2 -->
                 <section>
                     <h3>2. Instalasi PostgreSQL</h3>
                     <ul>
-                        <li>Download: <a href="https://postgresql.org/download">postgresql.org</a></li>
-                        <li>Buat user: <code>postgres</code></li>
-                        <li>Buat database: <code>ecommerce-kecil</code></li>
+                        <li class="fragment fade-up">Download: <a href="https://postgresql.org/download">postgresql.org</a></li>
+                        <li class="fragment fade-in">Buat user: <code>postgres</code></li>
+                        <li class="fragment fade-up">Buat database: <code>ecommerce-kecil</code></li>
                     </ul>
                 </section>
                 <!-- Sub-slide 3 -->
                 <section>
                     <h3>3. Persiapan Git & GitHub</h3>
                     <ul>
-                        <li>Instal Git: <a href="https://git-scm.com">git-scm.com</a></li>
-                        <li>Buat repository: <code>frontend & backend</code></li>
+                        <li class="fragment fade-in">Instal Git: <a href="https://git-scm.com">git-scm.com</a></li>
+                        <li class="fragment fade-up">Buat repository: <code>frontend & backend</code></li>
                     </ul>
                 </section>
             </section>
 
-            <!-- Slide 5: Kriteria Penilaian -->
+            <!-- Slide 8: Kriteria Penilaian -->
             <section data-transition="convex">
                 <h2>📊 Kriteria Penilaian</h2>
                 <ul>
-                    <li>✅ Kesiapan lingkungan (30%)</li>
-                    <li>✅ Repository GitHub (40%)</li>
-                    <li>✅ Kerja sama tim (30%)</li>
+                    <li class="fragment fade-in">✅ Kesiapan lingkungan (30%)</li>
+                    <li class="fragment fade-up">✅ Repository GitHub (40%)</li>
+                    <li class="fragment fade-in">✅ Kerja sama tim (30%)</li>
                 </ul>
             </section>
 
-            <!-- Slide 6: Checklist -->
+            <!-- Slide 9: Checklist -->
             <section data-transition="fade">
                 <h2>✅ Checklist</h2>
                 <ul>
-                    <li>Node.js & PostgreSQL terinstal</li>
-                    <li>Database `ecommerce-kecil` tersedia</li>
-                    <li>Repository GitHub terinisialisasi</li>
-                    <li>Proyek React & Express telah berjalan</li>
+                    <li class="fragment fade-in">Node.js & PostgreSQL terinstal</li>
+                    <li class="fragment fade-up">Database `ecommerce-kecil` tersedia</li>
+                    <li class="fragment fade-up">Repository GitHub terinisialisasi</li>
+                    <li class="fragment fade-in">Proyek React & Express telah berjalan</li>
                 </ul>
             </section>
 
-            <!-- Slide 7: Inspirasi -->
+            <!-- Slide 10: Inspirasi -->
             <section data-transition="fade-in fade-out">
                 <h2>🌟 Inspirasi Hari Ini</h2>
                 <blockquote>
@@ -113,6 +223,9 @@ npm -v</code></pre>
             plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
             pdfSeparateFragments: false,
             overview: true,
+            transition: 'convex',
+            autoAnimate: true,
+            pdfExport: true,
         });
     </script>
 </body>

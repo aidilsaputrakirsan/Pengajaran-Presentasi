@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 1: Pengenalan & Persiapan Lingkungan</title>
+    <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+    <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide 1: Pembukaan -->
+            <section>
+                <h1>🎓 Pemrograman Web</h1>
+                <h3>Pertemuan 1: Pengenalan & Persiapan Lingkungan</h3>
+                <p>“Kesuksesan adalah perpaduan antara persiapan dan kesempatan.” – Seneca</p>
+                <img src="https://via.placeholder.com/600x400" alt="Ilustrasi persiapan lingkungan">
+            </section>
+
+            <!-- Slide 2: Deskripsi Pekan -->
+            <section data-transition="slide">
+                <h2>📖 Deskripsi</h2>
+                <p>Pekan ini, mahasiswa mempersiapkan lingkungan pengembangan:</p>
+                <ul>
+                    <li>Node.js</li>
+                    <li>PostgreSQL & pgAdmin</li>
+                    <li>Git & GitHub</li>
+                    <li>Struktur dasar proyek (React + Vite, Express.js)</li>
+                </ul>
+            </section>
+
+            <!-- Slide 3: Tujuan Pembelajaran -->
+            <section data-transition="zoom">
+                <h2>🎯 Tujuan Pembelajaran</h2>
+                <ul>
+                    <li>💻 Menginstal & mengonfigurasi <strong>Node.js</strong>, <strong>PostgreSQL</strong>, dan <strong>pgAdmin</strong>.</li>
+                    <li>📂 Memahami penggunaan <strong>Git</strong> & <strong>GitHub</strong>.</li>
+                    <li>📦 Memiliki struktur folder proyek dasar (frontend & backend).</li>
+                </ul>
+            </section>
+
+            <!-- Slide 4: Langkah Praktikum (Vertical Slides) -->
+            <section>
+                <h2>🛠️ Langkah-Langkah Praktikum</h2>
+                <!-- Sub-slide 1 -->
+                <section>
+                    <h3>1. Instalasi Node.js</h3>
+                    <pre><code>node -v
+npm -v</code></pre>
+                </section>
+                <!-- Sub-slide 2 -->
+                <section>
+                    <h3>2. Instalasi PostgreSQL</h3>
+                    <ul>
+                        <li>Download: <a href="https://postgresql.org/download">postgresql.org</a></li>
+                        <li>Buat user: <code>postgres</code></li>
+                        <li>Buat database: <code>ecommerce-kecil</code></li>
+                    </ul>
+                </section>
+                <!-- Sub-slide 3 -->
+                <section>
+                    <h3>3. Persiapan Git & GitHub</h3>
+                    <ul>
+                        <li>Instal Git: <a href="https://git-scm.com">git-scm.com</a></li>
+                        <li>Buat repository: <code>frontend & backend</code></li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- Slide 5: Kriteria Penilaian -->
+            <section data-transition="convex">
+                <h2>📊 Kriteria Penilaian</h2>
+                <ul>
+                    <li>✅ Kesiapan lingkungan (30%)</li>
+                    <li>✅ Repository GitHub (40%)</li>
+                    <li>✅ Kerja sama tim (30%)</li>
+                </ul>
+            </section>
+
+            <!-- Slide 6: Checklist -->
+            <section data-transition="fade">
+                <h2>✅ Checklist</h2>
+                <ul>
+                    <li>Node.js & PostgreSQL terinstal</li>
+                    <li>Database `ecommerce-kecil` tersedia</li>
+                    <li>Repository GitHub terinisialisasi</li>
+                    <li>Proyek React & Express telah berjalan</li>
+                </ul>
+            </section>
+
+            <!-- Slide 7: Inspirasi -->
+            <section data-transition="fade-in fade-out">
+                <h2>🌟 Inspirasi Hari Ini</h2>
+                <blockquote>
+                    “Kesuksesan adalah perpaduan antara persiapan dan kesempatan.”
+                    <br>— Seneca
+                </blockquote>
+            </section>
+        </div>
+    </div>
+
+    <!-- Reveal.js -->
+    <script src="../../reveal/dist/reveal.js"></script>
+    <script src="../../reveal/plugin/markdown/markdown.js"></script>
+    <script src="../../reveal/plugin/highlight/highlight.js"></script>
+    <script src="../../reveal/plugin/notes/notes.js"></script>
+    <script src="../../reveal/plugin/zoom/zoom.js"></script>
+    <script>
+        Reveal.initialize({
+            slideNumber: true,
+            touch: true,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+            pdfSeparateFragments: false,
+            overview: true,
+        });
+    </script>
+</body>
+</html>

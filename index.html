@@ -11,117 +11,236 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      transition: all 0.3s ease;
     }
 
-    html, body {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* --- LOADING ANIMATION --- */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      overflow: auto;
-      background: #000; /* Fallback color for background */
-    }
-
-    /* --- VIDEO BACKGROUND --- */
-    .video-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-        min-width: 100%;
-        min-height: 100%;
-        background: #000; /* Fallback color */
-        }
-    /* --- MAIN CONTENT CONTAINER --- */
-    .container {
-      min-height: 100vh;
+      background: #1a1a2e;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 40px 20px;
+      z-index: 1000;
+    }
+
+    .loader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #00c8ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* --- MAIN CONTENT CONTAINER --- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .content {
-      max-width: 800px;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
+    /* --- HEADER STYLES --- */
     h1 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 2rem;
       font-size: 2.5em;
+      background: linear-gradient(45deg, #00c8ff, #40e0d0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      padding: 0.5rem;
+      position: relative;
     }
 
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(45deg, #00c8ff, #40e0d0);
+      border-radius: 2px;
+    }
+
+    /* --- DETAILS/SUMMARY STYLES --- */
     details {
-      background: rgba(255, 255, 255, 0.1);
-      margin-bottom: 15px;
-      border-radius: 5px;
-      padding: 10px;
-      cursor: pointer;
+      background: rgba(255, 255, 255, 0.05);
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     summary {
+      padding: 1rem;
       font-size: 1.2em;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
     }
 
+    summary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    summary::marker,
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '+';
+      position: absolute;
+      right: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    /* --- LIST STYLES --- */
     ul {
       list-style: none;
-      padding: 0;
-      margin: 10px 0;
+      padding: 1rem;
     }
 
     li {
-      margin: 5px 0;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border-radius: 5px;
+      transition: transform 0.2s ease;
     }
 
+    li:hover {
+      transform: translateX(10px);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* --- LINK STYLES --- */
     a {
       color: #00c8ff;
       text-decoration: none;
+      padding: 0.5rem;
+      display: block;
+      border-radius: 5px;
+      transition: all 0.3s ease;
     }
 
     a:hover {
-      text-decoration: underline;
       color: #40e0d0;
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateX(5px);
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8em;
+    /* --- RESPONSIVE DESIGN --- */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
       }
 
       .content {
-        padding: 15px;
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 2em;
       }
 
       summary {
         font-size: 1.1em;
       }
     }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0.5rem;
+      }
+
+      .content {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      summary {
+        font-size: 1em;
+      }
+    }
+
+    /* --- SCROLL BAR STYLING --- */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 200, 255, 0.5);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 200, 255, 0.7);
+    }
   </style>
 </head>
 <body>
-  <!-- Video Background -->
-    <video class="video-background" autoplay muted loop playsinline preload="auto" 
-    onerror="this.style.display='none'; document.body.style.backgroundColor='#000';">
-    <!-- Mencoba path relatif -->
-    <source src="Pemrograman-Web/assets/back.mp4" type="video/mp4">
-    <!-- Path alternatif jika file di folder yang sama -->
-    <source src="./assets/back.mp4" type="video/mp4">
-    <!-- Path alternatif jika perlu naik satu level -->
-    <source src="../assets/back.mp4" type="video/mp4">
-    <!-- Tambahkan format video alternatif jika ada -->
-    <source src="Pemrograman-Web/assets/back.webm" type="video/webm">
-    Your browser does not support the video tag.
-    </video>
+  <!-- Loading Screen -->
+  <div class="loader">
+    <div class="loader-spinner"></div>
+  </div>
+
   <!-- Main Content -->
   <div class="container">
     <div class="content">
@@ -174,5 +293,45 @@
       </details>
     </div>
   </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Loading Screen
+    window.addEventListener('load', () => {
+      const loader = document.querySelector('.loader');
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 500);
+    });
+
+    // Smooth Details Animation
+    document.querySelectorAll('details').forEach((detail) => {
+      detail.addEventListener('click', (e) => {
+        if (detail.open) {
+          e.preventDefault();
+          detail.classList.add('closing');
+          setTimeout(() => {
+            detail.open = false;
+            detail.classList.remove('closing');
+          }, 300);
+        }
+      });
+    });
+
+    // Add active state to current page link
+    document.querySelectorAll('a').forEach(link => {
+      if (link.href === window.location.href) {
+        link.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        link.style.color = '#40e0d0';
+      }
+    });
+
+    // Optional: Add scroll reveal animation
+    document.querySelectorAll('li').forEach((item, index) => {
+      item.style.opacity = '0';
+      item.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
+    });
+  </script>
 </body>
 </html>

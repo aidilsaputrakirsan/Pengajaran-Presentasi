@@ -24,15 +24,17 @@
 
     /* --- VIDEO BACKGROUND --- */
     .video-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1; /* Ensure it stays behind all other elements */
-    }
-
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        min-width: 100%;
+        min-height: 100%;
+        background: #000; /* Fallback color */
+        }
     /* --- MAIN CONTENT CONTAINER --- */
     .container {
       min-height: 100vh;
@@ -108,11 +110,18 @@
 </head>
 <body>
   <!-- Video Background -->
-  <video class="video-background" autoplay muted loop playsinline>
+    <video class="video-background" autoplay muted loop playsinline preload="auto" 
+    onerror="this.style.display='none'; document.body.style.backgroundColor='#000';">
+    <!-- Mencoba path relatif -->
     <source src="Pemrograman-Web/assets/back.mp4" type="video/mp4">
+    <!-- Path alternatif jika file di folder yang sama -->
+    <source src="./assets/back.mp4" type="video/mp4">
+    <!-- Path alternatif jika perlu naik satu level -->
+    <source src="../assets/back.mp4" type="video/mp4">
+    <!-- Tambahkan format video alternatif jika ada -->
+    <source src="Pemrograman-Web/assets/back.webm" type="video/webm">
     Your browser does not support the video tag.
-  </video>
-
+    </video>
   <!-- Main Content -->
   <div class="container">
     <div class="content">

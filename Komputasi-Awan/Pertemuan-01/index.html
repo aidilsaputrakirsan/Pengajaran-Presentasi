@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pekan 1: Persiapan Lingkungan dan Pengenalan Dasar</title>
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reveal.js Core CSS -->
+  <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Reveal.js Theme (League) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/league.css">
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  <style>
+    .watermark {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      font-size: 25px;
+      color: rgba(255, 255, 255, 0.3); /* Sesuaikan warna agar visible di theme "league" */
+      z-index: 1000;
+      font-style: italic;
+    }
+    .watermark img {
+      height: 25px;
+      vertical-align: middle;
+    }
+    @media screen and (max-width: 768px) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .illustration {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .illustration img {
+      max-width: 70%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide 1: Judul -->
+      <section data-transition="zoom">
+        <h2>☁️ Komputasi Awan</h2>
+        <h3>Pekan 1: Persiapan Lingkungan dan Pengenalan Dasar</h3>
+      </section>
+
+      <!-- Slide 2: Pengantar #1 -->
+      <section data-transition="slide">
+        <h2>🔧 Mengapa Persiapan Lingkungan?</h2>
+        <ul>
+          <li class="fragment fade-in">Python, Node.js, PostgreSQL, dan Docker → fondasi untuk proyek cloud & containerization.</li>
+          <li class="fragment fade-up">Membuat workflow development lebih efisien.</li>
+        </ul>
+        <div class="illustration fragment fade-in">
+          <img src="../assets/cloud-infra.jpg" alt="Infrastruktur Cloud">
+          <p>Ilustrasi: Infrastruktur Cloud</p>
+        </div>
+      </section>
+
+      <!-- Slide 3: Pengantar #2 -->
+      <section data-transition="fade">
+        <h2>🌐 Konsep Dasar Containerization</h2>
+        <ul>
+          <li class="fragment fade-in">Isolasi aplikasi & dependensi dalam container.</li>
+          <li class="fragment fade-up">Memudahkan deploy di berbagai platform (dev, staging, production).</li>
+        </ul>
+        <div class="illustration fragment fade-in">
+          <img src="../assets/docker-containers.png" alt="Ilustrasi Container">
+        </div>
+      </section>
+
+      <!-- Slide 4: Pengantar #3 -->
+      <section data-transition="convex">
+        <h2>🔄 Workflow Pengembangan</h2>
+        <ol>
+          <li class="fragment fade-in">Persiapan environment (Python, Node.js, DB, Docker).</li>
+          <li class="fragment fade-up">Pengembangan backend Flask, frontend React.</li>
+          <li class="fragment fade-in">Containerization & Orchestration.</li>
+        </ol>
+      </section>
+
+      <!-- Slide 5: Masuk Modul Praktikum -->
+      <section data-transition="zoom-in fade-out">
+        <h2>📝 Modul Praktikum</h2>
+      </section>
+
+      <!-- Slide 6: Deskripsi Singkat (Isi dari modul) -->
+      <section data-transition="fade">
+        <h2>🔄 Deskripsi Singkat</h2>
+        <p class="fragment fade-in">
+          Pada pekan pertama, mahasiswa mempersiapkan seluruh lingkungan pengembangan: instalasi Python, Node.js, PostgreSQL, dan Docker.
+          Selain itu, mempelajari konsep dasar containerization dan workflow pengembangan secara keseluruhan.
+        </p>
+      </section>
+
+      <!-- Slide 7: Tujuan Pembelajaran -->
+      <section data-transition="slide">
+        <h2>🎯 Tujuan Pembelajaran</h2>
+        <ul>
+          <li class="fragment fade-in">Menginstal dan mengonfigurasi Python, Node.js, PostgreSQL, dan Docker.</li>
+          <li class="fragment fade-up">Memahami alur kerja dan struktur direktori proyek (Flask, React.js, Docker).</li>
+        </ul>
+      </section>
+
+      <!-- Slide 8: Pembagian Tugas Tim -->
+      <section data-transition="zoom">
+        <h2>👩‍💻 Pembagian Tugas Tim</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Backend Engineer</strong>: Menyiapkan Python & Flask.</li>
+          <li class="fragment fade-up"><strong>Infrastructure Engineer</strong>: Menyiapkan Docker & PostgreSQL.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 9: Langkah-Langkah Praktikum (vertical slides) -->
+      <section data-transition="slide">
+        <h2>🛠️ Langkah-Langkah Praktikum</h2>
+        <section>
+          <h3>Instalasi Python</h3>
+          <pre><code class="hljs bash">
+# Contoh:
+python --version
+pip --version
+          </code></pre>
+          <p>(Detail langkah di modul)</p>
+        </section>
+        <section>
+          <h3>Instalasi Node.js</h3>
+          <pre><code class="hljs bash">
+node --version
+npm --version
+          </code></pre>
+        </section>
+        <section>
+          <h3>Instalasi PostgreSQL</h3>
+          <p class="fragment fade-in">Buat user & database awal di pgAdmin atau CLI <code>psql</code>.</p>
+        </section>
+        <section>
+          <h3>Instalasi Docker</h3>
+          <p class="fragment fade-in">Cek dengan <code>docker --version</code> & <code>docker compose version</code>.</p>
+        </section>
+      </section>
+
+      <!-- Slide 10: Kriteria Penilaian -->
+      <section data-transition="convex">
+        <h2>📊 Kriteria Penilaian</h2>
+        <ul>
+          <li class="fragment fade-in">Kesiapan lingkungan (30%)</li>
+          <li class="fragment fade-up">Pengetahuan dasar konsep Docker (30%)</li>
+          <li class="fragment fade-in">Kerapian struktur direktori (20%)</li>
+          <li class="fragment fade-up">Kemampuan instalasi tanpa error (20%)</li>
+        </ul>
+      </section>
+
+      <!-- Slide 11: Checklist Praktikum -->
+      <section data-transition="fade">
+        <h2>✅ Checklist Praktikum</h2>
+        <ul>
+          <li class="fragment fade-in">Python, Node.js, PostgreSQL, Docker terinstal</li>
+          <li class="fragment fade-up">Struktur direktori <code>cloud-project/</code> terbentuk</li>
+        </ul>
+      </section>
+
+      <!-- Slide 12: Latihan Mandiri -->
+      <section data-transition="zoom">
+        <h2>🙋‍♂️ Latihan Mandiri</h2>
+        <ul>
+          <li class="fragment fade-in">Coba jalankan Hello World di Python & Node.js</li>
+          <li class="fragment fade-up">Buat database tambahan di PostgreSQL</li>
+        </ul>
+      </section>
+
+      <!-- Slide 13: Deadline & Pengumpulan -->
+      <section data-transition="fade">
+        <h2>📢 Deadline & Pengumpulan</h2>
+        <p class="fragment fade-in">Kumpulkan bukti instalasi di LMS sebelum akhir Pekan 1.</p>
+      </section>
+
+      <!-- Slide 14: Inspirasi / Kata Motivasi -->
+      <section data-transition="zoom-in fade-out">
+        <h2>✨ Kata Motivasi</h2>
+        <blockquote class="fragment fade-in">
+          "Setiap pengembang hebat yang Anda kenal sampai di sana dengan menyelesaikan masalah yang pada awalnya 
+          mereka tidak yakin bisa mereka selesaikan, hingga mereka benar-benar melakukannya." – Patrick McKenzie
+        </blockquote>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../../reveal/dist/reveal.js"></script>
+  <script src="../../reveal/plugin/markdown/markdown.js"></script>
+  <script src="../../reveal/plugin/highlight/highlight.js"></script>
+  <script src="../../reveal/plugin/notes/notes.js"></script>
+  <script src="../../reveal/plugin/zoom/zoom.js"></script>
+  <script>
+    Reveal.initialize({
+      slideNumber: true,
+      touch: true,
+      // Gunakan theme "league"
+      // pdfSeparateFragments, pdfExport, overview, transition, dll.
+      pdfSeparateFragments: false,
+      pdfExport: true,
+      overview: true,
+      transition: 'convex',
+      autoAnimate: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pekan 4: Menghubungkan React ke Flask</title>
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reveal.js Core CSS -->
+  <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Reveal.js Theme (League) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/league.css">
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  <style>
+    .watermark {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      font-size: 25px;
+      color: rgba(255, 255, 255, 0.3); /* Warna sesuai permintaan */
+      z-index: 1000;
+      font-style: italic;
+    }
+    .watermark img {
+      height: 25px;
+      vertical-align: middle;
+    }
+    @media screen and (max-width: 768px) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .illustration {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .illustration img {
+      max-width: 70%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide 1: Judul -->
+      <section data-transition="zoom">
+        <h2>☁️ Komputasi Awan</h2>
+        <h3>Pekan 4: Menghubungkan React ke Flask</h3>
+      </section>
+
+      <!-- Slide 2: Pengantar #1 -->
+      <section data-transition="slide">
+        <h2>🔄 Mengapa Perlu Integrasi Frontend & Backend?</h2>
+        <ul>
+          <li class="fragment fade-in">Frontend (React) membutuhkan data real-time dari Backend (Flask).</li>
+          <li class="fragment fade-up">Memungkinkan aplikasi untuk dinamis dan interaktif.</li>
+        </ul>
+        <div class="illustration fragment fade-in">
+          <img src="../assets/frontend-backend-integration.png" alt="Integrasi Frontend & Backend">
+          <p>Ilustrasi: Alur Integrasi Frontend dan Backend</p>
+        </div>
+      </section>
+
+      <!-- Slide 3: Pengantar #2 -->
+      <section data-transition="fade">
+        <h2>📡 Tools untuk Integrasi</h2>
+        <ul>
+          <li class="fragment fade-in">Fetch API (bawaan browser) atau Axios (library) untuk HTTP request di React.</li>
+          <li class="fragment fade-up">Endpoint API di Flask harus siap untuk menerima dan mengirim data.</li>
+        </ul>
+        <div class="illustration fragment fade-in">
+          <img src="../assets/tools-integration.png" alt="Tools Integrasi">
+          <p>Tools untuk Integrasi Frontend dan Backend</p>
+        </div>
+      </section>
+
+      <!-- Slide 4: Pengantar #3 -->
+      <section data-transition="convex">
+        <h2>🔗 Alur Permintaan Data</h2>
+        <ol>
+          <li class="fragment fade-in">Client (React) mengirim permintaan ke Server (Flask).</li>
+          <li class="fragment fade-up">Server (Flask) mengakses Database (PostgreSQL) dan mengembalikan data ke Client.</li>
+        </ol>
+        <div class="illustration fragment fade-in">
+          <img src="../assets/request-flow-diagram.png" alt="Alur Permintaan Data">
+          <p>Diagram Alur Permintaan Data</p>
+        </div>
+      </section>
+
+      <!-- Slide 5: Masuk Modul Praktikum -->
+      <section data-transition="zoom-in fade-out">
+        <h2>📝 Modul Praktikum</h2>
+      </section>
+
+      <!-- Slide 6: Deskripsi Singkat -->
+      <section data-transition="fade">
+        <h2>🔄 Deskripsi Singkat</h2>
+        <p class="fragment fade-in">
+          React (Vite) akan melakukan request ke endpoint Flask, dan data produk dari PostgreSQL akan ditampilkan di frontend. Mahasiswa akan belajar cara melakukan HTTP request (GET) dari React ke Flask dan menampilkan data tersebut di UI React.
+        </p>
+      </section>
+
+      <!-- Slide 7: Tujuan Pembelajaran -->
+      <section data-transition="slide">
+        <h2>🎯 Tujuan Pembelajaran</h2>
+        <ul>
+          <li class="fragment fade-in">Mampu melakukan HTTP request (GET) dari React ke Flask.</li>
+          <li class="fragment fade-up">Menampilkan data produk di UI React.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 8: Pembagian Tugas Tim -->
+      <section data-transition="zoom">
+        <h2>👩‍💻 Pembagian Tugas Tim</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Frontend Engineer</strong>: Kode fetch/axios untuk data produk.</li>
+          <li class="fragment fade-up"><strong>Backend Engineer</strong>: Pastikan endpoint <code>/api/data</code> GET berjalan.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 9: Langkah-Langkah Praktikum (vertical slides) -->
+      <section data-transition="slide">
+        <h2>🛠️ Langkah-Langkah Praktikum</h2>
+        <section>
+          <h3>Instalasi Axios (Opsional)</h3>
+          <pre><code class="hljs bash">
+    npm install axios
+          </code></pre>
+        </section>
+        <section>
+          <h3>Modifikasi <code>App.jsx</code></h3>
+          <pre><code class="hljs javascript">
+// src/App.jsx
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function App() {
+  const [apiData, setApiData] = useState(null);
+
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/data')
+      .then(response => setApiData(response.data.data))
+      .catch(error => console.error(error));
+  }, []);
+
+<!--
+  return (
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1>React & Flask Integration</h1>
+      <p>{apiData ? apiData : "Loading data..."}</p>
+    </div>
+  );
+}
+-->
+
+export default App;
+          </code></pre>
+        </section>
+        <section>
+          <h3>Menjalankan Aplikasi Flask</h3>
+          <pre><code class="hljs bash">
+    cd backend
+    source venv/bin/activate  # Linux/MacOS
+    # .\venv\Scripts\activate  # Windows
+    python app.py
+          </code></pre>
+          <p class="fragment fade-in">Pastikan Flask berjalan di <code>http://localhost:5000</code>.</p>
+        </section>
+        <section>
+          <h3>Menjalankan Aplikasi React</h3>
+          <pre><code class="hljs bash">
+    cd ../frontend/my-react-app
+    npm run dev
+          </code></pre>
+          <p class="fragment fade-in">Akses React di <code>http://localhost:5173/</code>.</p>
+        </section>
+      </section>
+
+      <!-- Slide 10: Kriteria Penilaian -->
+      <section data-transition="convex">
+        <h2>📊 Kriteria Penilaian</h2>
+        <ul>
+          <li class="fragment fade-in">React menampilkan data dari endpoint Flask (50%).</li>
+          <li class="fragment fade-up">Tidak muncul error CORS (25%).</li>
+          <li class="fragment fade-in">Error handling minimal (25%).</li>
+        </ul>
+      </section>
+
+      <!-- Slide 11: Checklist Praktikum -->
+      <section data-transition="fade">
+        <h2>✅ Checklist Praktikum</h2>
+        <ul>
+          <li class="fragment fade-in">Endpoint <code>/api/data</code> GET berjalan.</li>
+          <li class="fragment fade-up">React menampilkan data dari DB.</li>
+          <li class="fragment fade-in">Minimal error handling (console.error).</li>
+        </ul>
+      </section>
+
+      <!-- Slide 12: Latihan Mandiri -->
+      <section data-transition="zoom">
+        <h2>🙋‍♂️ Latihan Mandiri</h2>
+        <ol>
+          <li class="fragment fade-in">Tambahkan form (POST) dari React ke Flask.</li>
+          <li class="fragment fade-up">Styling tampilan dengan CSS.</li>
+        </ol>
+      </section>
+
+      <!-- Slide 13: Deadline & Pengumpulan -->
+      <section data-transition="fade">
+        <h2>📢 Deadline & Pengumpulan</h2>
+        <ul>
+          <li class="fragment fade-in">Akhir Pekan 4</li>
+          <li class="fragment fade-up">Screenshot data produk + Link repo GitHub</li>
+        </ul>
+      </section>
+
+      <!-- Slide 14: Inspirasi / Kata Motivasi -->
+      <section data-transition="zoom-in fade-out">
+        <h2>✨ Kata Motivasi</h2>
+        <blockquote class="fragment fade-in">
+          “A journey of a thousand miles begins with a single step.” – Lao Tzu
+        </blockquote>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../../reveal/dist/reveal.js"></script>
+  <script src="../../reveal/plugin/markdown/markdown.js"></script>
+  <script src="../../reveal/plugin/highlight/highlight.js"></script>
+  <script src="../../reveal/plugin/notes/notes.js"></script>
+  <script src="../../reveal/plugin/zoom/zoom.js"></script>
+  <script>
+    Reveal.initialize({
+      slideNumber: true,
+      touch: true,
+      pdfSeparateFragments: false,
+      pdfExport: true,
+      overview: true,
+      transition: 'convex',
+      autoAnimate: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+    });
+  </script>
+</body>
+</html>

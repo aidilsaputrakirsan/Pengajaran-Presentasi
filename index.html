@@ -296,23 +296,35 @@
 
   <!-- JavaScript -->
   <script>
-    // Smooth Details Animation
+    // Loading Screen
+    window.addEventListener('load', () => {
+      const loader = document.querySelector('.loader');
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 500);
+    });
+
+    // Perbaikan untuk Details Animation
     document.querySelectorAll('details').forEach((detail) => {
-      detail.addEventListener('click', (e) => {
-        // Cek apakah elemen yang diklik adalah tautan
-        if (e.target.tagName === 'A') {
-          return; // Biarkan tautan bekerja normal
-        }
-        
-        if (detail.open) {
-          e.preventDefault();
-          detail.classList.add('closing');
-          setTimeout(() => {
-            detail.open = false;
-            detail.classList.remove('closing');
-          }, 300);
-        }
+      detail.querySelector('summary').addEventListener('click', (e) => {
+        // Hanya menangani klik pada summary
+        e.stopPropagation();
       });
+    });
+
+    // Add active state to current page link
+    document.querySelectorAll('a').forEach(link => {
+      if (link.href === window.location.href) {
+        link.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        link.style.color = '#40e0d0';
+      }
+    });
+
+    // Optional: Add scroll reveal animation
+    document.querySelectorAll('li').forEach((item, index) => {
+      item.style.opacity = '0';
+      item.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
     });
   </script>
 </body>

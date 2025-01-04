@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pekan 5: Integrasi Flask dengan PostgreSQL</title>
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reveal.js Core CSS -->
+  <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Reveal.js Theme (League) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/league.css">
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  <style>
+    .watermark {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      font-size: 25px;
+      color: rgba(255, 255, 255, 0.3); /* Warna sesuai permintaan */
+      z-index: 1000;
+      font-style: italic;
+    }
+    .watermark img {
+      height: 25px;
+      vertical-align: middle;
+    }
+    @media screen and (max-width: 768px) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .illustration {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .illustration img {
+      max-width: 70%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide 1: Judul -->
+      <section data-transition="zoom">
+        <h2>☁️ Komputasi Awan</h2>
+        <h3>Pekan 5: Integrasi Flask dengan PostgreSQL</h3>
+      </section>
+
+      <!-- Slide 2: Pengantar #1 -->
+      <section data-transition="slide">
+        <h2>🔗 Mengapa Menggunakan PostgreSQL?</h2>
+        <ul>
+          <li class="fragment fade-in">Sistem manajemen database relasional yang handal.</li>
+          <li class="fragment fade-up">Terintegrasi baik dengan Flask lewat library <code>psycopg2</code>.</li>
+        </ul>
+        <div class="illustration fragment fade-in">
+          <img src="../assets/postgresql-logo.png" alt="PostgreSQL Logo">
+          <p>Ilustrasi: PostgreSQL</p>
+        </div>
+      </section>
+
+      <!-- Slide 3: Pengantar #2 -->
+      <section data-transition="fade">
+        <h2>🛠️ Koneksi Flask dengan PostgreSQL</h2>
+        <ul>
+          <li class="fragment fade-in">Menggunakan library <code>psycopg2</code> untuk koneksi database.</li>
+          <li class="fragment fade-up">Menjalankan query CRUD (Create, Read, Update, Delete).</li>
+        </ul>
+        <div class="illustration fragment fade-in">
+          <img src="../assets/flask-postgresql-connection.png" alt="Flask PostgreSQL Connection">
+          <p>Diagram Koneksi Flask dan PostgreSQL</p>
+        </div>
+      </section>
+
+      <!-- Slide 4: Pengantar #3 -->
+      <section data-transition="convex">
+        <h2>📚 CRUD di Backend</h2>
+        <ul>
+          <li class="fragment fade-in">Create: Menambahkan data ke database.</li>
+          <li class="fragment fade-up">Read: Mengambil data dari database.</li>
+          <li class="fragment fade-in">Update: Memperbarui data di database.</li>
+          <li class="fragment fade-up">Delete: Menghapus data dari database.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 5: Masuk Modul Praktikum -->
+      <section data-transition="zoom-in fade-out">
+        <h2>📝 Modul Praktikum</h2>
+      </section>
+
+      <!-- Slide 6: Deskripsi Singkat -->
+      <section data-transition="fade">
+        <h2>🔄 Deskripsi Singkat</h2>
+        <p class="fragment fade-in">
+          Mahasiswa akan menambahkan database PostgreSQL ke proyek Flask dan mempelajari cara melakukan CRUD sederhana. Ini meliputi pembuatan koneksi database, pembuatan tabel, dan implementasi fungsi CRUD di Flask.
+        </p>
+      </section>
+
+      <!-- Slide 7: Tujuan Pembelajaran -->
+      <section data-transition="slide">
+        <h2>🎯 Tujuan Pembelajaran</h2>
+        <ul>
+          <li class="fragment fade-in">Menghubungkan Flask dengan PostgreSQL.</li>
+          <li class="fragment fade-up">Membuat fungsi CRUD dasar (Create, Read, Update, Delete) di Flask.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 8: Pembagian Tugas Tim -->
+      <section data-transition="zoom">
+        <h2>👩‍💻 Pembagian Tugas Tim</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Backend Engineer</strong>: Membuat model dan fungsi CRUD di Flask.</li>
+          <li class="fragment fade-up"><strong>Infrastructure Engineer</strong>: Menjalankan PostgreSQL dan membuat user serta database.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 9: Langkah-Langkah Praktikum (vertical slides) -->
+      <section data-transition="slide">
+        <h2>🛠️ Langkah-Langkah Praktikum</h2>
+        <section>
+          <h3>Instalasi Psycopg2 (Untuk Koneksi ke PostgreSQL)</h3>
+          <h4>Instalasi di Windows</h4>
+          <pre><code class="hljs bash">
+    # Aktifkan virtual environment
+    .\venv\Scripts\activate
+
+    # Instal Psycopg2
+    pip install psycopg2-binary
+          </code></pre>
+          <h4>Instalasi di Mac/Linux</h4>
+          <pre><code class="hljs bash">
+    # Aktifkan virtual environment
+    source venv/bin/activate
+
+    # Instal Psycopg2
+    pip install psycopg2
+
+    # Di Linux, pastikan library PostgreSQL dev tools terinstal
+    sudo apt-get install libpq-dev python3-dev
+    pip install psycopg2
+          </code></pre>
+          <p class="fragment fade-in">Verifikasi instalasi dengan <code>pip show psycopg2-binary</code>.</p>
+        </section>
+        <section>
+          <h3>Membuat Koneksi Database di <code>app.py</code></h3>
+          <pre><code class="hljs python">
+    import psycopg2
+    from flask import Flask, jsonify, request
+
+    app = Flask(__name__)
+
+    # Fungsi untuk koneksi ke database PostgreSQL
+    def get_db_connection():
+        conn = psycopg2.connect(
+            host="localhost",
+            database="test_db",  # Sesuaikan dengan nama database
+            user="student",      # Sesuaikan dengan nama user
+            password="password"  # Sesuaikan dengan password user
+        )
+        return conn
+
+    @app.route('/')
+    def home():
+        return jsonify({"message": "Hello from Flask!"})
+
+    # Endpoint untuk membaca data dari tabel 'items'
+    @app.route('/api/items', methods=['GET'])
+    def get_items():
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute("SELECT id, name, description FROM items;")
+        rows = cur.fetchall()
+        cur.close()
+        conn.close()
+
+        items = [{"id": row[0], "name": row[1], "description": row[2]} for row in rows]
+        return jsonify(items)
+
+    # Endpoint untuk menambahkan data ke tabel 'items'
+    @app.route('/api/items', methods=['POST'])
+    def create_item():
+        data = request.json
+        name = data['name']
+        description = data['description']
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute("INSERT INTO items (name, description) VALUES (%s, %s) RETURNING id;", (name, description))
+        new_id = cur.fetchone()[0]
+        conn.commit()
+        cur.close()
+        conn.close()
+
+        return jsonify({"id": new_id, "name": name, "description": description}), 201
+          </code></pre>
+        </section>
+        <section>
+          <h3>Membuat Tabel (Opsional)</h3>
+          <pre><code class="hljs sql">
+    CREATE TABLE IF NOT EXISTS items (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(100),
+      description TEXT
+    );
+          </code></pre>
+        </section>
+        <section>
+          <h3>Menjalankan dan Menguji</h3>
+          <pre><code class="hljs bash">
+    # Jalankan Flask
+    python app.py
+
+    # Menggunakan curl untuk menguji endpoint GET
+    curl http://localhost:5000/api/items
+
+    # Menggunakan curl untuk menguji endpoint POST
+    curl -X POST -H "Content-Type: application/json" \
+         -d '{"name": "Test Item", "description": "Test Description"}' \
+         http://localhost:5000/api/items
+          </code></pre>
+          <p class="fragment fade-in">Gunakan Postman atau curl untuk menguji endpoint.</p>
+        </section>
+      </section>
+
+      <!-- Slide 10: Kriteria Penilaian -->
+      <section data-transition="convex">
+        <h2>📊 Kriteria Penilaian</h2>
+        <ul>
+          <li class="fragment fade-in">Koneksi ke PostgreSQL berjalan (30%).</li>
+          <li class="fragment fade-up">Fungsi CRUD dapat dijalankan tanpa error (40%).</li>
+          <li class="fragment fade-in">Struktur kode bersih (20%).</li>
+          <li class="fragment fade-up">Dokumentasi minimal (10%).</li>
+        </ul>
+      </section>
+
+      <!-- Slide 11: Checklist Praktikum -->
+      <section data-transition="fade">
+        <h2>✅ Checklist Praktikum</h2>
+        <ul>
+          <li class="fragment fade-in">Koneksi ke database sukses.</li>
+          <li class="fragment fade-up">Endpoint <code>/api/items</code> bisa menampilkan dan menyimpan data.</li>
+          <li class="fragment fade-in">Tidak ada error di console Flask.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 12: Latihan Mandiri -->
+      <section data-transition="zoom">
+        <h2>🙋‍♂️ Latihan Mandiri</h2>
+        <ol>
+          <li class="fragment fade-in">Tambahkan endpoint <code>update</code> (PUT) dan <code>delete</code> (DELETE).</li>
+          <li class="fragment fade-up">Buat tabel baru (misalnya <code>users</code>) dan lakukan hal serupa.</li>
+        </ol>
+      </section>
+
+      <!-- Slide 13: Deadline & Pengumpulan -->
+      <section data-transition="fade">
+        <h2>📢 Deadline & Pengumpulan</h2>
+        <p class="fragment fade-in">Kumpulkan bukti screenshot Postman/curl untuk GET & POST.</p>
+      </section>
+
+      <!-- Slide 14: Inspirasi / Kata Motivasi -->
+      <section data-transition="zoom-in fade-out">
+        <h2>✨ Kata Motivasi</h2>
+        <blockquote class="fragment fade-in">
+          “If it’s not tested, it’s broken.” – Bruce Eckel
+        </blockquote>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../../reveal/dist/reveal.js"></script>
+  <script src="../../reveal/plugin/markdown/markdown.js"></script>
+  <script src="../../reveal/plugin/highlight/highlight.js"></script>
+  <script src="../../reveal/plugin/notes/notes.js"></script>
+  <script src="../../reveal/plugin/zoom/zoom.js"></script>
+  <script>
+    Reveal.initialize({
+      slideNumber: true,
+      touch: true,
+      pdfSeparateFragments: false,
+      pdfExport: true,
+      overview: true,
+      transition: 'convex',
+      autoAnimate: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+    });
+  </script>
+</body>
+</html>

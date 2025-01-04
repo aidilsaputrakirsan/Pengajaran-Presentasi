@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pertemuan 7: Penyempurnaan Fitur CRUD &amp; Review</title>
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
+  <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  <style>
+    .watermark {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      font-size: 25px;
+      color: rgba(255,255,255,0.3);
+      z-index: 1000;
+      font-style: italic;
+    }
+    .watermark img {
+      height: 25px;
+      vertical-align: middle;
+    }
+    @media screen and (max-width: 768px) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .illustration {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .illustration img {
+      max-width: 70%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+      
+      <!-- Slide 1 -->
+      <section data-transition="zoom">
+        <h2>🎓 Pemrograman Web</h2>
+        <h3>Pertemuan 7: Penyempurnaan Fitur CRUD &amp; Review</h3>
+      </section>
+
+      <!-- Slide 2: Pengantar #1 -->
+      <section data-transition="slide">
+        <h2>🔄 Pentingnya CRUD Lengkap</h2>
+        <ul>
+          <li class="fragment fade-in">CRUD: Create, Read, Update, Delete → pondasi aplikasi data.</li>
+          <li class="fragment fade-up">User dapat menambah, melihat, mengubah, dan menghapus data.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 3: Pengantar #2 -->
+      <section data-transition="fade">
+        <h2>⚙️ Review Pekan 1–6</h2>
+        <ul>
+          <li class="fragment fade-in">Pekan 1–3: Setup server, DB, Express.</li>
+          <li class="fragment fade-up">Pekan 4–5: React (Vite), fetch data.</li>
+          <li class="fragment fade-in">Pekan 6: Form input &amp; validasi.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 4: Masuk Modul Praktikum -->
+      <section data-transition="zoom-in fade-out">
+        <h2>📘 Modul Praktikum</h2>
+      </section>
+
+      <!-- Slide 5: Deskripsi Singkat -->
+      <section data-transition="fade">
+        <h2>📖 Deskripsi Singkat</h2>
+        <p>Menyelesaikan fitur CRUD (Create, Read, Update, Delete) secara penuh, review materi pekan 1–6 agar siap untuk aplikasi menengah.</p>
+      </section>
+
+      <!-- Slide 6: Tujuan Pembelajaran -->
+      <section data-transition="slide">
+        <h2>🎯 Tujuan Pembelajaran</h2>
+        <ul>
+          <li class="fragment fade-in">Menyempurnakan e-commerce kecil dengan CRUD lengkap.</li>
+          <li class="fragment fade-up">Review integrasi React (Vite), Express, PostgreSQL.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 7: Pembagian Tugas Tim -->
+      <section data-transition="zoom">
+        <h2>👥 Pembagian Tugas Tim</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Frontend Engineer</strong>: UI edit &amp; delete produk.</li>
+          <li class="fragment fade-up"><strong>Backend Engineer</strong>: Endpoint <code>PUT</code> &amp; <code>DELETE</code>.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 8: Langkah-Langkah Praktikum (Vertical) -->
+      <section data-transition="slide">
+        <h2>🛠️ Langkah-Langkah Praktikum</h2>
+        <section>
+          <h3>a. Endpoint <code>PUT</code> &amp; <code>DELETE</code></h3>
+          <pre><code class="hljs javascript">
+// index.js
+app.put('/produk/:id', async (req, res) => { ... });
+app.delete('/produk/:id', async (req, res) => { ... });
+          </code></pre>
+        </section>
+        <section>
+          <h3>b. UI Update &amp; Delete</h3>
+          <pre><code class="hljs javascript">
+// src/components/ProdukList.jsx
+const handleDelete = (id) => { ... };
+          </code></pre>
+        </section>
+        <section>
+          <h3>c. Review CRUD</h3>
+          <ul>
+            <li class="fragment fade-in">POST, GET, PUT, DELETE berfungsi</li>
+            <li class="fragment fade-up">Uji aplikasi e-commerce kecil</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- Slide 9: Kriteria Penilaian -->
+      <section data-transition="convex">
+        <h2>📊 Kriteria Penilaian</h2>
+        <ul>
+          <li class="fragment fade-in">Fitur update &amp; delete berfungsi (50%).</li>
+          <li class="fragment fade-up">Full CRUD berjalan (50%).</li>
+        </ul>
+      </section>
+
+      <!-- Slide 10: Checklist Praktikum -->
+      <section data-transition="fade">
+        <h2>✅ Checklist Praktikum</h2>
+        <ul>
+          <li class="fragment fade-in">Endpoint PUT &amp; DELETE di backend.</li>
+          <li class="fragment fade-up">Edit &amp; Delete di frontend.</li>
+          <li class="fragment fade-in">Review tanpa error.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 11: Latihan Mandiri -->
+      <section data-transition="zoom">
+        <h2>🧑‍💻 Latihan Mandiri</h2>
+        <ol>
+          <li class="fragment fade-in">Modal/form update data.</li>
+          <li class="fragment fade-up">Styling lebih menarik (CSS).</li>
+        </ol>
+      </section>
+
+      <!-- Slide 12: Deadline & Pengumpulan -->
+      <section data-transition="fade">
+        <h2>📅 Deadline &amp; Pengumpulan</h2>
+        <ul>
+          <li class="fragment fade-in">Akhir Pekan 7</li>
+          <li class="fragment fade-up">Screenshot bukti CRUD + Link repo GitHub</li>
+        </ul>
+      </section>
+
+      <!-- Slide 13: Troubleshooting Tips -->
+      <section data-transition="convex">
+        <h2>🛠️ Troubleshooting Tips</h2>
+        <ul>
+          <li class="fragment fade-in">Update Gagal: Periksa body request (nama/harga).</li>
+          <li class="fragment fade-up">Delete Gagal: Pastikan ID valid.</li>
+          <li class="fragment fade-in">Stale Data: Refresh GET setelah update/delete.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 14: Inspirasi Hari Ini -->
+      <section data-transition="zoom-in fade-out">
+        <h2>🌟 Inspirasi Hari Ini</h2>
+        <blockquote class="fragment fade-in">
+          “Latihan yang terus menerus merupakan kunci penguasaan keterampilan.” – Bruce Lee
+        </blockquote>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../../reveal/dist/reveal.js"></script>
+  <script src="../../reveal/plugin/markdown/markdown.js"></script>
+  <script src="../../reveal/plugin/highlight/highlight.js"></script>
+  <script src="../../reveal/plugin/notes/notes.js"></script>
+  <script src="../../reveal/plugin/zoom/zoom.js"></script>
+  <script>
+    Reveal.initialize({
+      slideNumber: true,
+      touch: true,
+      pdfSeparateFragments: false,
+      pdfExport: true,
+      overview: true,
+      transition: 'convex',
+      autoAnimate: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+    });
+  </script>
+</body>
+</html>

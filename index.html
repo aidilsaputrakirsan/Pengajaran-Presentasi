@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pengajaran Presentasi</title>
-  <link rel="icon" href="Pemrograman-Web/assets/icon.png" type="image/png">
+  <link rel="icon" href="assets/icon.png" type="image/png">
   <style>
     /* --- RESET & BASIC STYLE --- */
     * {
@@ -18,8 +18,8 @@
       height: 100%;
       font-family: Arial, sans-serif;
       color: #fff;
-      overflow-y: auto; 
-      background: #000;
+      overflow: auto;
+      background: #000; /* Fallback color for background */
     }
 
     /* --- VIDEO BACKGROUND --- */
@@ -30,88 +30,76 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -1; /* Adjusted to ensure it appears behind other elements */
+      z-index: -1; /* Ensure it stays behind all other elements */
     }
 
-    /* Overlay gelap tipis, agar teks lebih jelas */
-    .dark-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0; /* Ensures overlay is above video but below content */
-    }
-
-    /* --- KONTEN UTAMA --- */
+    /* --- MAIN CONTENT CONTAINER --- */
     .container {
-      min-height: 100vh; 
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      padding: 40px 10px;
+      padding: 40px 20px;
     }
 
     .content {
       max-width: 800px;
       width: 100%;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.8);
       border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      color: white;
     }
 
     h1 {
       text-align: center;
       margin-bottom: 20px;
-      font-size: 2em;
+      font-size: 2.5em;
     }
 
-    /* STYLE DETAILS/SUMMARY (untuk expand/collapse) */
     details {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       margin-bottom: 15px;
       border-radius: 5px;
       padding: 10px;
-    }
-    summary {
-      font-size: 1.2em;
       cursor: pointer;
-      outline: none;
-      margin-bottom: 5px;
     }
 
-    /* LIST MATA KULIAH */
+    summary {
+      font-size: 1.2em;
+    }
+
     ul {
       list-style: none;
       padding: 0;
-      margin: 5px 0 0;
+      margin: 10px 0;
     }
 
     li {
-      margin: 6px 0;
+      margin: 5px 0;
     }
 
     a {
       color: #00c8ff;
       text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    a:hover {
-      text-decoration: underline;
-      color: #40e0d0; 
     }
 
-    /* RESPONSIVE MOBILE */
+    a:hover {
+      text-decoration: underline;
+      color: #40e0d0;
+    }
+
     @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
       .content {
         padding: 15px;
       }
-      h1 {
-        font-size: 1.6em;
-      }
+
       summary {
         font-size: 1.1em;
       }
@@ -120,27 +108,16 @@
 </head>
 <body>
   <!-- Video Background -->
-  <video 
-    class="video-background" 
-    autoplay 
-    muted 
-    loop 
-    playsinline
-    poster="Pemrograman-Web/assets/fallback.jpg"
-  >
-    <source src="Pemrograman-Web/assets/back.mp4" type="video/mp4">
-    Browser Anda tidak mendukung pemutaran video.
+  <video class="video-background" autoplay muted loop playsinline>
+    <source src="assets/back.mp4" type="video/mp4">
+    Your browser does not support the video tag.
   </video>
 
-  <!-- Overlay Gelap -->
-  <div class="dark-overlay"></div>
-
-  <!-- Konten Utama -->
+  <!-- Main Content -->
   <div class="container">
     <div class="content">
       <h1>Daftar Mata Kuliah</h1>
-
-      <!-- Pemrograman Web -->
+      
       <details>
         <summary>Pemrograman Web</summary>
         <ul>
@@ -154,7 +131,6 @@
         </ul>
       </details>
 
-      <!-- Komputasi Awan -->
       <details>
         <summary>Komputasi Awan</summary>
         <ul>
@@ -168,7 +144,6 @@
         </ul>
       </details>
 
-      <!-- Pemrograman Lanjut -->
       <details>
         <summary>Pemrograman Lanjut</summary>
         <ul>
@@ -182,15 +157,13 @@
         </ul>
       </details>
 
-      <!-- Mata Kuliah Lain -->
       <details>
         <summary>Mata Kuliah Lain (Akan Datang)</summary>
         <ul>
           <li>Akan segera diupdate ...</li>
         </ul>
       </details>
-
-    </div><!-- .content -->
-  </div><!-- .container -->
+    </div>
+  </div>
 </body>
 </html>

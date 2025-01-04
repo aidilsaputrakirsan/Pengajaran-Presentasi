@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pekan 3: Membuat Aplikasi Frontend Sederhana dengan React + Vite</title>
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reveal.js Core CSS -->
+  <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Reveal.js Theme (League) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/league.css">
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  <style>
+    .watermark {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      font-size: 25px;
+      color: rgba(255, 255, 255, 0.3); /* Warna sesuai permintaan */
+      z-index: 1000;
+      font-style: italic;
+    }
+    .watermark img {
+      height: 25px;
+      vertical-align: middle;
+    }
+    @media screen and (max-width: 768px) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .illustration {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .illustration img {
+      max-width: 70%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide 1: Judul -->
+      <section data-transition="zoom">
+        <h2>☁️ Komputasi Awan</h2>
+        <h3>Pekan 3: Membuat Aplikasi Frontend Sederhana dengan React + Vite</h3>
+      </section>
+
+      <!-- Slide 2: Pengantar #1 -->
+      <section data-transition="slide">
+        <h2>🔥 Mengapa React + Vite?</h2>
+        <ul>
+          <li class="fragment fade-in">React: Library populer untuk UI dinamis.</li>
+          <li class="fragment fade-up">Vite: Build tool cepat (hot reload, bundler minimalis).</li>
+        </ul>
+        <div class="illustration fragment fade-in">
+          <img src="../assets/react-vite-logo.png" alt="React & Vite Logo">
+          <p>Ilustrasi: React dan Vite</p>
+        </div>
+      </section>
+
+      <!-- Slide 3: Pengantar #2 -->
+      <section data-transition="fade">
+        <h2>🏗️ Struktur Proyek React + Vite</h2>
+        <ul>
+          <li class="fragment fade-in">Folder <code>src</code> untuk source code.</li>
+          <li class="fragment fade-up">Folder <code>public</code> untuk aset statis.</li>
+          <li class="fragment fade-in">File konfigurasi seperti <code>vite.config.js</code>.</li>
+        </ul>
+        <div class="illustration fragment fade-up">
+          <img src="../assets/react-vite-structure.png" alt="Struktur Proyek React + Vite">
+          <p>Struktur Direktori React + Vite</p>
+        </div>
+      </section>
+
+      <!-- Slide 4: Pengantar #3 -->
+      <section data-transition="convex">
+        <h2>🚀 Keuntungan Menggunakan Vite</h2>
+        <ul>
+          <li class="fragment fade-in">Start up server sangat cepat.</li>
+          <li class="fragment fade-up">Hot Module Replacement (HMR) yang efisien.</li>
+          <li class="fragment fade-in">Bundling yang optimal untuk produksi.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 5: Masuk Modul Praktikum -->
+      <section data-transition="zoom-in fade-out">
+        <h2>📝 Modul Praktikum</h2>
+      </section>
+
+      <!-- Slide 6: Deskripsi Singkat -->
+      <section data-transition="fade">
+        <h2>🔄 Deskripsi Singkat</h2>
+        <p class="fragment fade-in">
+          Mahasiswa akan membuat kerangka React menggunakan Vite untuk frontend. Tujuannya adalah membuat tampilan dasar dan menampilkan tulisan sederhana untuk memastikan React berhasil dijalankan dengan Vite.
+        </p>
+      </section>
+
+      <!-- Slide 7: Tujuan Pembelajaran -->
+      <section data-transition="slide">
+        <h2>🎯 Tujuan Pembelajaran</h2>
+        <ul>
+          <li class="fragment fade-in">Memahami workflow pembuatan proyek React dengan Vite.</li>
+          <li class="fragment fade-up">Mampu menjalankan aplikasi React di local development server menggunakan Vite.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 8: Pembagian Tugas Tim -->
+      <section data-transition="zoom">
+        <h2>👩‍💻 Pembagian Tugas Tim</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Backend Engineer</strong>: Membantu menyesuaikan endpoint di Flask untuk uji coba fetch data.</li>
+          <li class="fragment fade-up"><strong>Infrastructure Engineer</strong>: Menyiapkan Node.js environment dan setup React + Vite boilerplate.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 9: Langkah-Langkah Praktikum (vertical slides) -->
+      <section data-transition="slide">
+        <h2>🛠️ Langkah-Langkah Praktikum</h2>
+        <section>
+          <h3>Membuat Proyek React dengan Vite</h3>
+          <pre><code class="hljs bash">
+    cd ../frontend
+    npm create vite@latest my-react-app -- --template react
+    cd my-react-app
+    npm install
+    npm run dev
+          </code></pre>
+          <p class="fragment fade-in">Buka URL lokal (misal: <code>http://127.0.0.1:5173/</code>) di browser.</p>
+        </section>
+        <section>
+          <h3>Struktur Direktori React + Vite</h3>
+          <pre><code class="hljs plaintext">
+    frontend/
+    └─ my-react-app/
+        ├─ src/
+        ├─ public/
+        ├─ package.json
+        ├─ vite.config.js
+        └─ ...
+          </code></pre>
+        </section>
+        <section>
+          <h3>Membuat Halaman Sederhana</h3>
+          <pre><code class="hljs javascript">
+// src/App.jsx
+import React from 'react';
+
+<!--
+function App() {
+  return (
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1>Hello from React + Vite!</h1>
+      <p>This is a simple React app built with Vite.</p>
+    </div>
+  );
+}
+-->
+export default App;
+          </code></pre>
+        </section>
+        <section>
+          <h3>Menjalankan Aplikasi React + Vite</h3>
+          <pre><code class="hljs bash">
+    npm run dev
+          </code></pre>
+          <p class="fragment fade-in">Pastikan tampilan "Hello from React + Vite!" muncul di browser.</p>
+        </section>
+      </section>
+
+      <!-- Slide 10: Kriteria Penilaian -->
+      <section data-transition="convex">
+        <h2>📊 Kriteria Penilaian</h2>
+        <ul>
+          <li class="fragment fade-in">Aplikasi React berjalan dan menampilkan tampilan sederhana (50%).</li>
+          <li class="fragment fade-up">Struktur proyek dan kebersihan kode (30%).</li>
+          <li class="fragment fade-in">Dokumentasi singkat (20%).</li>
+        </ul>
+      </section>
+
+      <!-- Slide 11: Checklist Praktikum -->
+      <section data-transition="fade">
+        <h2>✅ Checklist Praktikum</h2>
+        <ul>
+          <li class="fragment fade-in">Proyek React berhasil dibuat menggunakan Vite.</li>
+          <li class="fragment fade-up">Tampilan "Hello from React + Vite!" muncul di browser.</li>
+          <li class="fragment fade-in">Tidak ada error pada console browser.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 12: Latihan Mandiri -->
+      <section data-transition="zoom">
+        <h2>🙋‍♂️ Latihan Mandiri</h2>
+        <ul>
+          <li class="fragment fade-in">Tambahkan komponen baru (misalnya <code>Header.jsx</code>) dan tampilkan pesan berbeda.</li>
+          <li class="fragment fade-up">Coba styling sederhana (CSS).</li>
+        </ul>
+      </section>
+
+      <!-- Slide 13: Deadline & Pengumpulan -->
+      <section data-transition="fade">
+        <h2>📢 Deadline & Pengumpulan</h2>
+        <p class="fragment fade-in">Kumpulkan screenshot hasil request ke aplikasi React + Vite di LMS.</p>
+      </section>
+
+      <!-- Slide 14: Inspirasi / Kata Motivasi -->
+      <section data-transition="zoom-in fade-out">
+        <h2>✨ Kata Motivasi</h2>
+        <blockquote class="fragment fade-in">
+          “The best way to get a project done faster is to start sooner.” – Jim Highsmith
+        </blockquote>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../../reveal/dist/reveal.js"></script>
+  <script src="../../reveal/plugin/markdown/markdown.js"></script>
+  <script src="../../reveal/plugin/highlight/highlight.js"></script>
+  <script src="../../reveal/plugin/notes/notes.js"></script>
+  <script src="../../reveal/plugin/zoom/zoom.js"></script>
+  <script>
+    Reveal.initialize({
+      slideNumber: true,
+      touch: true,
+      pdfSeparateFragments: false,
+      pdfExport: true,
+      overview: true,
+      transition: 'convex',
+      autoAnimate: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+    });
+  </script>
+</body>
+</html>

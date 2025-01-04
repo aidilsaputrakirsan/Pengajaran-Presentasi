@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Pertemuan 2: Dasar Express.js & Struktur Routing</title>
+  <link rel="icon" href="../assets/icon.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
@@ -16,13 +17,13 @@
       position: fixed;
       bottom: 15px;
       right: 15px;
-      font-size: 12px;
+      font-size: 25px;
       color: rgba(255,255,255,0.3);
       z-index: 1000;
       font-style: italic;
     }
     .watermark img {
-      height: 15px;
+      height: 25px;
       vertical-align: middle;
     }
 
@@ -54,12 +55,13 @@
     <div class="slides">
       <!-- Slide 1: Judul Presentasi -->
       <section data-transition="zoom">
-        <h1>🎓 Pemrograman Web</h1>
+        <h2>🎓 Pemrograman Web</h2>
         <h3>Pertemuan 2: Dasar Express.js &amp; Struktur Routing</h3>
       </section>
 
       <!-- Slide 2: Pengenalan Express.js -->
       <section data-transition="slide">
+        <section>
         <h2>🔌 Pengenalan Express.js</h2>
         <ul>
           <li class="fragment fade-in">Express.js adalah kerangka kerja web minimalis untuk Node.js.</li>
@@ -71,14 +73,18 @@
             </ul>
           </li>
         </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/express-architecture.png" alt="Diagram Arsitektur Express.js">
-          <p>Gambar: Diagram arsitektur Express.js</p>
-        </div>
       </section>
+      <section data-transition="fade">
+        <div class="illustration">
+            <img src="../assets/week2-expressjs.jpg" alt="Diagram Arsitektur Express.js">
+            <p>Gambar: Diagram arsitektur Express.js</p>
+        </div>
+    </section>
+    </section>
 
       <!-- Slide 3: Konsep Dasar Routing dalam Express.js -->
       <section data-transition="fade">
+        <section>
         <h2>🛣️ Konsep Dasar Routing dalam Express.js</h2>
         <ul>
           <li class="fragment fade-in">Routing: Proses menentukan bagaimana aplikasi merespons permintaan ke endpoint tertentu.</li>
@@ -94,10 +100,13 @@ app.METHOD(PATH, HANDLER);
             <li>HANDLER: Fungsi yang dijalankan saat rute cocok.</li>
           </ul>
         </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/routing-flow.png" alt="Alur routing dalam Express.js">
-          <p>Gambar: Alur routing dalam Express.js</p>
-        </div>
+        </section>
+        <section data-transition="fade">
+          <div class="illustration">
+              <img src="../assets/week2-alurexpressjs.jpeg" alt="Alur routing dalam Express.js">
+              <p>Alur routing dalam Express.js</p>
+          </div>
+      </section>
       </section>
 
       <!-- Slide 4: Metode HTTP Umum dalam Routing -->
@@ -110,7 +119,7 @@ app.METHOD(PATH, HANDLER);
           <li class="fragment fade-up">DELETE: Menghapus data dari server.</li>
         </ul>
         <div class="illustration fragment fade-in">
-          <img src="../assets/http-methods.png" alt="Diagram metode HTTP">
+          <img src="../assets/week2-http.jpeg" alt="Diagram metode HTTP">
           <p>Gambar: Diagram metode HTTP</p>
         </div>
       </section>
@@ -147,6 +156,10 @@ app.METHOD(PATH, HANDLER);
           <p>Gambar: Ilustrasi lapisan middleware</p>
         </div>
       </section>
+
+      <section data-transition="zoom-in fade-out">
+        <h2>📘 Modul Praktikum</h2>
+    </section>
 
       <!-- Slide 7: Deskripsi Singkat -->
       <section data-transition="fade">

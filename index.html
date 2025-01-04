@@ -1,130 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengajaran Presentasi</title>
-    <style>
-        /* Reset default styles */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pengajaran Presentasi</title>
+  <style>
+    /* --- RESET & BASIC STYLE --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Video background styles */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      /* Jangan hidden, supaya bisa scroll di HP */
+      overflow-y: auto; 
+      background: #000; /* Fallback background */
+    }
 
-        /* Main content styles */
-        .content {
-            z-index: 1;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 800px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
+    /* --- VIDEO BACKGROUND --- */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2; /* di belakang segalanya */
+    }
 
-        h1 {
-            margin-bottom: 20px;
-            font-size: 2.5em;
-        }
+    /* Overlay gelap tipis, agar teks lebih jelas */
+    .dark-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1; 
+    }
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+    /* --- KONTEN UTAMA --- */
+    .container {
+      /* minimal tinggi layar, agar rapih di HP/desktop */
+      min-height: 100vh; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* spasi atas-bawah supaya tidak menempel tepi layar */
+      padding: 40px 10px;
+    }
 
-        li {
-            margin-bottom: 10px;
-        }
+    .content {
+      max-width: 800px;
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      margin-bottom: 20px;
+    }
 
-        a {
-            color: #00c8ff;
-            text-decoration: none;
-        }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    /* STYLE DETAILS/SUMMARY (untuk expand/collapse) */
+    details {
+      background: rgba(255,255,255,0.1);
+      margin-bottom: 15px;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    summary {
+      font-size: 1.2em;
+      cursor: pointer;
+      outline: none; /* hilangkan outline default di browser */
+      margin-bottom: 5px;
+    }
 
-        strong {
-            display: block;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-    </style>
+    /* LIST MATA KULIAH */
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 5px 0 0;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    a {
+      color: #00c8ff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: #40e0d0; 
+    }
+
+    /* RESPONSIVE MOBILE */
+    @media (max-width: 600px) {
+      .content {
+        padding: 15px;
+      }
+      h1 {
+        font-size: 1.6em;
+      }
+      summary {
+        font-size: 1.1em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Video Background -->
-    <video autoplay muted loop class="video-background">
-        <source src="Pemrograman-Web/assets/back.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+  <!-- Video Background -->
+  <video 
+    class="video-background" 
+    autoplay 
+    muted 
+    loop 
+    playsinline
+    poster="Pemrograman-Web/assets/fallback.jpg"
+  >
+    <source src="Pemrograman-Web/assets/back.mp4" type="video/mp4">
+    <!-- Fallback jika browser tidak support video -->
+    Browser Anda tidak mendukung pemutaran video.
+  </video>
 
-    <!-- Main Content -->
+  <!-- Overlay Gelap -->
+  <div class="dark-overlay"></div>
+
+  <!-- Konten Utama -->
+  <div class="container">
     <div class="content">
-        <h1>Daftar Mata Kuliah</h1>
+      <h1>Daftar Mata Kuliah</h1>
+
+      <!-- Pemrograman Web -->
+      <details>
+        <summary>Pemrograman Web</summary>
         <ul>
-            <li>
-                <strong>Pemrograman Web</strong>
-                <ul>
-                    <li><a href="Pemrograman-Web/Pertemuan-01/index.html">Pertemuan 1</a></li>
-                    <li><a href="Pemrograman-Web/Pertemuan-02/index.html">Pertemuan 2</a></li>
-                    <li><a href="Pemrograman-Web/Pertemuan-03/index.html">Pertemuan 3</a></li>
-                    <li><a href="Pemrograman-Web/Pertemuan-04/index.html">Pertemuan 4</a></li>
-                    <li><a href="Pemrograman-Web/Pertemuan-05/index.html">Pertemuan 5</a></li>
-                    <li><a href="Pemrograman-Web/Pertemuan-06/index.html">Pertemuan 6</a></li>
-                    <li><a href="Pemrograman-Web/Pertemuan-07/index.html">Pertemuan 7</a></li>
-                </ul>
-            </li>
-            <li>
-                <strong>Komputasi Awan</strong>
-                <ul>
-                    <li><a href="MK-Komputasi-Awan/Pertemuan-1/index.html">Pertemuan 1</a></li>
-                    <li><a href="MK-Komputasi-Awan/Pertemuan-2/index.html">Pertemuan 2</a></li>
-                    <li><a href="MK-Komputasi-Awan/Pertemuan-3/index.html">Pertemuan 3</a></li>
-                    <li><a href="MK-Komputasi-Awan/Pertemuan-4/index.html">Pertemuan 4</a></li>
-                    <li><a href="MK-Komputasi-Awan/Pertemuan-5/index.html">Pertemuan 5</a></li>
-                    <li><a href="MK-Komputasi-Awan/Pertemuan-6/index.html">Pertemuan 6</a></li>
-                    <li><a href="MK-Komputasi-Awan/Pertemuan-7/index.html">Pertemuan 7</a></li>
-                </ul>
-            </li>
-            <li>
-                <strong>Pemrograman Lanjut</strong>
-                <ul>
-                    <li><a href="MK-Pemrograman-Lanjut/Pertemuan-1/index.html">Pertemuan 1</a></li>
-                    <li><a href="MK-Pemrograman-Lanjut/Pertemuan-2/index.html">Pertemuan 2</a></li>
-                    <li><a href="MK-Pemrograman-Lanjut/Pertemuan-3/index.html">Pertemuan 3</a></li>
-                    <li><a href="MK-Pemrograman-Lanjut/Pertemuan-4/index.html">Pertemuan 4</a></li>
-                    <li><a href="MK-Pemrograman-Lanjut/Pertemuan-5/index.html">Pertemuan 5</a></li>
-                    <li><a href="MK-Pemrograman-Lanjut/Pertemuan-6/index.html">Pertemuan 6</a></li>
-                    <li><a href="MK-Pemrograman-Lanjut/Pertemuan-7/index.html">Pertemuan 7</a></li>
-                </ul>
-            </li>
-            <li>
-                <strong>Mata Kuliah Lain (Akan Datang)</strong>
-                <ul>
-                    <li>Akan segera diupdate...</li>
-                </ul>
-            </li>
+          <li><a href="Pemrograman-Web/Pertemuan-01/index.html">Pertemuan 1</a></li>
+          <li><a href="Pemrograman-Web/Pertemuan-02/index.html">Pertemuan 2</a></li>
+          <li><a href="Pemrograman-Web/Pertemuan-03/index.html">Pertemuan 3</a></li>
+          <li><a href="Pemrograman-Web/Pertemuan-04/index.html">Pertemuan 4</a></li>
+          <li><a href="Pemrograman-Web/Pertemuan-05/index.html">Pertemuan 5</a></li>
+          <li><a href="Pemrograman-Web/Pertemuan-06/index.html">Pertemuan 6</a></li>
+          <li><a href="Pemrograman-Web/Pertemuan-07/index.html">Pertemuan 7</a></li>
         </ul>
-    </div>
+      </details>
+
+      <!-- Komputasi Awan -->
+      <details>
+        <summary>Komputasi Awan</summary>
+        <ul>
+          <li><a href="MK-Komputasi-Awan/Pertemuan-1/index.html">Pertemuan 1</a></li>
+          <li><a href="MK-Komputasi-Awan/Pertemuan-2/index.html">Pertemuan 2</a></li>
+          <li><a href="MK-Komputasi-Awan/Pertemuan-3/index.html">Pertemuan 3</a></li>
+          <li><a href="MK-Komputasi-Awan/Pertemuan-4/index.html">Pertemuan 4</a></li>
+          <li><a href="MK-Komputasi-Awan/Pertemuan-5/index.html">Pertemuan 5</a></li>
+          <li><a href="MK-Komputasi-Awan/Pertemuan-6/index.html">Pertemuan 6</a></li>
+          <li><a href="MK-Komputasi-Awan/Pertemuan-7/index.html">Pertemuan 7</a></li>
+        </ul>
+      </details>
+
+      <!-- Pemrograman Lanjut -->
+      <details>
+        <summary>Pemrograman Lanjut</summary>
+        <ul>
+          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-1/index.html">Pertemuan 1</a></li>
+          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-2/index.html">Pertemuan 2</a></li>
+          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-3/index.html">Pertemuan 3</a></li>
+          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-4/index.html">Pertemuan 4</a></li>
+          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-5/index.html">Pertemuan 5</a></li>
+          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-6/index.html">Pertemuan 6</a></li>
+          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-7/index.html">Pertemuan 7</a></li>
+        </ul>
+      </details>
+
+      <!-- Mata Kuliah Lain -->
+      <details>
+        <summary>Mata Kuliah Lain (Akan Datang)</summary>
+        <ul>
+          <li>Akan segera diupdate ...</li>
+        </ul>
+      </details>
+
+    </div><!-- .content -->
+  </div><!-- .container -->
 </body>
 </html>

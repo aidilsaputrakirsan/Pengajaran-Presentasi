@@ -1,233 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pertemuan 1: Pengenalan & Persiapan Lingkungan</title>
-    <link rel="icon" href="../assets/icon.png" type="image/png">
-    <link rel="stylesheet" href="../../reveal/dist/reveal.css">
-    <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
-    <style>
-        /* Watermark Styling */
-        .watermark img {
-            height: 25px;
-            vertical-align: middle;
-        }
-        .watermark {
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            font-size: 25px;
-            color: rgba(255,255,255,0.3);
-            z-index: 1000;
-            font-style: italic;
-        }
-        @media screen and (max-width: 768px) {
-            /* Adjust layout for mobile */
-            img {
-                max-width: 100%;
-                height: auto;
-            }
-        }
-        .illustration {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .illustration img {
-            max-width: 70%;
-            height: auto;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Pertemuan 1: Pengenalan & Persiapan Lingkungan</title>
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reveal.js Core CSS -->
+  <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Reveal.js Theme (Dracula) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
+  <!-- Highlight.js CSS (untuk syntax highlighting) -->
+  <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  <style>
+    /* Watermark Styling */
+    .watermark {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      font-size: 25px;
+      color: rgba(255,255,255,0.3);
+      z-index: 1000;
+      font-style: italic;
+    }
+    .watermark img {
+      height: 25px;
+      vertical-align: middle;
+    }
+
+    /* Responsive Image */
+    @media screen and (max-width: 768px) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .illustration {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .illustration img {
+      max-width: 70%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
-    <div class="watermark">
-        <img src="../assets/logoSI.png" alt="Logo Universitas">© <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
-    </div>
-    <div class="reveal">
-        <div class="slides">
-            <!-- Slide 1: Pembukaan -->
-            <section data-transition="zoom">
-                <h2>🎓 Pemrograman Web</h2>
-                <h3>Pertemuan 1: Pengenalan & Persiapan Lingkungan</h3>
-            </section>
 
-            <!-- Slide 2: Apa Itu Pemrograman Web -->
-            <section data-transition="slide">
-                <section>
-                    <h2>📖 Apa Itu Pemrograman Web?</h2>
-                    <p>Pemrograman web adalah proses membuat dan memelihara aplikasi berbasis web.</p>
-                    <ul>
-                        <li class="fragment fade-in">Frontend: Bagian yang dilihat dan berinteraksi dengan pengguna. <em>Seperti tampilan restoran (dekorasi, menu).</em></li>
-                        <li class="fragment fade-up">Backend: Logika bisnis dan pengolahan data. <em>Seperti dapur restoran tempat makanan disiapkan.</em></li>
-                        <li class="fragment fade-in">Database: Penyimpanan data. <em>Seperti gudang bahan makanan.</em></li>
-                    </ul>
-                </section>
-                <section data-transition="fade">
-                    <div class="illustration">
-                        <img src="../assets/week1-frontend.png" alt="Ilustrasi Frontend">
-                        <p>Gambar: Tampilan restoran untuk Frontend</p>
-                    </div>
-                </section>
-                <section data-transition="fade">
-                    <div class="illustration">
-                        <img src="../assets/week1-backend.png" alt="Ilustrasi Backend">
-                        <p>Gambar: Dapur restoran untuk Backend</p>
-                    </div>
-                </section>
-                <section data-transition="fade">
-                    <div class="illustration">
-                        <img src="../assets/week1-database.jpeg" alt="Ilustrasi Database">
-                        <p>Gambar: Gudang makanan untuk Database</p>
-                    </div>
-                </section>
-            </section>
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+  </div>
 
-            <!-- Slide 3: Evolusi Teknologi Web -->
-            <section data-transition="convex">
-                <h2>🌐 Evolusi Teknologi Web</h2>
-                <ul>
-                    <li class="fragment fade-in">Web 1.0: Halaman statis, hanya membaca.</li>
-                    <li class="fragment fade-up">Web 2.0: Interaktif, berbagi informasi (media sosial).</li>
-                    <li class="fragment fade-in">Web 3.0: Terdesentralisasi, berbasis blockchain dan AI.</li>
-                </ul>
-            </section>
+  <div class="reveal">
+    <div class="slides">
 
-            <!-- Slide 4: Teknologi Utama -->
-            <section data-transition="zoom-in">
-                <h2>🔧 Teknologi Utama dalam Pemrograman Web</h2>
-                <ul>
-                    <li class="fragment fade-in">Frontend:
-                        <ul>
-                            <li class="fragment fade-up">HTML, CSS, JavaScript.</li>
-                            <li class="fragment fade-in">Framework: React, Angular, Vue.js.</li>
-                        </ul>
-                    </li>
-                    <li class="fragment fade-up">Backend:
-                        <ul>
-                            <li class="fragment fade-in">Node.js, Express.js, Django.</li>
-                        </ul>
-                    </li>
-                    <li class="fragment fade-in">Database:
-                        <ul>
-                            <li class="fragment fade-up">Relasional: PostgreSQL, MySQL.</li>
-                            <li class="fragment fade-in">NoSQL: MongoDB, Firebase.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
+      <!-- Slide 1: Judul -->
+      <section data-transition="zoom">
+        <h2>🎓 Pemrograman Web</h2>
+        <h3>Pertemuan 1: Pengenalan &amp; Persiapan Lingkungan</h3>
+      </section>
 
-            <!-- Slide 5: Peran Pemrograman Web -->
-            <section data-transition="fade-out">
-                <h2>🏢 Peran Pemrograman Web dalam Industri</h2>
-                <ul>
-                    <li class="fragment fade-in">Aplikasi Utama:
-                        <ul>
-                            <li class="fragment fade-up">E-commerce (Shopee, Amazon).</li>
-                            <li class="fragment fade-up">Media sosial (Instagram, Twitter).</li>
-                            <li class="fragment fade-in">Sistem internal perusahaan (ERP, CRM).</li>
-                        </ul>
-                    </li>
-                    <li class="fragment fade-up">Keterampilan yang Dibutuhkan:
-                        <ul>
-                            <li class="fragment fade-up">Adaptasi teknologi terbaru.</li>
-                            <li class="fragment fade-in">Kemampuan pemecahan masalah.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
+      <!-- Slide 2: Pengantar #1 - Mengapa Persiapan Lingkungan -->
+      <section data-transition="slide">
+        <h2>🔧 Mengapa Persiapan Lingkungan?</h2>
+        <ul>
+          <li class="fragment fade-in">Node.js: Runtime JavaScript di server.</li>
+          <li class="fragment fade-up">PostgreSQL: Basis data relasional untuk menyimpan data.</li>
+          <li class="fragment fade-in">Git & GitHub: Version control &amp; kolaborasi tim.</li>
+        </ul>
+        <p class="fragment fade-up">Tanpa lingkungan yang tepat, proses development akan terhambat.</p>
+      </section>
 
-            <!-- Slide Baru: Modul Praktikum -->
-            <section data-transition="zoom-in fade-out">
-                <h2>📘 Modul Praktikum</h2>
-            </section>
-
-            <!-- Slide 6: Tujuan Pembelajaran -->
-            <section data-transition="zoom">
-                <h2>🎯 Tujuan Pembelajaran</h2>
-                <ul>
-                    <li class="fragment fade-in">💻 Menginstal & mengonfigurasi <strong>Node.js</strong>, <strong>PostgreSQL</strong>, dan <strong>pgAdmin</strong>.</li>
-                    <li class="fragment fade-up">📂 Memahami penggunaan <strong>Git</strong> & <strong>GitHub</strong>.</li>
-                    <li class="fragment fade-in">📦 Memiliki struktur folder proyek dasar (frontend & backend).</li>
-                </ul>
-            </section>
-
-            <!-- Slide 7: Langkah Praktikum (Vertical Slides) -->
-            <section data-transition="slide">
-                <h2>🛠️ Langkah-Langkah Praktikum</h2>
-                <!-- Sub-slide 1 -->
-                <section>
-                    <h3>1. Instalasi Node.js</h3>
-                    <pre><code class="fragment fade-in">node -v
-npm -v</code></pre>
-                </section>
-                <!-- Sub-slide 2 -->
-                <section>
-                    <h3>2. Instalasi PostgreSQL</h3>
-                    <ul>
-                        <li class="fragment fade-up">Download: <a href="https://postgresql.org/download">postgresql.org</a></li>
-                        <li class="fragment fade-in">Buat user: <code>postgres</code></li>
-                        <li class="fragment fade-up">Buat database: <code>ecommerce-kecil</code></li>
-                    </ul>
-                </section>
-                <!-- Sub-slide 3 -->
-                <section>
-                    <h3>3. Persiapan Git & GitHub</h3>
-                    <ul>
-                        <li class="fragment fade-in">Instal Git: <a href="https://git-scm.com">git-scm.com</a></li>
-                        <li class="fragment fade-up">Buat repository: <code>frontend & backend</code></li>
-                    </ul>
-                </section>
-            </section>
-
-            <!-- Slide 8: Kriteria Penilaian -->
-            <section data-transition="convex">
-                <h2>📊 Kriteria Penilaian</h2>
-                <ul>
-                    <li class="fragment fade-in">✅ Kesiapan lingkungan (30%)</li>
-                    <li class="fragment fade-up">✅ Repository GitHub (40%)</li>
-                    <li class="fragment fade-in">✅ Kerja sama tim (30%)</li>
-                </ul>
-            </section>
-
-            <!-- Slide 9: Checklist -->
-            <section data-transition="fade">
-                <h2>✅ Checklist</h2>
-                <ul>
-                    <li class="fragment fade-in">Node.js & PostgreSQL terinstal</li>
-                    <li class="fragment fade-up">Database `ecommerce-kecil` tersedia</li>
-                    <li class="fragment fade-up">Repository GitHub terinisialisasi</li>
-                    <li class="fragment fade-in">Proyek React & Express telah berjalan</li>
-                </ul>
-            </section>
-
-            <!-- Slide 10: Inspirasi -->
-            <section data-transition="fade-in fade-out">
-                <h2>🌟 Inspirasi Hari Ini</h2>
-                <blockquote>
-                    “Kesuksesan adalah perpaduan antara persiapan dan kesempatan.”
-                    <br>— Seneca
-                </blockquote>
-            </section>
+      <!-- Slide 3: Pengantar #2 - Ilustrasi Restoran -->
+      <section data-transition="fade">
+        <h2>📖 Analogi Restoran</h2>
+        <p>Dalam pemrograman web:</p>
+        <ul>
+          <li class="fragment fade-in"><strong>Frontend</strong> = Area restoran &amp; menu (tampilan).</li>
+          <li class="fragment fade-up"><strong>Backend</strong> = Dapur (logika bisnis &amp; pengolahan data).</li>
+          <li class="fragment fade-in"><strong>Database</strong> = Gudang (penyimpanan bahan baku).</li>
+        </ul>
+        <div class="illustration fragment fade-in">
+          <img src="../assets/week1-frontend.png" alt="Ilustrasi Restoran">
+          <p>Gambar: Tampilan restoran untuk Frontend</p>
         </div>
-    </div>
+      </section>
 
-    <!-- Reveal.js -->
-    <script src="../../reveal/dist/reveal.js"></script>
-    <script src="../../reveal/plugin/markdown/markdown.js"></script>
-    <script src="../../reveal/plugin/highlight/highlight.js"></script>
-    <script src="../../reveal/plugin/notes/notes.js"></script>
-    <script src="../../reveal/plugin/zoom/zoom.js"></script>
-    <script>
-        Reveal.initialize({
-            slideNumber: true,
-            touch: true,
-            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
-            pdfSeparateFragments: false,
-            overview: true,
-            transition: 'convex',
-            autoAnimate: true,
-            pdfExport: true,
-        });
-    </script>
+      <!-- Slide 4: Pengantar #3 - Alur Request -->
+      <section data-transition="convex">
+        <h2>🌐 Alur Request - Response</h2>
+        <p class="fragment fade-in">Client → Server → Database → Server → Client</p>
+        <div class="illustration fragment fade-up">
+          <img src="../assets/request-flow.png" alt="Alur Permintaan Data" />
+          <p>Ilustrasi request-response</p>
+        </div>
+      </section>
+
+      <!-- Slide 5: Pengantar #4 - Studi Kasus E-Commerce -->
+      <section data-transition="slide">
+        <h2>🏪 Studi Kasus E-Commerce Kecil</h2>
+        <ul>
+          <li class="fragment fade-in">Butuh database (PostgreSQL) untuk menyimpan daftar produk.</li>
+          <li class="fragment fade-up">Butuh Node.js &amp; Express untuk server &amp; API.</li>
+          <li class="fragment fade-in">Butuh Git &amp; GitHub untuk kolaborasi tim.</li>
+        </ul>
+        <div class="illustration fragment fade-in">
+          <img src="../assets/ecommerce-illustration.jpeg" alt="Ilustrasi E-Commerce Mini"/>
+          <p>E-Commerce Sederhana</p>
+        </div>
+      </section>
+
+      <!-- Slide 6: Masuk Modul Praktikum -->
+      <section data-transition="zoom-in fade-out">
+        <h2>📘 Modul Praktikum</h2>
+      </section>
+
+      <!-- Slide 7: Deskripsi Singkat (Isi dari modul Markdown) -->
+      <section data-transition="zoom">
+        <h2>📖 Deskripsi Singkat</h2>
+        <p class="fragment fade-in">
+          Pekan ini, mahasiswa mempersiapkan lingkungan pengembangan: <strong>Node.js</strong>, 
+          <strong>PostgreSQL dan pgAdmin</strong>, <strong>Git &amp; GitHub</strong>, 
+          serta struktur dasar proyek (frontend dengan <strong>React + Vite</strong>, 
+          backend dengan <strong>Express.js</strong>).
+        </p>
+      </section>
+
+      <!-- Slide 8: Tujuan Pembelajaran -->
+      <section data-transition="slide">
+        <h2>🎯 Tujuan Pembelajaran</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Mampu</strong> menginstal &amp; mengonfigurasi Node.js, PostgreSQL, pgAdmin.</li>
+          <li class="fragment fade-up"><strong>Memahami</strong> penggunaan Git &amp; GitHub.</li>
+          <li class="fragment fade-in"><strong>Memiliki</strong> struktur folder dasar proyek (frontend &amp; backend).</li>
+        </ul>
+      </section>
+
+      <!-- Slide 9: Pembagian Tugas Tim -->
+      <section data-transition="fade">
+        <h2>👥 Pembagian Tugas Tim</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Frontend Engineer</strong>: Menyiapkan repository React + Vite di GitHub.</li>
+          <li class="fragment fade-up"><strong>Backend Engineer</strong>: Menyiapkan repository Express.js di GitHub.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 10: Langkah-Langkah Praktikum -->
+      <section data-transition="slide">
+        <h3>🛠️ Langkah-Langkah Praktikum</h3>
+
+        <!-- Sub-slide a: Instalasi Node.js -->
+        <section>
+          <h3>a. Instalasi Node.js</h3>
+          <ol>
+            <li>Unduh &amp; instal Node.js LTS dari <a href="https://nodejs.org/" target="_blank">nodejs.org</a>.</li>
+            <li>Cek dengan perintah berikut:
+              <pre><code class="hljs bash">
+node -v
+npm -v
+              </code></pre>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Sub-slide b: Instalasi PostgreSQL & pgAdmin -->
+        <section>
+          <h3>b. Instalasi PostgreSQL &amp; pgAdmin</h3>
+          <ol>
+            <li>Unduh PostgreSQL di <a href="https://www.postgresql.org/download/" target="_blank">postgresql.org/download</a></li>
+            <li>Instal pgAdmin (bawaan installer PostgreSQL).</li>
+            <li>Buat user &amp; DB di pgAdmin:
+              <ul>
+                <li>User: <code>postgres</code></li>
+                <li>Database: <code>ecommerce-kecil</code></li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Sub-slide c: Persiapan Git & GitHub -->
+        <section>
+          <h3>c. Persiapan Git &amp; GitHub</h3>
+          <ol>
+            <li>Instal Git: <a href="https://git-scm.com" target="_blank">git-scm.com</a></li>
+            <li>Buat akun GitHub &amp; repository baru:
+              <ul>
+                <li><code>nama-proyek-frontend</code></li>
+                <li><code>nama-proyek-backend</code></li>
+              </ul>
+            </li>
+            <li>Clone repository ke local machine.</li>
+          </ol>
+        </section>
+
+        <!-- Sub-slide d: Inisialisasi Proyek Frontend -->
+        <section>
+          <h3>d. Inisialisasi Proyek Frontend (React + Vite)</h3>
+          <pre><code class="hljs bash">
+npm create vite@latest ecommerce-frontend --template react
+
+cd ecommerce-frontend
+npm install
+
+# Test jalankan
+npm run dev
+          </code></pre>
+          <p class="fragment fade-out">
+            Lakukan commit &amp; push:
+          </p>
+          <pre><code class="hljs bash">
+git add .
+git commit -m "Initial commit (React + Vite)"
+git push origin main
+          </code></pre>
+        </section>
+
+        <!-- Sub-slide e: Inisialisasi Proyek Backend -->
+        <section>
+          <h3>e. Inisialisasi Proyek Backend (Express.js)</h3>
+          <pre><code class="hljs bash">
+mkdir nama-proyek-backend
+cd nama-proyek-backend
+npm init -y
+npm install express pg cors
+
+git add .
+git commit -m "Initial commit (Express)"
+git push origin main
+          </code></pre>
+        </section>
+      </section>
+
+      <!-- Slide 11: Kriteria Penilaian -->
+      <section data-transition="convex">
+        <h2>📊 Kriteria Penilaian</h2>
+        <ol>
+          <li class="fragment fade-in"><strong>Kesiapan lingkungan pengembangan</strong> (30%)</li>
+          <li class="fragment fade-up"><strong>Repository GitHub frontend &amp; backend</strong> (40%)</li>
+          <li class="fragment fade-in"><strong>Kerja sama tim</strong> (30%)</li>
+        </ol>
+      </section>
+
+      <!-- Slide 12: Checklist Praktikum -->
+      <section data-transition="fade">
+        <h2>✅ Checklist Praktikum</h2>
+        <ul>
+          <li class="fragment fade-in">Node.js terinstal (cek versi).</li>
+          <li class="fragment fade-up">PostgreSQL &amp; pgAdmin terinstal, database dibuat.</li>
+          <li class="fragment fade-in">Git terinstal, repositori GitHub tersedia.</li>
+          <li class="fragment fade-up">Proyek React + Vite &amp; Express.js telah diinisialisasi.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 13: Latihan Mandiri -->
+      <section data-transition="slide">
+        <h2>🧑‍💻 Latihan Mandiri</h2>
+        <ol>
+          <li class="fragment fade-in">Coba buat satu branch terpisah di GitHub, lakukan commit &amp; merge.</li>
+          <li class="fragment fade-up">Di pgAdmin, buat table sederhana untuk latihan.</li>
+        </ol>
+      </section>
+
+      <!-- Slide 14: Deadline & Pengumpulan -->
+      <section data-transition="zoom">
+        <h2>📅 Deadline &amp; Pengumpulan</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Deadline</strong>: Akhir Pekan 1</li>
+          <li class="fragment fade-up">Pengumpulan: Screenshot bukti instalasi + Link repositori GitHub</li>
+        </ul>
+      </section>
+
+      <!-- Slide 15: Troubleshooting Tips -->
+      <section data-transition="fade">
+        <h2>🛠️ Troubleshooting Tips</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Node Tidak Terdeteksi</strong>: Cek PATH environment, buka terminal baru lalu cek <code>node -v</code>.</li>
+          <li class="fragment fade-up"><strong>PostgreSQL Service Error</strong>: Pastikan service PostgreSQL berjalan.</li>
+          <li class="fragment fade-in"><strong>GitHub Permission Denied</strong>: Biasanya karena SSH key atau username/password salah.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 16: Inspirasi Hari Ini -->
+      <section data-transition="fade-in fade-out">
+        <h2>🌟 Inspirasi Hari Ini</h2>
+        <blockquote>
+          “Kesuksesan adalah perpaduan antara persiapan dan kesempatan.”<br>— Seneca
+        </blockquote>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js & Plugins -->
+  <script src="../../reveal/dist/reveal.js"></script>
+  <script src="../../reveal/plugin/markdown/markdown.js"></script>
+  <script src="../../reveal/plugin/highlight/highlight.js"></script>
+  <script src="../../reveal/plugin/notes/notes.js"></script>
+  <script src="../../reveal/plugin/zoom/zoom.js"></script>
+  <script>
+    Reveal.initialize({
+      slideNumber: true,
+      touch: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+      pdfSeparateFragments: false,
+      overview: true,
+      transition: 'convex',
+      autoAnimate: true,
+      pdfExport: true
+    });
+  </script>
 </body>
 </html>

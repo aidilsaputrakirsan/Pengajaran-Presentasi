@@ -18,9 +18,8 @@
       height: 100%;
       font-family: Arial, sans-serif;
       color: #fff;
-      /* Jangan hidden, supaya bisa scroll di HP */
       overflow-y: auto; 
-      background: #000; /* Fallback background */
+      background: #000;
     }
 
     /* --- VIDEO BACKGROUND --- */
@@ -31,7 +30,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -2; /* di belakang segalanya */
+      z-index: -1; /* Adjusted to ensure it appears behind other elements */
     }
 
     /* Overlay gelap tipis, agar teks lebih jelas */
@@ -42,17 +41,15 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.5);
-      z-index: -1; 
+      z-index: 0; /* Ensures overlay is above video but below content */
     }
 
     /* --- KONTEN UTAMA --- */
     .container {
-      /* minimal tinggi layar, agar rapih di HP/desktop */
       min-height: 100vh; 
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* spasi atas-bawah supaya tidak menempel tepi layar */
       padding: 40px 10px;
     }
 
@@ -82,7 +79,7 @@
     summary {
       font-size: 1.2em;
       cursor: pointer;
-      outline: none; /* hilangkan outline default di browser */
+      outline: none;
       margin-bottom: 5px;
     }
 
@@ -132,7 +129,6 @@
     poster="Pemrograman-Web/assets/fallback.jpg"
   >
     <source src="Pemrograman-Web/assets/back.mp4" type="video/mp4">
-    <!-- Fallback jika browser tidak support video -->
     Browser Anda tidak mendukung pemutaran video.
   </video>
 

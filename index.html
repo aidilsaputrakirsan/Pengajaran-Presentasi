@@ -249,7 +249,7 @@
       <details>
         <summary>Pemrograman Web</summary>
         <ul>
-          <li><a href="https://aidilsaputrakirsan.github.io/Pengajaran-Presentasi/Pemrograman-Web/Pertemuan-01/">Pertemuan 1</a></li>
+          <li><a href="Pemrograman-Web/Pertemuan-01/index.html">Pertemuan 1</a></li>
           <li><a href="Pemrograman-Web/Pertemuan-02/index.html">Pertemuan 2</a></li>
           <li><a href="Pemrograman-Web/Pertemuan-03/index.html">Pertemuan 3</a></li>
           <li><a href="Pemrograman-Web/Pertemuan-04/index.html">Pertemuan 4</a></li>
@@ -296,18 +296,14 @@
 
   <!-- JavaScript -->
   <script>
-    // Loading Screen
-    window.addEventListener('load', () => {
-      const loader = document.querySelector('.loader');
-      loader.style.opacity = '0';
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 500);
-    });
-
     // Smooth Details Animation
     document.querySelectorAll('details').forEach((detail) => {
       detail.addEventListener('click', (e) => {
+        // Cek apakah elemen yang diklik adalah tautan
+        if (e.target.tagName === 'A') {
+          return; // Biarkan tautan bekerja normal
+        }
+        
         if (detail.open) {
           e.preventDefault();
           detail.classList.add('closing');
@@ -317,20 +313,6 @@
           }, 300);
         }
       });
-    });
-
-    // Add active state to current page link
-    document.querySelectorAll('a').forEach(link => {
-      if (link.href === window.location.href) {
-        link.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-        link.style.color = '#40e0d0';
-      }
-    });
-
-    // Optional: Add scroll reveal animation
-    document.querySelectorAll('li').forEach((item, index) => {
-      item.style.opacity = '0';
-      item.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
     });
   </script>
 </body>

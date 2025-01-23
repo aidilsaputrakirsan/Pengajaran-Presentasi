@@ -179,6 +179,36 @@
       transform: translateX(5px);
     }
 
+     /* --- TAMBAHAN WARNA KHUSUS --- */
+  details.mata-kuliah-akan-datang {
+    background: rgba(255, 140, 0, 0.1); /* Warna oranye lembut */
+    border: 1px solid rgba(255, 140, 0, 0.3);
+  }
+
+  details.mata-kuliah-akan-datang summary {
+    background: rgba(255, 140, 0, 0.2);
+    color: #ff8c00; /* Oranye */
+  }
+
+  details.mata-kuliah-akan-datang summary:hover {
+    background: rgba(255, 140, 0, 0.3);
+  }
+
+  details.pemrograman-lanjut {
+    background: rgba(173, 216, 230, 0.1); /* Warna biru muda lembut */
+    border: 1px solid rgba(173, 216, 230, 0.3);
+  }
+
+  details.pemrograman-lanjut summary {
+    background: rgba(173, 216, 230, 0.2);
+    color: #add8e6; /* Biru muda */
+  }
+
+  details.pemrograman-lanjut summary:hover {
+    background: rgba(173, 216, 230, 0.3);
+  }
+
+
     /* --- RESPONSIVE DESIGN --- */
     @media (max-width: 768px) {
       .container {
@@ -285,20 +315,20 @@
         </ul>
       </details>
 
-      <details>
+      <details class="pemrograman-lanjut">
         <summary>Pemrograman Lanjut</summary>
         <ul>
-          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-1/index.html">Pertemuan 1</a></li>
-          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-2/index.html">Pertemuan 2</a></li>
-          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-3/index.html">Pertemuan 3</a></li>
-          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-4/index.html">Pertemuan 4</a></li>
-          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-5/index.html">Pertemuan 5</a></li>
-          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-6/index.html">Pertemuan 6</a></li>
-          <li><a href="MK-Pemrograman-Lanjut/Pertemuan-7/index.html">Pertemuan 7</a></li>
+          <li><a href="#">Pertemuan 1</a></li>
+          <li><a href="#">Pertemuan 2</a></li>
+          <li><a href="#">Pertemuan 3</a></li>
+          <li><a href="#">Pertemuan 4</a></li>
+          <li><a href="#">Pertemuan 5</a></li>
+          <li><a href="#">Pertemuan 6</a></li>
+          <li><a href="#">Pertemuan 7</a></li>
         </ul>
       </details>
 
-      <details>
+      <details class="mata-kuliah-akan-datang">
         <summary>Mata Kuliah Lain (Akan Datang)</summary>
         <ul>
           <li>Akan segera diupdate ...</li>

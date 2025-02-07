@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Pertemuan 4: Dasar React.js (Vite) &amp; Struktur Komponen</title>
+  <!-- Favicon: jika ingin tetap pakai file lokal, silakan ganti -->
   <link rel="icon" href="../assets/icon.png" type="image/png">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Reveal.js & Theme -->
+
+  <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Reveal.js Theme (Dracula) -->
   <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
+  <!-- Highlight.js CSS (untuk syntax highlighting) -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  
   <style>
+    /* Watermark Styling */
     .watermark {
       position: fixed;
       bottom: 15px;
@@ -23,6 +30,8 @@
       height: 25px;
       vertical-align: middle;
     }
+
+    /* Responsive Image */
     @media screen and (max-width: 768px) {
       img {
         max-width: 100%;
@@ -49,174 +58,227 @@
 
   <div class="reveal">
     <div class="slides">
-      
+
       <!-- Slide 1: Judul -->
       <section data-transition="zoom">
         <h2>🎓 Pemrograman Web</h2>
         <h3>Pertemuan 4: Dasar React.js (Vite) &amp; Struktur Komponen</h3>
+        <p style="margin-top:20px;" class="fragment fade-in">
+          <strong>React.js</strong> • <strong>Vite</strong> • <strong>Komponen &amp; Hooks</strong>
+        </p>
       </section>
 
-      <!-- Slide 2: Pengantar #1 - React & Vite -->
-      <section data-transition="slide">
-        <h2>🔥 Mengapa React &amp; Vite?</h2>
-        <ul>
-          <li class="fragment fade-in">React: Library populer untuk UI dinamis.</li>
-          <li class="fragment fade-up">Vite: Build tool yang cepat &amp; ringan.</li>
-        </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/react-logo.png" alt="React Logo" />
-        </div>
-      </section>
-
-      <!-- Slide 3: Pengantar #2 - Komponen & Hooks -->
-      <section data-transition="fade">
-        <h2>⚙️ Komponen &amp; Hooks</h2>
-        <ul>
-          <li class="fragment fade-in"><code>useState</code> &amp; <code>useEffect</code> memudahkan state &amp; lifecycle.</li>
-          <li class="fragment fade-up">Komponen: memecah UI jadi bagian kecil reusable.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 4: Masuk Modul Praktikum -->
-      <section data-transition="zoom-in fade-out">
-        <h2>📘 Modul Praktikum</h2>
-      </section>
-
-      <!-- Slide 5: Deskripsi Singkat -->
-      <section data-transition="fade">
-        <h2>📖 Deskripsi Singkat</h2>
-        <p>Fokus pada React.js (Vite): struktur folder, komponen dasar, dan state management sederhana (Hooks).</p>
-      </section>
-
-      <!-- Slide 6: Tujuan Pembelajaran -->
+      <!-- Slide 2: Tujuan Pembelajaran -->
       <section data-transition="slide">
         <h2>🎯 Tujuan Pembelajaran</h2>
         <ul>
-          <li class="fragment fade-in">Mengenal struktur proyek React + Vite.</li>
-          <li class="fragment fade-up">Memahami konsep komponen &amp; state di React.</li>
-          <li class="fragment fade-in">Menggunakan Hooks (<code>useState</code>, <code>useEffect</code>).</li>
+          <li class="fragment fade-in">
+            <strong>Mengenal</strong> struktur proyek React + Vite.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Memahami</strong> konsep komponen &amp; state di React.
+          </li>
+          <li class="fragment fade-in">
+            <strong>Mempraktikkan</strong> Hooks dasar (<code>useState</code>, <code>useEffect</code>).
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 7: Pembagian Tugas Tim -->
+      <!-- Slide 3: Deskripsi Singkat -->
+      <section data-transition="fade">
+        <h2>📖 Deskripsi Singkat</h2>
+        <ul>
+          <li class="fragment fade-in">
+            Fokus pada <strong>React.js (Vite)</strong>: struktur folder, komponen dasar.
+          </li>
+          <li class="fragment fade-up">
+            <strong>State management</strong> sederhana di React menggunakan Hooks.
+          </li>
+          <li class="fragment fade-in">
+            Memahami <em>lifecycle</em> singkat <strong>useEffect</strong> untuk efek samping.
+          </li>
+        </ul>
+        <div class="illustration fragment fade-up">
+          <img 
+            src="https://raw.githubusercontent.com/github/explore/master/topics/react/react.png" 
+            alt="Logo React"
+            style="max-width: 100px;"/>
+        </div>
+      </section>
+
+      <!-- Slide 4: Intro React + Vite -->
+      <section data-transition="convex">
+        <h2>⚛️ React + Vite</h2>
+        <p class="fragment fade-in">Cara paling ringkas menyiapkan proyek React:</p>
+        <pre class="fragment fade-up"><code class="hljs bash">
+npm create vite@latest my-frontend --template react
+cd my-frontend
+npm install
+npm run dev
+        </code></pre>
+        <p class="fragment fade-in">
+          <strong>Vite</strong> memberikan <em>bundler</em> cepat, <em>dev server</em> ringan, dan otomatis *hot reload*.
+        </p>
+      </section>
+
+      <!-- Slide 5: Struktur Folder React + Vite -->
+      <section data-transition="slide">
+        <h2>📁 Struktur Folder</h2>
+        <pre class="fragment fade-in"><code class="hljs">
+my-frontend/
+├─ node_modules/
+├─ public/
+├─ src/
+│   ├─ App.jsx
+│   ├─ main.jsx
+│   └─ ...
+└─ package.json
+        </code></pre>
+        <ul class="fragment fade-up">
+          <li><strong>public</strong>: file statis (gambar, favicon, dsb.)</li>
+          <li><strong>src</strong>: tempat utama komponen React &amp; logika aplikasi</li>
+          <li><strong>App.jsx</strong>: komponen utama/pusat</li>
+        </ul>
+      </section>
+
+      <!-- Slide 6: Komponen Dasar -->
+      <section data-transition="fade">
+        <h2>🔨 Komponen Dasar React</h2>
+        <p class="fragment fade-in">Komponen dibagi menjadi <em>functional component</em> &amp; <em>class component</em>.</p>
+        <p class="fragment fade-up">Saat ini, <strong>functional component</strong> + <strong>Hooks</strong> lebih umum dipakai.</p>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+// App.jsx
+function App() {
+  return (
+    <div>
+      <h1>Hello, React!</h1>
+      <p>Ini komponen dasar React.</p>
+    </div>
+  );
+}
+
+export default App;
+</code></pre>
+      </section>
+
+      <!-- Slide 7: State & Hooks -->
       <section data-transition="zoom">
+        <h2>🧩 State &amp; Hooks</h2>
+        <ul>
+          <li class="fragment fade-in">
+            <strong>useState</strong>: mengelola state lokal.
+          </li>
+          <li class="fragment fade-up">
+            <strong>useEffect</strong>: mengelola efek samping (API call, event listener, dsb.).
+          </li>
+          <li class="fragment fade-in">
+            Hooks hanya dipakai di <em>functional component</em>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 8: Contoh useState -->
+      <section data-transition="fade">
+        <h2>📌 Contoh useState</h2>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+// Counter.jsx
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Nilai count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Tambah
+      </button>
+    </div>
+  );
+}
+
+export default Counter;
+</code></pre>
+        <p class="fragment fade-up">Komponen <strong>Counter</strong> memiliki state <code>count</code> yang berubah tiap kali tombol ditekan.</p>
+      </section>
+
+      <!-- Slide 9: Contoh useEffect -->
+      <section data-transition="convex">
+        <h2>🔎 Contoh useEffect</h2>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+// DataFetcher.jsx
+import { useState, useEffect } from 'react';
+
+function DataFetcher() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then((res) => res.json())
+      .then((result) => setData(result));
+  }, []); // kosong: jalankan sekali saat komponen mount
+
+  return (
+    <div>
+      <h2>Data Posts:</h2>
+      {data.map(item => (
+        <p key={item.id}>{item.title}</p>
+      ))}
+    </div>
+  );
+}
+
+export default DataFetcher;
+</code></pre>
+        <p class="fragment fade-up">
+          <strong>useEffect</strong> dipakai untuk memanggil data (atau efek samping lain) saat komponen pertama kali dimuat.
+        </p>
+      </section>
+
+      <!-- Slide 10: Pembagian Tugas Tim -->
+      <section data-transition="fade">
         <h2>👥 Pembagian Tugas Tim</h2>
         <ul>
-          <li class="fragment fade-in"><strong>Frontend Engineer</strong>: Membuat tampilan dasar dengan komponen + state.</li>
-          <li class="fragment fade-up"><strong>Backend Engineer</strong>: Standby jika perlu penyesuaian endpoint.</li>
+          <li class="fragment fade-in">
+            <strong>Frontend Engineer</strong>: Membuat tampilan dasar dengan komponen &amp; state.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Backend Engineer</strong>: Standby jika endpoint perlu penyesuaian (untuk data fetch).
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 8: Langkah-Langkah Praktikum (Vertical) -->
+      <!-- Slide 11: Penutup & Next Steps -->
       <section data-transition="slide">
-          <section>
-          <h3>a. Review Struktur Proyek Vite</h3>
-          <pre><code class="hljs plaintext">
-nama-proyek-frontend
-├─ public
-├─ src
-│  ├─ App.jsx
-│  ├─ main.jsx
-│  └─ ...
-└─ index.html
-          </code></pre>
-        </section>
-        <section>
-          <h3>b. Buat Komponen Dasar</h3>
-          <pre><code class="hljs javascript">
-// src/components/ProdukList.jsx
-import React from 'react';
-
-function ProdukList() {
-  return (...);
-}
-export default ProdukList;
-          </code></pre>
-        </section>
-        <section>
-          <h3>c. Impor Komponen di <code>App.jsx</code></h3>
-          <pre><code class="hljs javascript">
-// src/App.jsx
-import ProdukList from './components/ProdukList';
-          </code></pre>
-        </section>
-        <section>
-          <h3>d. Gunakan <code>useState</code> &amp; <code>useEffect</code></h3>
-          <pre><code class="hljs javascript">
-import React, { useState, useEffect } from 'react';
-          </code></pre>
-        </section>
-        <section>
-          <h3>e. Jalankan &amp; Commit</h3>
-          <pre><code class="hljs bash">
-npm run dev
-git add .
-git commit -m "Add ProdukList with state/effect"
-git push origin main
-          </code></pre>
-        </section>
-      </section>
-
-      <!-- Slide 9: Kriteria Penilaian -->
-      <section data-transition="convex">
-        <h2>📊 Kriteria Penilaian</h2>
+        <h2>🚀 Penutup &amp; Next Steps</h2>
         <ul>
-          <li class="fragment fade-in">React (Vite) berjalan tanpa error (30%).</li>
-          <li class="fragment fade-up">Komponen tampil & data statis (40%).</li>
-          <li class="fragment fade-in">Penggunaan <code>useState</code> & <code>useEffect</code> (30%).</li>
+          <li class="fragment fade-in">
+            Sudah mengenal struktur proyek React + Vite &amp; dasar komponen.
+          </li>
+          <li class="fragment fade-up">
+            <strong>useState</strong> &amp; <strong>useEffect</strong> untuk *state management* &amp; efek samping.
+          </li>
+          <li class="fragment fade-in">
+            Tahap lanjut: React Router, komunikasi lebih dalam dengan backend, dsb.
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 10: Checklist Praktikum -->
+      <!-- Slide 12: Q&A / Quote -->
       <section data-transition="fade">
-        <h2>✅ Checklist Praktikum</h2>
-        <ul>
-          <li class="fragment fade-in">Folder <code>components</code>, minimal 1 komponen.</li>
-          <li class="fragment fade-up">Data statis muncul di browser.</li>
-          <li class="fragment fade-in">Commit & push berhasil.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 11: Latihan Mandiri -->
-      <section data-transition="zoom">
-        <h2>🧑‍💻 Latihan Mandiri</h2>
-        <ul>
-          <li class="fragment fade-in">Buat komponen lain (Header/Footer).</li>
-          <li class="fragment fade-up">Coba styling sederhana (CSS).</li>
-        </ul>
-      </section>
-
-      <!-- Slide 12: Deadline & Pengumpulan -->
-      <section data-transition="fade">
-        <h2>📅 Deadline &amp; Pengumpulan</h2>
-        <ul>
-          <li class="fragment fade-in">Akhir Pekan 4</li>
-          <li class="fragment fade-up">Screenshot tampilan React + Link repo GitHub</li>
-        </ul>
-      </section>
-
-      <!-- Slide 13: Troubleshooting Tips -->
-      <section data-transition="convex">
-        <h2>🛠️ Troubleshooting Tips</h2>
-        <ul>
-          <li class="fragment fade-in">Port Vite default: 5173, bukan 3000.</li>
-          <li class="fragment fade-up">Blank Screen: Cek error di console browser.</li>
-          <li class="fragment fade-in">Dependencies Error: Jalankan <code>npm install</code>.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 14: Inspirasi Hari Ini -->
-      <section data-transition="zoom-in fade-out">
-        <h2>🌟 Inspirasi Hari Ini</h2>
+        <h2>💡 Q&amp;A &amp; Inspirasi</h2>
         <blockquote class="fragment fade-in">
-          “Kreativitas adalah kecerdasan yang bersenang-senang.” – Albert Einstein
+          “The best way to learn is to build things. Don’t be afraid to break things.”
+          <br>
+          <small>— React Enthusiast</small>
         </blockquote>
+        <p class="fragment fade-up">Ada pertanyaan?</p>
       </section>
 
     </div>
   </div>
 
-  <!-- Reveal.js -->
+  <!-- Reveal.js & Plugins -->
   <script src="../../reveal/dist/reveal.js"></script>
   <script src="../../reveal/plugin/markdown/markdown.js"></script>
   <script src="../../reveal/plugin/highlight/highlight.js"></script>
@@ -226,12 +288,12 @@ git push origin main
     Reveal.initialize({
       slideNumber: true,
       touch: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
       pdfSeparateFragments: false,
-      pdfExport: true,
       overview: true,
       transition: 'convex',
       autoAnimate: true,
-      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
+      pdfExport: true
     });
   </script>
 </body>

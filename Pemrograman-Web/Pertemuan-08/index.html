@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pertemuan 8: Review &amp; Latihan Mandiri</title>
+  <!-- Favicon: jika ingin tetap pakai file lokal, silakan ganti -->
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reveal.js Core CSS -->
+  <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Reveal.js Theme (Dracula) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
+  <!-- Highlight.js CSS (untuk syntax highlighting) -->
+  <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  
+  <style>
+    /* Watermark Styling */
+    .watermark {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      font-size: 25px;
+      color: rgba(255,255,255,0.3);
+      z-index: 1000;
+      font-style: italic;
+    }
+    .watermark img {
+      height: 25px;
+      vertical-align: middle;
+    }
+
+    /* Responsive Image */
+    @media screen and (max-width: 768px) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .illustration {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .illustration img {
+      max-width: 70%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide 1: Judul -->
+      <section data-transition="zoom">
+        <h2>🎓 Pemrograman Web</h2>
+        <h3>Pertemuan 8: Review &amp; Latihan Mandiri</h3>
+        <p style="margin-top:20px;" class="fragment fade-in">
+          <strong>React (Vite)</strong> • <strong>Express.js</strong> • <strong>PostgreSQL</strong> • <strong>CRUD Lengkap</strong>
+        </p>
+      </section>
+
+      <!-- Slide 2: Tujuan Pembelajaran -->
+      <section data-transition="slide">
+        <h2>🎯 Capaian Pembelajaran</h2>
+        <ul>
+          <li class="fragment fade-in">
+            <strong>Menguatkan</strong> pemahaman materi pekan 1–7.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Memperbaiki</strong> kekurangan aplikasi (bugfix) &amp; menyusun dokumentasi dasar.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 3: Deskripsi Singkat -->
+      <section data-transition="fade">
+        <h2>📖 Deskripsi Singkat</h2>
+        <ul>
+          <li class="fragment fade-in">
+            Memanfaatkan waktu untuk <strong>review konsep utama</strong>: instalasi, CRUD, routing, integrasi.
+          </li>
+          <li class="fragment fade-up">
+            Fokus pada <strong>bug fixing</strong>, <strong>optimasi sederhana</strong>, &amp; <strong>dokumentasi</strong>.
+          </li>
+        </ul>
+        <div class="illustration fragment fade-up">
+          <img 
+            src="https://raw.githubusercontent.com/github/explore/master/topics/react/react.png" 
+            alt="React Logo" style="max-width: 80px;" />
+          <img 
+            src="https://raw.githubusercontent.com/github/explore/master/topics/express/express.png" 
+            alt="Express Logo" style="max-width: 120px;" />
+        </div>
+      </section>
+
+      <!-- Slide 4: Review Ringkas Pekan 1–7 -->
+      <section data-transition="convex">
+        <h2>💡 Review Ringkas (Pekan 1–7)</h2>
+        <ol>
+          <li class="fragment fade-in">Pekan 1: Persiapan Lingkungan (Node.js, PostgreSQL, Git, React + Vite, Express)</li>
+          <li class="fragment fade-up">Pekan 2: Dasar Express.js &amp; routing GET/POST</li>
+          <li class="fragment fade-in">Pekan 3: Koneksi PostgreSQL &amp; query CRUD dasar</li>
+          <li class="fragment fade-up">Pekan 4: Dasar React.js (Vite) &amp; struktur komponen + Hooks</li>
+          <li class="fragment fade-in">Pekan 5: Integrasi React-Express (fetch data GET)</li>
+          <li class="fragment fade-up">Pekan 6: Form input &amp; validasi (POST ke backend)</li>
+          <li class="fragment fade-in">Pekan 7: CRUD lengkap (PUT, DELETE) &amp; review singkat</li>
+        </ol>
+      </section>
+
+      <!-- Slide 5: Identifikasi Bug & Masalah Umum -->
+      <section data-transition="slide">
+        <h2>🐞 Identifikasi Bug &amp; Masalah Umum</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Error</strong> saat fetch data karena endpoint tidak sesuai atau server mati.</li>
+          <li class="fragment fade-up"><strong>Validasi</strong> kurang lengkap, user bisa input data kosong/ilegal.</li>
+          <li class="fragment fade-in"><strong>Inconsistent state</strong> di React karena <em>setState</em> tidak diatur dengan baik.</li>
+          <li class="fragment fade-up"><strong>Query</strong> database tidak aman (belum pakai parameterized query? Sudah? Periksa lagi!).</li>
+        </ul>
+      </section>
+
+      <!-- Slide 6: Strategi Bugfix -->
+      <section data-transition="fade">
+        <h2>🔧 Strategi Bugfix</h2>
+        <ol>
+          <li class="fragment fade-in">
+            <strong>Reproduksi bug</strong> &amp; catat langkah-langkah jelas.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Debugging tools</strong>: console.log, dev tools di browser, Postman, logs di server.
+          </li>
+          <li class="fragment fade-in">
+            <strong>Test case</strong>: buat skenario uji, pastikan tiap route &amp; UI diuji.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Perbaiki</strong> secara iteratif, lakukan *commit* terpisah untuk setiap perbaikan.
+          </li>
+        </ol>
+      </section>
+
+      <!-- Slide 7: Dokumentasi Dasar -->
+      <section data-transition="zoom">
+        <h2>📄 Dokumentasi Dasar</h2>
+        <ul>
+          <li class="fragment fade-in">
+            **README**: Jelaskan cara *install*, *run*, &amp; *deploy* (jika ada).
+          </li>
+          <li class="fragment fade-up">
+            **Endpoint list**: GET `/produk`, POST `/produk`, dsb.
+          </li>
+          <li class="fragment fade-in">
+            **Struktur folder**: Tunjukkan <code>frontend/</code>, <code>backend/</code>, <code>db.js</code>, dsb.
+          </li>
+          <li class="fragment fade-up">
+            **ERD sederhana** (opsional): Gambaran <em>schema</em> tabel (users, produk, dsb.).
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 8: Latihan Mandiri -->
+      <section data-transition="fade">
+        <h2>🧩 Latihan Mandiri</h2>
+        <p class="fragment fade-in">Beberapa ide latihan:</p>
+        <ul class="fragment fade-up">
+          <li>Buat <strong>fitur tambahan</strong>: misal kategori produk atau pencarian.</li>
+          <li>Implementasi <strong>validasi</strong> lebih ketat di sisi backend.</li>
+          <li>Eksperimen <strong>React Router</strong> agar navigasi UI lebih rapi.</li>
+        </ul>
+        <p class="fragment fade-in">Tujuan: memperdalam konsep &amp; menyiapkan diri untuk proyek lebih besar.</p>
+      </section>
+
+      <!-- Slide 9: Contoh README yang Baik -->
+      <section data-transition="convex">
+        <h2>📝 Contoh README yang Baik</h2>
+        <pre class="fragment fade-in"><code class="hljs markdown">
+# E-Commerce Mini (React + Express + PostgreSQL)
+
+## Cara Instalasi
+1. Clone repositori ini
+2. Masuk folder `backend` dan jalankan `npm install`
+3. Buat database PostgreSQL, lalu sesuaikan `db.js`
+4. Jalankan `npm start` di folder `backend`
+5. Masuk folder `frontend` dan jalankan `npm install`
+6. Jalankan `npm run dev`
+
+## Endpoint
+- GET /produk => Menampilkan list produk
+- POST /produk => Menambah produk baru
+- PUT /produk/:id => Update produk
+- DELETE /produk/:id => Hapus produk
+
+## Struktur Folder
+    .
+    ├── frontend
+    ├── backend
+    │   ├── db.js
+    │   ├── index.js
+    │   └── ...
+    └── README.md
+
+...
+</code></pre>
+        <p class="fragment fade-up">
+          *Pastikan* README selalu up-to-date dengan perubahan projek.
+        </p>
+      </section>
+
+      <!-- Slide 10: Kolaborasi Tim -->
+      <section data-transition="zoom">
+        <h2>👥 Kolaborasi Tim</h2>
+        <ul>
+          <li class="fragment fade-in">
+            <strong>Frontend Engineer &amp; Backend Engineer</strong> bekerja sama mengecek bug, menambah dokumentasi.
+          </li>
+          <li class="fragment fade-up">
+            *Pull Request &amp; Code Review* rutin untuk menjaga kualitas kode.
+          </li>
+          <li class="fragment fade-in">
+            *Branching strategy*: `feature/`, `fix/`, `release/` dsb. agar kolaborasi lebih rapi.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 11: Penutup & Final Check -->
+      <section data-transition="fade">
+        <h2>🚀 Penutup &amp; Final Check</h2>
+        <ul>
+          <li class="fragment fade-in">
+            Semua materi pokok (pekan 1–7) telah dibahas, saatnya *kuatkan* pemahaman lewat *review*.
+          </li>
+          <li class="fragment fade-up">
+            Bugfix &amp; dokumentasi akan meningkatkan <em>reliability</em> &amp; <em>maintainability</em>.
+          </li>
+          <li class="fragment fade-in">
+            Selesai *review*? Siap melangkah ke topik lanjut (auth, deployment, dsb.).
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 12: Q&A / Quote -->
+      <section data-transition="slide">
+        <h2>💡 Q&amp;A &amp; Inspirasi</h2>
+        <blockquote class="fragment fade-in">
+          “Di tengah kesulitan terdapat peluang.”<br>
+          <small>— Albert Einstein</small>
+        </blockquote>
+        <p class="fragment fade-up">Ada pertanyaan?</p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js & Plugins -->
+  <script src="../../reveal/dist/reveal.js"></script>
+  <script src="../../reveal/plugin/markdown/markdown.js"></script>
+  <script src="../../reveal/plugin/highlight/highlight.js"></script>
+  <script src="../../reveal/plugin/notes/notes.js"></script>
+  <script src="../../reveal/plugin/zoom/zoom.js"></script>
+  <script>
+    Reveal.initialize({
+      slideNumber: true,
+      touch: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+      pdfSeparateFragments: false,
+      overview: true,
+      transition: 'convex',
+      autoAnimate: true,
+      pdfExport: true
+    });
+  </script>
+</body>
+</html>

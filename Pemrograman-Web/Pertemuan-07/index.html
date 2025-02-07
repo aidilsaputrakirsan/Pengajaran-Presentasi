@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Pertemuan 7: Penyempurnaan Fitur CRUD &amp; Review</title>
+  <!-- Favicon: jika ingin tetap pakai file lokal, silakan ganti -->
   <link rel="icon" href="../assets/icon.png" type="image/png">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Reveal.js Theme (Dracula) -->
   <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
+  <!-- Highlight.js CSS (untuk syntax highlighting) -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  
   <style>
+    /* Watermark Styling */
     .watermark {
       position: fixed;
       bottom: 15px;
@@ -22,6 +30,8 @@
       height: 25px;
       vertical-align: middle;
     }
+
+    /* Responsive Image */
     @media screen and (max-width: 768px) {
       img {
         max-width: 100%;
@@ -40,6 +50,7 @@
 </head>
 <body>
 
+  <!-- Watermark -->
   <div class="watermark">
     <img src="../assets/logoSI.png" alt="Logo Universitas">
     © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
@@ -47,146 +58,258 @@
 
   <div class="reveal">
     <div class="slides">
-      
-      <!-- Slide 1 -->
+
+      <!-- Slide 1: Judul -->
       <section data-transition="zoom">
         <h2>🎓 Pemrograman Web</h2>
         <h3>Pertemuan 7: Penyempurnaan Fitur CRUD &amp; Review</h3>
+        <p style="margin-top:20px;" class="fragment fade-in">
+          <strong>React (Vite)</strong> • <strong>Express.js</strong> • <strong>PostgreSQL</strong> • <strong>CRUD Lengkap</strong>
+        </p>
       </section>
 
-      <!-- Slide 2: Pengantar #1 -->
+      <!-- Slide 2: Tujuan Pembelajaran -->
       <section data-transition="slide">
-        <h2>🔄 Pentingnya CRUD Lengkap</h2>
+        <h2>🎯 Capaian Pembelajaran</h2>
         <ul>
-          <li class="fragment fade-in">CRUD: Create, Read, Update, Delete → pondasi aplikasi data.</li>
-          <li class="fragment fade-up">User dapat menambah, melihat, mengubah, dan menghapus data.</li>
+          <li class="fragment fade-in">
+            <strong>Menyempurnakan</strong> aplikasi e-commerce kecil dengan CRUD lengkap.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Review</strong> integrasi React (Vite), Express, dan PostgreSQL yang sudah dipelajari.
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 3: Pengantar #2 -->
-      <section data-transition="fade">
-        <h2>⚙️ Review Pekan 1–6</h2>
-        <ul>
-          <li class="fragment fade-in">Pekan 1–3: Setup server, DB, Express.</li>
-          <li class="fragment fade-up">Pekan 4–5: React (Vite), fetch data.</li>
-          <li class="fragment fade-in">Pekan 6: Form input &amp; validasi.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 4: Masuk Modul Praktikum -->
-      <section data-transition="zoom-in fade-out">
-        <h2>📘 Modul Praktikum</h2>
-      </section>
-
-      <!-- Slide 5: Deskripsi Singkat -->
+      <!-- Slide 3: Deskripsi Singkat -->
       <section data-transition="fade">
         <h2>📖 Deskripsi Singkat</h2>
-        <p>Menyelesaikan fitur CRUD (Create, Read, Update, Delete) secara penuh, review materi pekan 1–6 agar siap untuk aplikasi menengah.</p>
-      </section>
-
-      <!-- Slide 6: Tujuan Pembelajaran -->
-      <section data-transition="slide">
-        <h2>🎯 Tujuan Pembelajaran</h2>
         <ul>
-          <li class="fragment fade-in">Menyempurnakan e-commerce kecil dengan CRUD lengkap.</li>
-          <li class="fragment fade-up">Review integrasi React (Vite), Express, PostgreSQL.</li>
+          <li class="fragment fade-in">
+            Melanjutkan fitur <strong>Create</strong> & <strong>Read</strong> yang sudah ada, menambah <strong>Update</strong> & <strong>Delete</strong>.
+          </li>
+          <li class="fragment fade-up">
+            *Review* keseluruhan materi pekan 1–6 agar siap membangun aplikasi lebih kompleks.
+          </li>
         </ul>
+        <div class="illustration fragment fade-up">
+          <img 
+            src="https://raw.githubusercontent.com/github/explore/master/topics/react/react.png" 
+            alt="Logo React" style="max-width: 80px;" />
+          <img 
+            src="https://raw.githubusercontent.com/github/explore/master/topics/express/express.png" 
+            alt="Logo Express" style="max-width: 120px;" />
+        </div>
       </section>
 
-      <!-- Slide 7: Pembagian Tugas Tim -->
-      <section data-transition="zoom">
-        <h2>👥 Pembagian Tugas Tim</h2>
-        <ul>
-          <li class="fragment fade-in"><strong>Frontend Engineer</strong>: UI edit &amp; delete produk.</li>
-          <li class="fragment fade-up"><strong>Backend Engineer</strong>: Endpoint <code>PUT</code> &amp; <code>DELETE</code>.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 8: Langkah-Langkah Praktikum (Vertical) -->
-      <section data-transition="slide">
-       
-        <section>
-          <h3>a. Endpoint <code>PUT</code> &amp; <code>DELETE</code></h3>
-          <pre><code class="hljs javascript">
-// index.js
-app.put('/produk/:id', async (req, res) => { ... });
-app.delete('/produk/:id', async (req, res) => { ... });
-          </code></pre>
-        </section>
-        <section>
-          <h3>b. UI Update &amp; Delete</h3>
-          <pre><code class="hljs javascript">
-// src/components/ProdukList.jsx
-const handleDelete = (id) => { ... };
-          </code></pre>
-        </section>
-        <section>
-          <h3>c. Review CRUD</h3>
-          <ul>
-            <li class="fragment fade-in">POST, GET, PUT, DELETE berfungsi</li>
-            <li class="fragment fade-up">Uji aplikasi e-commerce kecil</li>
-          </ul>
-        </section>
-      </section>
-
-      <!-- Slide 9: Kriteria Penilaian -->
+      <!-- Slide 4: Endpoint PUT & DELETE di Backend -->
       <section data-transition="convex">
-        <h2>📊 Kriteria Penilaian</h2>
-        <ul>
-          <li class="fragment fade-in">Fitur update &amp; delete berfungsi (50%).</li>
-          <li class="fragment fade-up">Full CRUD berjalan (50%).</li>
-        </ul>
+        <h2>🛠️ Endpoint PUT &amp; DELETE di Backend</h2>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+// Update Produk (PUT)
+app.put('/produk/:id', async (req, res) => {
+  const { id } = req.params;
+  const { nama_produk, harga } = req.body;
+  try {
+    const query = `UPDATE produk
+                   SET nama_produk = $1, harga = $2
+                   WHERE id = $3 RETURNING *`;
+    const result = await pool.query(query, [nama_produk, harga, id]);
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Gagal mengupdate produk');
+  }
+});
+
+// Delete Produk (DELETE)
+app.delete('/produk/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    await pool.query('DELETE FROM produk WHERE id = $1', [id]);
+    res.sendStatus(204); // No Content
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Gagal menghapus produk');
+  }
+});
+</code></pre>
+        <p class="fragment fade-up">*Backend Engineer* memastikan endpoint ini berfungsi dan aman.</p>
       </section>
 
-      <!-- Slide 10: Checklist Praktikum -->
+      <!-- Slide 5: UI Edit Produk di Frontend -->
+      <section data-transition="slide">
+        <h2>🔨 UI Edit Produk di Frontend</h2>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+// EditProduk.jsx (Contoh)
+import { useState, useEffect } from 'react';
+
+function EditProduk({ dataProduk, onUpdate, onCancel }) {
+  const [nama, setNama] = useState(dataProduk.nama_produk);
+  const [harga, setHarga] = useState(dataProduk.harga);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // Panggil API PUT
+    try {
+      const res = await fetch(`http://localhost:3000/produk/${dataProduk.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nama_produk: nama, harga })
+      });
+      if (!res.ok) throw new Error('Gagal update');
+      const updated = await res.json();
+      onUpdate(updated);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        value={nama}
+        onChange={(e) => setNama(e.target.value)}
+      />
+      <input
+        type="number"
+        value={harga}
+        onChange={(e) => setHarga(e.target.value)}
+      />
+      <button type="submit">Update</button>
+      <button onClick={onCancel}>Batal</button>
+    </form>
+  );
+}
+
+export default EditProduk;
+</code></pre>
+      </section>
+
+      <!-- Slide 6: Tombol Delete Produk di Frontend -->
       <section data-transition="fade">
-        <h2>✅ Checklist Praktikum</h2>
-        <ul>
-          <li class="fragment fade-in">Endpoint PUT &amp; DELETE di backend.</li>
-          <li class="fragment fade-up">Edit &amp; Delete di frontend.</li>
-          <li class="fragment fade-in">Review tanpa error.</li>
-        </ul>
+        <h2>🗑️ Tombol Delete Produk di Frontend</h2>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+// Contoh di ProdukList.jsx
+function ProdukList() {
+  // ... state & fetch data ...
+  
+  const handleDelete = async (id) => {
+    if (!window.confirm('Yakin ingin menghapus produk ini?')) return;
+    try {
+      const res = await fetch(`http://localhost:3000/produk/${id}`, {
+        method: 'DELETE'
+      });
+      if (res.ok) {
+        // hapus item dari state
+        setProduk(prev => prev.filter(item => item.id !== id));
+      } else {
+        alert('Gagal menghapus produk');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error menghapus produk');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Daftar Produk</h2>
+      {produk.map(item => (
+        <div key={item.id}>
+          <span>{item.nama_produk} - {item.harga}</span>
+          <button onClick={() => handleEdit(item)}>Edit</button>
+          <button onClick={() => handleDelete(item.id)}>Delete</button>
+        </div>
+      ))}
+    </div>
+  );
+}
+</code></pre>
+        <p class="fragment fade-up">Setelah berhasil, <code>setProduk</code> di-*update* untuk menghapus item di UI.</p>
       </section>
 
-      <!-- Slide 11: Latihan Mandiri -->
+      <!-- Slide 7: Integrasi CRUD Lengkap -->
       <section data-transition="zoom">
-        <h2>🧑‍💻 Latihan Mandiri</h2>
+        <h2>📡 Integrasi CRUD Lengkap</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Create</strong>: Form untuk tambah produk (POST)</li>
+          <li class="fragment fade-up"><strong>Read</strong>: Tampilkan daftar produk (GET)</li>
+          <li class="fragment fade-in"><strong>Update</strong>: Form edit produk (PUT)</li>
+          <li class="fragment fade-up"><strong>Delete</strong>: Hapus produk (DELETE)</li>
+        </ul>
+        <p class="fragment fade-in">UI React &amp; Endpoint Express harus sinkron (field, URL, dsb.).</p>
+      </section>
+
+      <!-- Slide 8: Review Pekan 1–6 -->
+      <section data-transition="fade">
+        <h2>📝 Review Pekan 1–6</h2>
         <ol>
-          <li class="fragment fade-in">Modal/form update data.</li>
-          <li class="fragment fade-up">Styling lebih menarik (CSS).</li>
+          <li class="fragment fade-in">Pekan 1: Instalasi Node.js, PostgreSQL, Git, struktur projek.</li>
+          <li class="fragment fade-up">Pekan 2: Dasar Express &amp; routing (GET, POST).</li>
+          <li class="fragment fade-in">Pekan 3: Koneksi PostgreSQL &amp; CRUD dasar (INSERT, SELECT).</li>
+          <li class="fragment fade-up">Pekan 4: Dasar React + Vite, komponen &amp; Hooks.</li>
+          <li class="fragment fade-in">Pekan 5: Integrasi Frontend &amp; Backend (fetch data GET).</li>
+          <li class="fragment fade-up">Pekan 6: Form input &amp; validasi (POST) di React.</li>
         </ol>
       </section>
 
-      <!-- Slide 12: Deadline & Pengumpulan -->
-      <section data-transition="fade">
-        <h2>📅 Deadline &amp; Pengumpulan</h2>
-        <ul>
-          <li class="fragment fade-in">Akhir Pekan 7</li>
-          <li class="fragment fade-up">Screenshot bukti CRUD + Link repo GitHub</li>
-        </ul>
-      </section>
-
-      <!-- Slide 13: Troubleshooting Tips -->
+      <!-- Slide 9: Studi Kasus: Aplikasi E-Commerce Mini -->
       <section data-transition="convex">
-        <h2>🛠️ Troubleshooting Tips</h2>
+        <h2>🛍️ Studi Kasus: E-Commerce Mini</h2>
+        <p class="fragment fade-in">Sekarang kita punya:</p>
+        <ul class="fragment fade-up">
+          <li>Halaman daftar produk (menampilkan data dari DB)</li>
+          <li>Form tambah produk (Create)</li>
+          <li>Form edit produk (Update)</li>
+          <li>Tombol hapus produk (Delete)</li>
+        </ul>
+        <p class="fragment fade-in">Implementasi CRUD lengkap untuk manajemen produk dasar.</p>
+      </section>
+
+      <!-- Slide 10: Pembagian Tugas Tim -->
+      <section data-transition="zoom">
+        <h2>👥 Pembagian Tugas Tim</h2>
         <ul>
-          <li class="fragment fade-in">Update Gagal: Periksa body request (nama/harga).</li>
-          <li class="fragment fade-up">Delete Gagal: Pastikan ID valid.</li>
-          <li class="fragment fade-in">Stale Data: Refresh GET setelah update/delete.</li>
+          <li class="fragment fade-in">
+            <strong>Frontend Engineer</strong>: Membuat UI edit &amp; delete produk.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Backend Engineer</strong>: Menyediakan endpoint PUT &amp; DELETE.
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 14: Inspirasi Hari Ini -->
-      <section data-transition="zoom-in fade-out">
-        <h2>🌟 Inspirasi Hari Ini</h2>
+      <!-- Slide 11: Penutup & Next Steps -->
+      <section data-transition="fade">
+        <h2>🚀 Penutup &amp; Next Steps</h2>
+        <ul>
+          <li class="fragment fade-in">
+            Aplikasi sudah memiliki CRUD lengkap (Pekan 7).
+          </li>
+          <li class="fragment fade-up">
+            Tahap selanjutnya: keamanan (auth), pagination, deployment, dsb.
+          </li>
+          <li class="fragment fade-in">
+            Persiapan menuju aplikasi lebih profesional &amp; menengah ke atas.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 12: Q&A / Quote -->
+      <section data-transition="slide">
+        <h2>💡 Q&amp;A &amp; Inspirasi</h2>
         <blockquote class="fragment fade-in">
-          “Latihan yang terus menerus merupakan kunci penguasaan keterampilan.” – Bruce Lee
+          “Jika Anda tidak bisa menjelaskannya dengan sederhana, berarti Anda belum memahaminya dengan cukup baik”<br>
+          <small>— Albert Einstein</small>
         </blockquote>
+        <p class="fragment fade-up">Ada pertanyaan?</p>
       </section>
 
     </div>
   </div>
 
+  <!-- Reveal.js & Plugins -->
   <script src="../../reveal/dist/reveal.js"></script>
   <script src="../../reveal/plugin/markdown/markdown.js"></script>
   <script src="../../reveal/plugin/highlight/highlight.js"></script>
@@ -196,12 +319,12 @@ const handleDelete = (id) => { ... };
     Reveal.initialize({
       slideNumber: true,
       touch: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
       pdfSeparateFragments: false,
-      pdfExport: true,
       overview: true,
       transition: 'convex',
       autoAnimate: true,
-      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+      pdfExport: true
     });
   </script>
 </body>

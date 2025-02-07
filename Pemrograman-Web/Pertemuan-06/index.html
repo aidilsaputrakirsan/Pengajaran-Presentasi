@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pertemuan 6: Form Input &amp; Validasi Dasar</title>
+  <title>Pertemuan 6: Form Input & Validasi Dasar</title>
+  <!-- Favicon: jika ingin tetap pakai file lokal, silakan ganti -->
   <link rel="icon" href="../assets/icon.png" type="image/png">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Reveal.js Theme (Dracula) -->
   <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
+  <!-- Highlight.js CSS (untuk syntax highlighting) -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  
   <style>
+    /* Watermark Styling */
     .watermark {
       position: fixed;
       bottom: 15px;
@@ -22,6 +30,8 @@
       height: 25px;
       vertical-align: middle;
     }
+
+    /* Responsive Image */
     @media screen and (max-width: 768px) {
       img {
         max-width: 100%;
@@ -40,6 +50,7 @@
 </head>
 <body>
 
+  <!-- Watermark -->
   <div class="watermark">
     <img src="../assets/logoSI.png" alt="Logo Universitas">
     © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
@@ -47,146 +58,250 @@
 
   <div class="reveal">
     <div class="slides">
-      
-      <!-- Slide 1 -->
+
+      <!-- Slide 1: Judul -->
       <section data-transition="zoom">
         <h2>🎓 Pemrograman Web</h2>
         <h3>Pertemuan 6: Form Input &amp; Validasi Dasar</h3>
+        <p style="margin-top:20px;" class="fragment fade-in">
+          <strong>React (Vite)</strong> • <strong>Form Controlled Components</strong> • <strong>Validasi Input</strong>
+        </p>
       </section>
 
-      <!-- Slide 2: Pengantar #1 -->
+      <!-- Slide 2: Tujuan Pembelajaran -->
       <section data-transition="slide">
-        <h2>📝 Pentingnya Form</h2>
+        <h2>🎯 Capaian Pembelajaran</h2>
         <ul>
-          <li class="fragment fade-in">Menangkap input data pengguna (nama, harga, dsb.).</li>
-          <li class="fragment fade-up">Validasi mencegah data kosong/invalid.</li>
+          <li class="fragment fade-in">
+            <strong>Membuat</strong> form di React dengan <em>controlled components</em>.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Validasi</strong> sederhana sebelum mengirim data ke <em>backend</em>.
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 3: Pengantar #2 -->
+      <!-- Slide 3: Deskripsi Singkat -->
       <section data-transition="fade">
-        <h2>⚙️ Controlled Components</h2>
-        <p class="fragment fade-in">Menggunakan <code>useState</code> untuk mengontrol isi input.</p>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/controlled-components.png" alt="Controlled Components">
+        <h2>📖 Deskripsi Singkat</h2>
+        <ul>
+          <li class="fragment fade-in">
+            Membuat form di <strong>React</strong> untuk menambahkan data baru ke *database* via endpoint <code>POST</code>.
+          </li>
+          <li class="fragment fade-up">
+            Dilengkapi <strong>validasi input dasar</strong> (misal: wajib isi, format email, dll.).
+          </li>
+        </ul>
+        <div class="illustration fragment fade-up">
+          <img 
+            src="https://raw.githubusercontent.com/github/explore/master/topics/react/react.png" 
+            alt="Logo React"
+            style="max-width: 100px;"/>
         </div>
       </section>
 
-      <!-- Slide 4: Masuk Modul Praktikum -->
-      <section data-transition="zoom-in fade-out">
-        <h2>📘 Modul Praktikum</h2>
-      </section>
-
-      <!-- Slide 5: Deskripsi Singkat -->
-      <section data-transition="fade">
-        <h2>📖 Deskripsi Singkat</h2>
-        <p>Membuat form di React (Vite) untuk menambahkan data baru ke database via POST, plus validasi input dasar.</p>
-      </section>
-
-      <!-- Slide 6: Tujuan Pembelajaran -->
-      <section data-transition="slide">
-        <h2>🎯 Tujuan Pembelajaran</h2>
+      <!-- Slide 4: Konsep Controlled Components -->
+      <section data-transition="convex">
+        <h2>📝 Controlled Components</h2>
         <ul>
-          <li class="fragment fade-in">Membuat form di React dengan controlled components.</li>
-          <li class="fragment fade-up">Validasi sederhana sebelum kirim data ke backend.</li>
+          <li class="fragment fade-in">
+            Input form di React dikendalikan oleh <strong>state</strong>.
+          </li>
+          <li class="fragment fade-up">
+            Setiap perubahan di <em>input</em> memicu <code>onChange</code> yang memutakhirkan state.
+          </li>
+          <li class="fragment fade-in">
+            <em>Value</em> pada elemen <code>input</code> selalu merujuk ke <code>state</code> React.
+          </li>
         </ul>
+        <p class="fragment fade-up">
+          Contoh: <code>&lt;input value=&#123;nama&#125; onChange=&#123;handleChange&#125; /&gt;</code>
+        </p>
       </section>
 
-      <!-- Slide 7: Pembagian Tugas Tim -->
+      <!-- Slide 5: Contoh Form Sederhana -->
+      <section data-transition="slide">
+        <h2>🔨 Contoh Form Sederhana</h2>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+// FormProduk.jsx
+import { useState } from 'react';
+
+function FormProduk() {
+  const [formData, setFormData] = useState({
+    nama_produk: '',
+    harga: ''
+  });
+
+  // Handler saat input berubah
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Lakukan validasi di sini
+    console.log('Data yang akan dikirim:', formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Nama Produk:
+        <input 
+          type="text"
+          name="nama_produk"
+          value={formData.nama_produk}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Harga:
+        <input 
+          type="number"
+          name="harga"
+          value={formData.harga}
+          onChange={handleChange}
+        />
+      </label>
+      <button type="submit">Simpan</button>
+    </form>
+  );
+}
+
+export default FormProduk;
+</code></pre>
+      </section>
+
+      <!-- Slide 6: Validasi Sederhana -->
+      <section data-transition="fade">
+        <h2>⚠️ Validasi Sederhana</h2>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+// Dalam handleSubmit sebelum mengirim ke backend:
+const handleSubmit = (e) => {
+  e.preventDefault();
+  if (!formData.nama_produk || !formData.harga) {
+    alert('Semua field wajib diisi!');
+    return;
+  }
+  if (formData.harga < 0) {
+    alert('Harga tidak boleh negatif!');
+    return;
+  }
+  // Lolos validasi => kirim data ke backend
+};
+</code></pre>
+        <p class="fragment fade-up">Tambahkan logika validasi sesuai kebutuhan, misal format email, panjang text, dll.</p>
+      </section>
+
+      <!-- Slide 7: Kirim ke Endpoint POST -->
+      <section data-transition="zoom">
+        <h2>📡 Kirim Data ke Backend (POST)</h2>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  // ...validasi...
+  try {
+    const response = await fetch('http://localhost:3000/produk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    if (!response.ok) {
+      throw new Error('Gagal menambah produk');
+    }
+    // Berhasil
+    alert('Produk berhasil ditambahkan!');
+  } catch (error) {
+    console.error(error);
+    alert('Terjadi kesalahan saat menambah produk');
+  }
+};
+</code></pre>
+      </section>
+
+      <!-- Slide 8: Endpoint POST di Backend -->
+      <section data-transition="fade">
+        <h2>🛠️ Endpoint POST di Backend</h2>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+// index.js (Express)
+app.use(express.json());
+
+app.post('/produk', async (req, res) => {
+  const { nama_produk, harga } = req.body;
+  try {
+    const insertQuery = `
+      INSERT INTO produk (nama_produk, harga) VALUES ($1, $2) RETURNING *
+    `;
+    const result = await pool.query(insertQuery, [nama_produk, harga]);
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Terjadi kesalahan');
+  }
+});
+</code></pre>
+        <p class="fragment fade-up">*Backend Engineer* menyesuaikan tabel dan *field* tambahan jika dibutuhkan.</p>
+      </section>
+
+      <!-- Slide 9: Integrasi FormProduk di App.jsx -->
+      <section data-transition="convex">
+        <h2>🔗 Integrasi Form &amp; App.jsx</h2>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+// App.jsx
+import FormProduk from './FormProduk';
+
+function App() {
+  return (
+    <div>
+      <h1>Tambah Produk Baru</h1>
+      <FormProduk />
+    </div>
+  );
+}
+
+export default App;
+</code></pre>
+        <p class="fragment fade-up">*Frontend Engineer* menampilkan <code>FormProduk</code> di halaman utama atau halaman khusus.</p>
+      </section>
+
+      <!-- Slide 10: Pembagian Tugas Tim -->
       <section data-transition="zoom">
         <h2>👥 Pembagian Tugas Tim</h2>
         <ul>
-          <li class="fragment fade-in"><strong>Frontend Engineer</strong>: Komponen form, handle state &amp; validasi.</li>
-          <li class="fragment fade-up"><strong>Backend Engineer</strong>: Menyesuaikan endpoint POST jika perlu.</li>
+          <li class="fragment fade-in">
+            <strong>Frontend Engineer</strong>: Membuat komponen form, handle state input, validasi.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Backend Engineer</strong>: Menyesuaikan endpoint <code>POST</code> jika ada field tambahan.
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 8: Langkah-Langkah Praktikum (Vertical) -->
+      <!-- Slide 11: Penutup & Next Steps -->
+      <section data-transition="fade">
+        <h2>🚀 Penutup &amp; Next Steps</h2>
+        <ul>
+          <li class="fragment fade-in">Sudah memahami cara membuat form &amp; validasi dasar di React.</li>
+          <li class="fragment fade-up">Dapat mengirim data ke server Express untuk disimpan di PostgreSQL.</li>
+          <li class="fragment fade-in">Tahap lanjut: <em>Form libraries</em> (Formik, React Hook Form), validasi lebih kompleks, dsb.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 12: Q&A / Quote -->
       <section data-transition="slide">
-       
-        <section>
-          <h3>a. Buat Komponen <code>TambahProduk.jsx</code></h3>
-          <pre><code class="hljs javascript">
-import React, { useState } from 'react';
-import axios from 'axios';
-          </code></pre>
-        </section>
-        <section>
-          <h3>b. Integrasi di <code>App.jsx</code></h3>
-          <pre><code class="hljs javascript">
-// src/App.jsx
-import TambahProduk from './components/TambahProduk';
-import ProdukList from './components/ProdukList';
-          </code></pre>
-        </section>
-        <section>
-          <h3>c. Uji Tambah Produk</h3>
-          <ul>
-            <li class="fragment fade-in">Jalankan backend: <code>node index.js</code></li>
-            <li class="fragment fade-up">Jalankan frontend: <code>npm run dev</code></li>
-          </ul>
-        </section>
-      </section>
-
-      <!-- Slide 9: Kriteria Penilaian -->
-      <section data-transition="convex">
-        <h2>📊 Kriteria Penilaian</h2>
-        <ul>
-          <li class="fragment fade-in">Form dapat menambahkan data baru (50%).</li>
-          <li class="fragment fade-up">Validasi input sederhana (30%).</li>
-          <li class="fragment fade-in">Integrasi <code>TambahProduk</code> & <code>ProdukList</code> (20%).</li>
-        </ul>
-      </section>
-
-      <!-- Slide 10: Checklist Praktikum -->
-      <section data-transition="fade">
-        <h2>✅ Checklist Praktikum</h2>
-        <ul>
-          <li class="fragment fade-in">Komponen <code>TambahProduk</code> dibuat.</li>
-          <li class="fragment fade-up">Validasi sederhana berfungsi.</li>
-          <li class="fragment fade-in">Data baru muncul di database.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 11: Latihan Mandiri -->
-      <section data-transition="zoom">
-        <h2>🧑‍💻 Latihan Mandiri</h2>
-        <ul>
-          <li class="fragment fade-in">Notifikasi “Berhasil disimpan”/refresh otomatis daftar.</li>
-          <li class="fragment fade-up">Styling form agar user-friendly.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 12: Deadline & Pengumpulan -->
-      <section data-transition="fade">
-        <h2>📅 Deadline &amp; Pengumpulan</h2>
-        <ul>
-          <li class="fragment fade-in">Akhir Pekan 6</li>
-          <li class="fragment fade-up">Screenshot form + data di DB + Link repo</li>
-        </ul>
-      </section>
-
-      <!-- Slide 13: Troubleshooting Tips -->
-      <section data-transition="convex">
-        <h2>🛠️ Troubleshooting Tips</h2>
-        <ul>
-          <li class="fragment fade-in">Data Tidak Tersimpan: Cek body request di Network tab.</li>
-          <li class="fragment fade-up">Error 500: Cek log server (field DB?).</li>
-          <li class="fragment fade-in">Form Tidak Reset: Kosongkan state setelah POST.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 14: Inspirasi Hari Ini -->
-      <section data-transition="zoom-in fade-out">
-        <h2>🌟 Inspirasi Hari Ini</h2>
+        <h2>💡 Q&amp;A &amp; Inspirasi</h2>
         <blockquote class="fragment fade-in">
-          “Ketekunan adalah raja dari semua kebajikan, karena tanpanya, tidak ada yang mungkin tercapai.” – Samuel Johnson
+          “Anda tidak belajar berjalan dengan mengikuti aturan. Anda belajar dengan melakukannya, dan dengan terjatuh.”<br>
+          <small>— Richard Branson</small>
         </blockquote>
+        <p class="fragment fade-up">Ada pertanyaan?</p>
       </section>
 
     </div>
   </div>
 
+  <!-- Reveal.js & Plugins -->
   <script src="../../reveal/dist/reveal.js"></script>
   <script src="../../reveal/plugin/markdown/markdown.js"></script>
   <script src="../../reveal/plugin/highlight/highlight.js"></script>
@@ -196,12 +311,12 @@ import ProdukList from './components/ProdukList';
     Reveal.initialize({
       slideNumber: true,
       touch: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
       pdfSeparateFragments: false,
-      pdfExport: true,
       overview: true,
       transition: 'convex',
       autoAnimate: true,
-      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+      pdfExport: true
     });
   </script>
 </body>

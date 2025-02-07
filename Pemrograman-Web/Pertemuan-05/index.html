@@ -2,14 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pertemuan 5: Integrasi Frontend &amp; Backend</title>
+  <title>Pertemuan 5: Integrasi Frontend &amp; Backend (Fetch Data)</title>
+  <!-- Favicon: jika ingin tetap pakai file lokal, silakan ganti -->
   <link rel="icon" href="../assets/icon.png" type="image/png">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Reveal.js & Theme -->
+
+  <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Reveal.js Theme (Dracula) -->
   <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
+  <!-- Highlight.js CSS (untuk syntax highlighting) -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  
   <style>
+    /* Watermark Styling */
     .watermark {
       position: fixed;
       bottom: 15px;
@@ -23,6 +30,8 @@
       height: 25px;
       vertical-align: middle;
     }
+
+    /* Responsive Image */
     @media screen and (max-width: 768px) {
       img {
         max-width: 100%;
@@ -40,6 +49,8 @@
   </style>
 </head>
 <body>
+
+  <!-- Watermark -->
   <div class="watermark">
     <img src="../assets/logoSI.png" alt="Logo Universitas">
     © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
@@ -52,148 +63,244 @@
       <section data-transition="zoom">
         <h2>🎓 Pemrograman Web</h2>
         <h3>Pertemuan 5: Integrasi Frontend &amp; Backend (Fetch Data)</h3>
+        <p style="margin-top:20px;" class="fragment fade-in">
+          <strong>React (Vite)</strong> • <strong>Express.js</strong> • <strong>PostgreSQL</strong>
+        </p>
       </section>
 
-      <!-- Slide 2: Pengantar #1 - Mengapa Integrasi -->
+      <!-- Slide 2: Tujuan Pembelajaran -->
       <section data-transition="slide">
-        <h2>🌐 Mengapa Perlu Integrasi?</h2>
+        <h2>🎯 Capaian Pembelajaran</h2>
         <ul>
-          <li class="fragment fade-in">Frontend (React) butuh data real-time dari server (Express).</li>
-          <li class="fragment fade-up">Menampilkan data dari DB (PostgreSQL) kepada user.</li>
+          <li class="fragment fade-in">
+            <strong>Mampu</strong> melakukan HTTP request (GET) dari React ke Express.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Menampilkan</strong> data produk di UI React.
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 3: Pengantar #2 - Tools -->
-      <section data-transition="fade">
-        <h2>⚙️ Tools untuk Integrasi</h2>
-        <ul>
-          <li class="fragment fade-in">Fetch API (bawaan browser) atau Axios (library).</li>
-          <li class="fragment fade-up">Endpoint di Express harus mendukung GET/POST dsb.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 4: Masuk Modul Praktikum -->
-      <section data-transition="zoom-in fade-out">
-        <h2>📘 Modul Praktikum</h2>
-      </section>
-
-      <!-- Slide 5: Deskripsi Singkat -->
+      <!-- Slide 3: Deskripsi Singkat -->
       <section data-transition="fade">
         <h2>📖 Deskripsi Singkat</h2>
-        <p>React (Vite) melakukan request ke endpoint Express.js, menampilkan data produk dari PostgreSQL.</p>
-      </section>
-
-      <!-- Slide 6: Tujuan Pembelajaran -->
-      <section data-transition="slide">
-        <h2>🎯 Tujuan Pembelajaran</h2>
         <ul>
-          <li class="fragment fade-in">Mampu melakukan HTTP request (GET) dari React ke Express.</li>
-          <li class="fragment fade-up">Menampilkan data produk di UI React.</li>
+          <li class="fragment fade-in">
+            Menghubungkan <strong>React.js</strong> (Vite) dengan <strong>Express.js</strong> melalui endpoint.
+          </li>
+          <li class="fragment fade-up">
+            Menampilkan data produk yang diambil dari <strong>PostgreSQL</strong> di antarmuka React.
+          </li>
         </ul>
+        <div class="illustration fragment fade-up">
+          <img 
+            src="https://raw.githubusercontent.com/github/explore/master/topics/react/react.png" 
+            alt="Logo React"
+            style="max-width: 80px;"/>
+          <img 
+            src="https://raw.githubusercontent.com/github/explore/master/topics/express/express.png" 
+            alt="Logo Express"
+            style="max-width: 120px;"/>
+        </div>
       </section>
 
-      <!-- Slide 7: Pembagian Tugas Tim -->
+      <!-- Slide 4: Menyiapkan Endpoint di Backend -->
+      <section data-transition="convex">
+        <h2>⚙️ Menyiapkan Endpoint di Backend</h2>
+        <p class="fragment fade-in">Contoh route <code>/produk</code> pada Express:</p>
+        <pre class="fragment fade-up"><code class="hljs javascript">
+// index.js (Backend)
+const express = require('express');
+const app = express();
+const pool = require('./db'); // Pool koneksi PostgreSQL
+
+app.get('/produk', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM produk');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Terjadi kesalahan');
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Server backend berjalan di http://localhost:3000');
+});
+</code></pre>
+        <p class="fragment fade-in">
+          Pastikan tabel <code>produk</code> sudah dibuat di PostgreSQL, dan <code>db.js</code> sudah dikonfigurasi.
+        </p>
+      </section>
+
+      <!-- Slide 5: Konfigurasi CORS (Opsional) -->
+      <section data-transition="slide">
+        <h2>🔓 Konfigurasi CORS (Opsional)</h2>
+        <p class="fragment fade-in">
+          Untuk mengizinkan <strong>frontend React</strong> mengakses endpoint <strong>Express</strong> dari domain berbeda.
+        </p>
+        <pre class="fragment fade-up"><code class="hljs javascript">
+// index.js (tambahkan)
+const cors = require('cors');
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
+</code></pre>
+        <p class="fragment fade-in">Sesuaikan origin dengan URL dev server React (misalnya port 5173). </p>
+      </section>
+
+      <!-- Slide 6: Mengambil Data di React -->
+      <section data-transition="fade">
+        <h2>📥 Mengambil Data di React</h2>
+        <p class="fragment fade-in">Contoh komponen <code>ProdukList.jsx</code>:</p>
+        <pre class="fragment fade-up"><code class="hljs javascript">
+// ProdukList.jsx
+import { useState, useEffect } from 'react';
+
+function ProdukList() {
+  const [produk, setProduk] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/produk')
+      .then(res => res.json())
+      .then(data => setProduk(data))
+      .catch(err => console.error(err));
+  }, []);
+
+  return (
+    <div>
+      <h2>Daftar Produk</h2>
+      <ul>
+        {produk.map((item) => (
+          <li key={item.id}>
+            {item.nama_produk} - Rp {item.harga}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default ProdukList;
+</code></pre>
+        <p class="fragment fade-in">
+          <strong>useEffect</strong> memanggil endpoint saat komponen dipasang (*mount*).
+        </p>
+      </section>
+
+      <!-- Slide 7: Menggunakan Axios (Alternatif) -->
       <section data-transition="zoom">
+        <h2>📌 Menggunakan Axios (Alternatif)</h2>
+        <pre class="fragment fade-in"><code class="hljs javascript">
+// ProdukListAxios.jsx
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function ProdukListAxios() {
+  const [produk, setProduk] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/produk')
+      .then(response => setProduk(response.data))
+      .catch(error => console.error(error));
+  }, []);
+
+  return (
+    <div>
+      <h2>Daftar Produk (Axios)</h2>
+      {produk.map(item => (
+        <p key={item.id}>{item.nama_produk} - {item.harga}</p>
+      ))}
+    </div>
+  );
+}
+
+export default ProdukListAxios;
+</code></pre>
+        <p class="fragment fade-up">
+          <strong>Axios</strong> menawarkan *syntax* lebih ringkas, namun sama-sama melakukan <em>HTTP request</em>.
+        </p>
+      </section>
+
+      <!-- Slide 8: Menampilkan di App.jsx -->
+      <section data-transition="fade">
+        <h2>⚛️ Menampilkan di <code>App.jsx</code></h2>
+        <p class="fragment fade-in">Masukkan komponen <code>ProdukList</code> ke <code>App.jsx</code>:</p>
+        <pre class="fragment fade-up"><code class="hljs javascript">
+// App.jsx
+import ProdukList from './ProdukList';
+// import ProdukListAxios from './ProdukListAxios';
+
+function App() {
+  return (
+    <div>
+      <h1>Integrasi Frontend &amp; Backend</h1>
+      <ProdukList />
+      {/* <ProdukListAxios /> */}
+    </div>
+  );
+}
+
+export default App;
+</code></pre>
+        <p class="fragment fade-in">
+          Jalankan <code>npm run dev</code> di folder frontend, pastikan backend juga berjalan.
+        </p>
+      </section>
+
+      <!-- Slide 9: Pembagian Tugas Tim -->
+      <section data-transition="convex">
         <h2>👥 Pembagian Tugas Tim</h2>
         <ul>
-          <li class="fragment fade-in"><strong>Frontend Engineer</strong>: Kode fetch/axios untuk data produk.</li>
-          <li class="fragment fade-up"><strong>Backend Engineer</strong>: Pastikan endpoint <code>/produk</code> GET berjalan.</li>
+          <li class="fragment fade-in">
+            <strong>Frontend Engineer</strong>: Menulis kode fetch/axios untuk data produk, menampilkan di UI.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Backend Engineer</strong>: Memastikan endpoint <code>/produk</code> (GET) berjalan lancar.
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 8: Langkah-Langkah Praktikum (Vertical) -->
-      <section data-transition="slide">
-       
-        <section>
-          <h3>a. Instal Axios (Opsional)</h3>
-          <pre><code class="hljs bash">
-npm install axios
-          </code></pre>
-        </section>
-        <section>
-          <h3>b. Modifikasi <code>ProdukList.jsx</code></h3>
-          <pre><code class="hljs javascript">
-import axios from 'axios';
-useEffect(() => {
-  axios.get('http://localhost:3001/produk')
-    .then(res => setProduk(res.data))
-    .catch(err => console.error(err));
-}, []);
-          </code></pre>
-        </section>
-        <section>
-          <h3>c. Pastikan Backend Berjalan</h3>
-          <pre><code class="hljs bash">
-node index.js
-          </code></pre>
-        </section>
-        <section>
-          <h3>d. Jalankan Frontend</h3>
-          <pre><code class="hljs bash">
-npm run dev
-          </code></pre>
-        </section>
-      </section>
-
-      <!-- Slide 9: Kriteria Penilaian -->
-      <section data-transition="convex">
-        <h2>📊 Kriteria Penilaian</h2>
-        <ul>
-          <li class="fragment fade-in">React menampilkan data dari endpoint Express (50%).</li>
-          <li class="fragment fade-up">Tidak muncul error CORS (25%).</li>
-          <li class="fragment fade-in">Error handling minimal (25%).</li>
-        </ul>
-      </section>
-
-      <!-- Slide 10: Checklist Praktikum -->
-      <section data-transition="fade">
-        <h2>✅ Checklist Praktikum</h2>
-        <ul>
-          <li class="fragment fade-in">Endpoint <code>/produk</code> GET berjalan.</li>
-          <li class="fragment fade-up">React menampilkan data dari DB.</li>
-          <li class="fragment fade-in">Minimal error handling (console.error).</li>
-        </ul>
-      </section>
-
-      <!-- Slide 11: Latihan Mandiri -->
+      <!-- Slide 10: Checklist -->
       <section data-transition="zoom">
-        <h2>🧑‍💻 Latihan Mandiri</h2>
-        <ol>
-          <li class="fragment fade-in">Tambahkan form (POST) dari React ke Express.</li>
-          <li class="fragment fade-up">Styling tampilan dengan CSS.</li>
-        </ol>
+        <h2>✅ Checklist</h2>
+        <ul>
+          <li class="fragment fade-in">Backend Express dengan route <code>/produk</code> siap.</li>
+          <li class="fragment fade-up">Frontend React menampilkan data produk yang di-*fetch*</li>
+          <li class="fragment fade-in">CORS diaktifkan jika domain/port berbeda.</li>
+        </ul>
       </section>
 
-      <!-- Slide 12: Deadline & Pengumpulan -->
+      <!-- Slide 11: Penutup & Next Steps -->
       <section data-transition="fade">
-        <h2>📅 Deadline &amp; Pengumpulan</h2>
+        <h2>🚀 Penutup &amp; Next Steps</h2>
         <ul>
-          <li class="fragment fade-in">Akhir Pekan 5</li>
-          <li class="fragment fade-up">Screenshot data produk + Link GitHub</li>
+          <li class="fragment fade-in">
+            Sudah berhasil mengintegrasikan React (frontend) dengan Express (backend).
+          </li>
+          <li class="fragment fade-up">
+            Menampilkan data dari PostgreSQL di UI React.
+          </li>
+          <li class="fragment fade-in">
+            Tahap berikut: Operasi CRUD lebih lengkap &amp; penanganan <em>update/delete</em> di React.
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 13: Troubleshooting Tips -->
-      <section data-transition="convex">
-        <h2>🛠️ Troubleshooting Tips</h2>
-        <ul>
-          <li class="fragment fade-in">CORS Issue: <code>app.use(cors())</code> di backend.</li>
-          <li class="fragment fade-up">URL Endpoint Salah: Pastikan <code>localhost:3001/produk</code>.</li>
-          <li class="fragment fade-in">Axios Error: Cek JSON format, server live?</li>
-        </ul>
-      </section>
-
-      <!-- Slide 14: Inspirasi Hari Ini -->
-      <section data-transition="zoom-in fade-out">
-        <h2>🌟 Inspirasi Hari Ini</h2>
+      <!-- Slide 12: Q&A / Quote -->
+      <section data-transition="slide">
+        <h2>💡 Q&amp;A &amp; Inspirasi</h2>
         <blockquote class="fragment fade-in">
-          “Jangan menunda-nunda, karena waktu adalah modal yang paling mahal.” – Anonim
+          “Mengetahui saja tidak cukup; kita harus menerapkannya. Berkeinginan saja tidak cukup; kita harus melakukannya.”<br>
+          <small>— Johann Wolfgang von Goethe</small>
         </blockquote>
+        <p class="fragment fade-up">Ada pertanyaan?</p>
       </section>
 
     </div>
   </div>
 
+  <!-- Reveal.js & Plugins -->
   <script src="../../reveal/dist/reveal.js"></script>
   <script src="../../reveal/plugin/markdown/markdown.js"></script>
   <script src="../../reveal/plugin/highlight/highlight.js"></script>
@@ -203,12 +310,12 @@ npm run dev
     Reveal.initialize({
       slideNumber: true,
       touch: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
       pdfSeparateFragments: false,
-      pdfExport: true,
       overview: true,
       transition: 'convex',
       autoAnimate: true,
-      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
+      pdfExport: true
     });
   </script>
 </body>

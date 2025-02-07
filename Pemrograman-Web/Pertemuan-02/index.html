@@ -2,16 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pertemuan 2: Dasar Express.js & Struktur Routing</title>
+  <title>Pertemuan 2: Dasar Express.js &amp; Struktur Routing</title>
+  <!-- Favicon: jika ingin tetap pakai file lokal, silakan ganti -->
   <link rel="icon" href="../assets/icon.png" type="image/png">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
   <!-- Reveal.js Theme (Dracula) -->
   <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
-  <!-- Highlight.js CSS (untuk code highlighting) -->
+  <!-- Highlight.js CSS (untuk syntax highlighting) -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  
   <style>
+    /* Watermark Styling */
     .watermark {
       position: fixed;
       bottom: 15px;
@@ -25,6 +30,8 @@
       height: 25px;
       vertical-align: middle;
     }
+
+    /* Responsive Image */
     @media screen and (max-width: 768px) {
       img {
         max-width: 100%;
@@ -56,188 +63,197 @@
       <section data-transition="zoom">
         <h2>🎓 Pemrograman Web</h2>
         <h3>Pertemuan 2: Dasar Express.js &amp; Struktur Routing</h3>
-      </section>
-
-      <!-- Slide 2: Pengantar #1 - Express & Node -->
-      <section data-transition="slide">
-        <h2>🔌 Mengapa Express.js?</h2>
-        <ul>
-          <li class="fragment fade-in">Express.js adalah kerangka kerja web minimalis untuk Node.js.</li>
-          <li class="fragment fade-up">Memudahkan pembuatan server &amp; routing.</li>
-        </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/week2-expressjs.jpg" alt="Express.js Logo">
-          <p>Ilustrasi: Logo Express.js</p>
-        </div>
-      </section>
-
-      <!-- Slide 3: Pengantar #2 - Routing Konsep -->
-      <section data-transition="fade">
-        <h2>🛣️ Konsep Routing</h2>
-        <p class="fragment fade-in">Menentukan bagaimana aplikasi merespons permintaan ke endpoint tertentu.</p>
-        <ul class="fragment fade-up">
-          <li><strong>GET</strong> untuk mengambil data.</li>
-          <li><strong>POST</strong> untuk mengirim data baru.</li>
-        </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/week2-alurexpressjs.jpeg" alt="Alur Routing">
-          <p>Alur request/response di Express.</p>
-        </div>
-      </section>
-
-      <!-- Slide 4: Pengantar #3 - Studi Kasus -->
-      <section data-transition="convex">
-        <h2>🌐 Studi Kasus E-Commerce</h2>
-        <ul>
-          <li class="fragment fade-in">Server Express untuk menampilkan produk, menambah data, dsb.</li>
-          <li class="fragment fade-up">Route GET: ambil produk, Route POST: tambah produk.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 5: Masuk Modul Praktikum -->
-      <section data-transition="zoom-in fade-out">
-        <h2>📘 Modul Praktikum</h2>
-      </section>
-
-      <!-- Slide 6: Deskripsi Singkat -->
-      <section data-transition="fade">
-        <h2>📖 Deskripsi Singkat</h2>
-        <p class="fragment fade-in">
-          Mengenal Express.js lebih dalam: membuat server sederhana, memahami route dasar (GET, POST), 
-          dan memastikan server backend berjalan lancar.
+        <p style="margin-top:20px;" class="fragment fade-in">
+          <strong>Express.js</strong> • <strong>Server Sederhana</strong> • <strong>GET &amp; POST</strong> • <strong>Struktur Routing</strong>
         </p>
       </section>
 
-      <!-- Slide 7: Tujuan Pembelajaran -->
+      <!-- Slide 2: Tujuan Pembelajaran -->
       <section data-transition="slide">
-        <h2>🎯 Tujuan Pembelajaran</h2>
+        <h2>🎯 Capaian Pembelajaran</h2>
         <ul>
-          <li class="fragment fade-in"><strong>Mampu</strong> membuat server sederhana dengan Express.js.</li>
-          <li class="fragment fade-up"><strong>Mampu</strong> mengimplementasikan struktur routing dasar (GET, POST).</li>
+          <li class="fragment fade-in">
+            <strong>Mampu</strong> membuat server sederhana dengan Express.js.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Mampu</strong> mengimplementasikan struktur routing dasar (GET, POST).
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 8: Pembagian Tugas Tim -->
-      <section data-transition="zoom">
-        <h2>👥 Pembagian Tugas Tim</h2>
+      <!-- Slide 3: Pengantar Singkat Express.js -->
+      <section data-transition="fade">
+        <h2>👨‍💻 Pengantar Express.js</h2>
         <ul>
-          <li class="fragment fade-in"><strong>Backend Engineer</strong>: Membuat &amp; mengatur routing di Express.js.</li>
-          <li class="fragment fade-up"><strong>Frontend Engineer</strong>: Mempelajari cara akses API (diimplementasikan kemudian).</li>
+          <li class="fragment fade-in">
+            Express.js adalah <em>framework</em> Node.js yang ringan &amp; fleksibel.
+          </li>
+          <li class="fragment fade-up">
+            Membantu membuat API / layanan web secara cepat &amp; terstruktur.
+          </li>
+          <li class="fragment fade-in">
+            Didukung banyak <em>middleware</em> &amp; memiliki ekosistem luas.
+          </li>
         </ul>
+        <div class="illustration fragment fade-up">
+          <img 
+            src="https://raw.githubusercontent.com/github/explore/master/topics/express/express.png" 
+            alt="Logo Express.js"
+            style="max-width: 120px;"/>
+        </div>
       </section>
 
-      <!-- Slide 9: Langkah-Langkah Praktikum (Vertical Slides) -->
-      <section data-transition="slide">
-      <!--  <h2>🛠️ Langkah-Langkah Praktikum</h2> -->
-        <section>
-          <h3>a. Buat File <code>index.js</code></h3>
-          <pre><code class="hljs javascript">
+      <!-- Slide 4: Membuat Server Sederhana -->
+      <section data-transition="convex">
+        <h2>🛠️ Membuat Server Sederhana</h2>
+        <p class="fragment fade-in">Langkah dasar:</p>
+        <ol>
+          <li class="fragment fade-in">Inisialisasi proyek: <code>npm init -y</code></li>
+          <li class="fragment fade-in">Instal Express: <code>npm install express</code></li>
+          <li class="fragment fade-up">Buat file <code>index.js</code> dan tuliskan kode berikut:</li>
+        </ol>
+        <pre class="fragment fade-in"><code class="hljs javascript">
 // index.js
 const express = require('express');
-const cors = require('cors');
 const app = express();
-const PORT = 3001;
-
-app.use(cors());
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Hello World from Express.js!');
-});
-
-app.post('/data', (req, res) => {
-  const { nama } = req.body;
-  res.send(\`Data diterima: \${nama}\`);
-});
+const PORT = 3000;
 
 app.listen(PORT, () => {
-  console.log(\`Server berjalan di http://localhost:\${PORT}\`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
-          </code></pre>
-        </section>
-        <section>
-          <h3>b. Jalankan Server</h3>
-          <pre><code class="hljs bash">
-node index.js
-          </code></pre>
-          <p>Uji di browser: <code>http://localhost:3001</code></p>
-        </section>
-        <section>
-          <h3>c. Commit &amp; Push</h3>
-          <pre><code class="hljs bash">
-git add .
-git commit -m "Add basic Express.js setup and routes"
-git push origin main
-          </code></pre>
-        </section>
-        <section>
-          <h3>d. Test GET &amp; POST di Postman</h3>
-          <ul>
-            <li class="fragment fade-in">GET: <code>http://localhost:3001/</code></li>
-            <li class="fragment fade-up">POST: <code>http://localhost:3001/data</code> (JSON body)</li>
-          </ul>
-        </section>
+</code></pre>
+        <p class="fragment fade-up">Jalankan dengan <code>node index.js</code>.</p>
       </section>
 
-      <!-- Slide 10: Kriteria Penilaian -->
-      <section data-transition="convex">
-        <h2>📊 Kriteria Penilaian</h2>
-        <ul>
-          <li class="fragment fade-in"><strong>Server berjalan tanpa error</strong> (50%).</li>
-          <li class="fragment fade-up"><strong>Route GET &amp; POST berhasil diuji</strong> (50%).</li>
-        </ul>
-      </section>
-
-      <!-- Slide 11: Checklist Praktikum -->
+      <!-- Slide 5: Dasar Routing (GET, POST) -->
       <section data-transition="fade">
-        <h2>✅ Checklist Praktikum</h2>
-        <ul>
-          <li class="fragment fade-in">File <code>index.js</code> dibuat (GET, POST)</li>
-          <li class="fragment fade-up">Server berjalan di <code>http://localhost:3001</code></li>
-          <li class="fragment fade-in">Commit &amp; push ke GitHub</li>
+        <h2>📌 Dasar Routing (GET &amp; POST)</h2>
+        <p class="fragment fade-in">Tambahkan route di <code>index.js</code>:</p>
+        <pre class="fragment fade-up"><code class="hljs javascript">
+// GET route
+app.get('/', (req, res) => {
+  res.send('Hello GET from Express!');
+});
+
+// POST route
+app.post('/submit', (req, res) => {
+  res.send('Data has been submitted!');
+});
+</code></pre>
+        <ul class="fragment fade-in">
+          <li><strong>GET</strong>: Mengambil data (READ)</li>
+          <li><strong>POST</strong>: Mengirim data (CREATE)</li>
         </ul>
       </section>
 
-      <!-- Slide 12: Latihan Mandiri -->
+      <!-- Slide 6: Menggunakan Middleware (Opsional) -->
+      <section data-transition="slide">
+        <h2>🔧 Middleware Singkat</h2>
+        <p class="fragment fade-in">
+          Middleware memproses <code>req</code> sebelum sampai ke <em>route handler</em>.
+        </p>
+        <pre class="fragment fade-up"><code class="hljs javascript">
+// Agar Express dapat memproses JSON di body:
+app.use(express.json());
+
+app.post('/submit', (req, res) => {
+  console.log(req.body); // Data dari client
+  res.send('Data has been submitted!');
+});
+</code></pre>
+        <p class="fragment fade-in">Membantu parsing data &amp; keamanan (CORS, dsb.)</p>
+      </section>
+
+      <!-- Slide 7: Testing Routes -->
       <section data-transition="zoom">
-        <h2>🧑‍💻 Latihan Mandiri</h2>
+        <h2>🚀 Testing Routes (Postman/Insomnia)</h2>
         <ol>
-          <li class="fragment fade-in">Tambahkan route <code>PUT</code> atau <code>DELETE</code>.</li>
-          <li class="fragment fade-up">Uji endpoint baru dengan Postman.</li>
+          <li class="fragment fade-in">Gunakan <strong>Postman</strong> atau <strong>Insomnia</strong>.</li>
+          <li class="fragment fade-in">Buat <strong>request GET</strong> ke <code>http://localhost:3000/</code>.</li>
+          <li class="fragment fade-in">Buat <strong>request POST</strong> ke <code>http://localhost:3000/submit</code>, <em>body</em> JSON.</li>
+          <li class="fragment fade-up">Periksa respon: "Data has been submitted!"</li>
         </ol>
+        <div class="illustration fragment fade-up">
+          <img 
+            src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" 
+            alt="Logo Postman" style="max-width: 80px;"/>
+        </div>
       </section>
 
-      <!-- Slide 13: Deadline & Pengumpulan -->
+      <!-- Slide 8: Struktur Routing yang Direkomendasikan -->
       <section data-transition="fade">
-        <h2>📅 Deadline &amp; Pengumpulan</h2>
-        <ul>
-          <li class="fragment fade-in"><strong>Deadline</strong>: Akhir Pekan 2</li>
-          <li class="fragment fade-up">Pengumpulan: Screenshot GET &amp; POST + Link repo GitHub</li>
-        </ul>
+        <h2>📂 Struktur Routing</h2>
+        <pre><code class="hljs">
+my-backend/
+├─ routes/
+│   └─ userRoutes.js
+├─ index.js
+└─ ...
+        </code></pre>
+        <p class="fragment fade-in">
+          Pisahkan file <em>route</em> (contoh: <code>userRoutes.js</code>) agar lebih terorganisir.
+        </p>
+        <pre class="fragment fade-up"><code class="hljs javascript">
+// routes/userRoutes.js
+const express = require('express');
+const router = express.Router();
+
+router.get('/', (req, res) => {
+  res.send('User GET route');
+});
+
+router.post('/', (req, res) => {
+  res.send('User POST route');
+});
+
+module.exports = router;
+</code></pre>
       </section>
 
-      <!-- Slide 14: Troubleshooting Tips -->
-      <section data-transition="convex">
-        <h2>🛠️ Troubleshooting Tips</h2>
-        <ul>
-          <li class="fragment fade-in">Port Bentrok: Gunakan port lain atau hentikan proses existing.</li>
-          <li class="fragment fade-up">Body Request Salah: Pastikan JSON &amp; header <code>Content-Type</code>.</li>
-          <li class="fragment fade-in">CORS Error: Pastikan <code>app.use(cors())</code>.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 15: Inspirasi Hari Ini -->
+      <!-- Slide 9: Pembagian Tugas Tim -->
       <section data-transition="zoom-in fade-out">
-        <h2>🌟 Inspirasi Hari Ini</h2>
+        <h2>👥 Pembagian Tugas Tim</h2>
+        <ul>
+          <li class="fragment fade-in">
+            <strong>Backend Engineer</strong>: Membuat &amp; mengatur routing di Express.js.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Frontend Engineer</strong>: Mulai mempelajari cara akses API (belum implementasi penuh).
+          </li>
+        </ul>
+        <p class="fragment fade-in">Kolaborasi menggunakan Git &amp; GitHub tetap berjalan.</p>
+      </section>
+
+      <!-- Slide 10: Penutup & Next Steps -->
+      <section data-transition="slide">
+        <h2>🚀 Penutup &amp; Next Steps</h2>
+        <ul>
+          <li class="fragment fade-in">
+            Memahami dasar pembuatan server &amp; routing Express.js.
+          </li>
+          <li class="fragment fade-up">
+            Sudah dapat menangani <strong>GET</strong> &amp; <strong>POST</strong>.
+          </li>
+          <li class="fragment fade-in">
+            Tahap berikut: Integrasi lebih lanjut dengan database &amp; metodologi <em>REST API</em> lain (PUT, DELETE).
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 11: Q&A / Quote -->
+      <section data-transition="fade">
+        <h2>💡 Q&amp;A &amp; Inspirasi</h2>
         <blockquote class="fragment fade-in">
-          “Belajar adalah satu-satunya hal yang akal tidak pernah menyesal.” – Leonardo da Vinci
+          “Jangan pernah takut mencoba hal baru, karena itulah cara kita belajar.” <br>
+          <small>— Kata Bijak Umum</small>
         </blockquote>
+        <p class="fragment fade-up">Ada pertanyaan?</p>
       </section>
 
     </div>
   </div>
 
-  <!-- Script Reveal.js & Plugins -->
+  <!-- Reveal.js & Plugins -->
   <script src="../../reveal/dist/reveal.js"></script>
   <script src="../../reveal/plugin/markdown/markdown.js"></script>
   <script src="../../reveal/plugin/highlight/highlight.js"></script>

@@ -3,28 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Pertemuan 3: Koneksi Database PostgreSQL di Backend</title>
+  <!-- Favicon: jika ingin tetap pakai file lokal, silakan ganti -->
   <link rel="icon" href="../assets/icon.png" type="image/png">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
   <!-- Reveal.js Theme (Dracula) -->
   <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
-  <!-- Highlight.js CSS -->
+  <!-- Highlight.js CSS (untuk syntax highlighting) -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  
   <style>
+    /* Watermark Styling */
     .watermark {
       position: fixed;
       bottom: 15px;
       right: 15px;
-      font-size: 20px;
+      font-size: 25px;
       color: rgba(255,255,255,0.3);
       z-index: 1000;
       font-style: italic;
     }
     .watermark img {
-      height: 20px;
+      height: 25px;
       vertical-align: middle;
     }
+
+    /* Responsive Image */
     @media screen and (max-width: 768px) {
       img {
         max-width: 100%;
@@ -43,6 +50,7 @@
 </head>
 <body>
 
+  <!-- Watermark -->
   <div class="watermark">
     <img src="../assets/logoSI.png" alt="Logo Universitas">
     © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
@@ -55,204 +63,210 @@
       <section data-transition="zoom">
         <h2>🎓 Pemrograman Web</h2>
         <h3>Pertemuan 3: Koneksi Database PostgreSQL di Backend</h3>
-      </section>
-
-      <!-- Slide 2: Pengantar #1 - Pentingnya Database -->
-      <section data-transition="slide">
-        <h2>🏢 Pentingnya Database</h2>
-        <ul>
-          <li class="fragment fade-in">Menyimpan data secara terstruktur.</li>
-          <li class="fragment fade-up">Mendukung proses CRUD (Create, Read, Update, Delete).</li>
-          <li class="fragment fade-in">Berperan sebagai gudang informasi untuk server backend.</li>
-        </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/db-warehouse.png" alt="Gudang Database">
-          <p>Analoginya seperti gudang penyimpanan</p>
-        </div>
-      </section>
-
-      <!-- Slide 3: Pengantar #2 - Alur Request Data -->
-      <section data-transition="fade">
-        <h2>🔄 Alur Permintaan Data</h2>
-        <ol>
-          <li class="fragment fade-in">Client (Frontend) → Server (Backend)</li>
-          <li class="fragment fade-up">Server → Database (PostgreSQL)</li>
-          <li class="fragment fade-in">Database mengembalikan data ke Server → Client</li>
-        </ol>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/request-flow.png" alt="Alur Request-Response">
-        </div>
-      </section>
-
-      <!-- Slide 4: Pengantar #3 - PostgreSQL -->
-      <section data-transition="convex">
-        <h2>⚙️ Peran PostgreSQL</h2>
-        <ul>
-          <li class="fragment fade-in">Sistem manajemen database relasional andal.</li>
-          <li class="fragment fade-up">Terintegrasi baik dengan Express.js lewat library <code>pg</code>.</li>
-        </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/postgres-logo.png" alt="PostgreSQL Logo">
-          <p>PostgreSQL Logo</p>
-        </div>
-      </section>
-
-      <!-- Slide 5: Masuk Modul Praktikum -->
-      <section data-transition="zoom-in fade-out">
-        <h2>📘 Modul Praktikum</h2>
-      </section>
-
-      <!-- Slide 6: Deskripsi Singkat -->
-      <section data-transition="fade">
-        <h2>📖 Deskripsi Singkat</h2>
-        <p class="fragment fade-in">
-          Menghubungkan Express.js dengan PostgreSQL memakai library <strong>pg</strong>, 
-          serta membuat query CRUD dasar (CREATE TABLE, SELECT, INSERT).
+        <p style="margin-top:20px;" class="fragment fade-in">
+          <strong>Express.js</strong> • <strong>PostgreSQL</strong> • <strong>CRUD Dasar</strong>
         </p>
       </section>
 
-      <!-- Slide 7: Tujuan Pembelajaran -->
+      <!-- Slide 2: Tujuan Pembelajaran -->
       <section data-transition="slide">
-        <h2>🎯 Tujuan Pembelajaran</h2>
+        <h2>🎯 Capaian Pembelajaran</h2>
         <ul>
-          <li class="fragment fade-in"><strong>Mengerti</strong> cara menghubungkan Express.js ke PostgreSQL.</li>
-          <li class="fragment fade-up"><strong>Bisa</strong> melakukan operasi CRUD dasar (INSERT &amp; SELECT).</li>
+          <li class="fragment fade-in">
+            <strong>Mengerti</strong> cara menghubungkan Express.js ke PostgreSQL.
+          </li>
+          <li class="fragment fade-up">
+            <strong>Bisa</strong> melakukan operasi CRUD dasar (INSERT &amp; SELECT).
+          </li>
         </ul>
       </section>
 
-      <!-- Slide 8: Pembagian Tugas Tim -->
-      <section data-transition="zoom">
-        <h2>👥 Pembagian Tugas Tim</h2>
+      <!-- Slide 3: Deskripsi / Pengantar -->
+      <section data-transition="fade">
+        <h2>📖 Deskripsi Singkat</h2>
         <ul>
-          <li class="fragment fade-in"><strong>Backend Engineer</strong>: Membuat koneksi DB &amp; query dasar.</li>
-          <li class="fragment fade-up"><strong>Frontend Engineer</strong>: Siapkan struktur data (untuk fetch di React).</li>
+          <li class="fragment fade-in">
+            Menghubungkan <strong>Express.js</strong> dengan <strong>PostgreSQL</strong> menggunakan <code>pg</code>.
+          </li>
+          <li class="fragment fade-up">
+            Membuat <em>query CRUD</em> dasar: <strong>CREATE TABLE</strong>, <strong>SELECT</strong>, dan <strong>INSERT</strong>.
+          </li>
+          <li class="fragment fade-in">
+            Pastikan server backend Express berjalan lancar &amp; terkoneksi dengan DB.
+          </li>
         </ul>
+        <div class="illustration fragment fade-up">
+          <img 
+            src="https://www.postgresql.org/media/img/about/press/elephant.png" 
+            alt="Logo PostgreSQL" style="max-width: 120px;" />
+        </div>
       </section>
 
-      <!-- Slide 9: Langkah-Langkah Praktikum (Vertical Slides) -->
-      <section data-transition="slide">
-        <h2>🛠️ Langkah-Langkah Praktikum</h2>
-
-        <section>
-          <h3>a. Instal Library <code>pg</code></h3>
-          <pre><code class="hljs bash">
+      <!-- Slide 4: Instalasi & Konfigurasi pg -->
+      <section data-transition="convex">
+        <h2>⚙️ Instalasi &amp; Konfigurasi `pg`</h2>
+        <ol>
+          <li class="fragment fade-in">
+            Pastikan <strong>PostgreSQL</strong> sudah terinstal &amp; berjalan.
+          </li>
+          <li class="fragment fade-in">
+            Di proyek Express, jalankan:
+            <pre><code class="hljs bash">
 npm install pg
-          </code></pre>
-        </section>
-        <section>
-          <h3>b. Buat File <code>db.js</code></h3>
-          <pre><code class="hljs javascript">
+            </code></pre>
+          </li>
+          <li class="fragment fade-up">
+            Gunakan <code>Pool</code> atau <code>Client</code> dari library <code>pg</code> untuk koneksi.
+          </li>
+        </ol>
+      </section>
+
+      <!-- Slide 5: Koneksi Dasar ke PostgreSQL -->
+      <section data-transition="slide">
+        <h2>🔌 Koneksi Dasar</h2>
+        <p class="fragment fade-in">Contoh <code>db.js</code> (menggunakan <em>Pool</em>):</p>
+        <pre class="fragment fade-up"><code class="hljs javascript">
 // db.js
 const { Pool } = require('pg');
 
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'ecommerce-kecil',
-  password: 'postgres',
+  database: 'nama_database',
+  password: 'yourpassword',
   port: 5432,
 });
 
 module.exports = pool;
-          </code></pre>
-        </section>
-        <section>
-          <h3>c. Inisialisasi Tabel</h3>
-          <pre><code class="hljs sql">
-CREATE TABLE IF NOT EXISTS produk (
+</code></pre>
+        <p class="fragment fade-in">Impor <code>pool</code> di file Express utama (mis. <code>index.js</code>) untuk digunakan.</p>
+      </section>
+
+      <!-- Slide 6: CREATE TABLE Contoh -->
+      <section data-transition="fade">
+        <h2>🗄️ Membuat Tabel (CREATE TABLE)</h2>
+        <p class="fragment fade-in">Anda bisa membuat tabel melalui <strong>SQL query</strong> atau pgAdmin langsung.</p>
+        <pre class="fragment fade-up"><code class="hljs sql">
+CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
-  nama VARCHAR(50),
-  harga INT
+  name VARCHAR(100),
+  email VARCHAR(100) UNIQUE
 );
-          </code></pre>
-        </section>
-        <section>
-          <h3>d. Buat Route CRUD Dasar</h3>
-          <pre><code class="hljs javascript">
+</code></pre>
+        <p class="fragment fade-in">Contoh eksekusi via kode Node.js:</p>
+        <pre class="fragment fade-up"><code class="hljs javascript">
 const pool = require('./db');
 
-// CREATE
-app.post('/produk', async (req, res) => {
-  // ...
-});
-
-// READ
-app.get('/produk', async (req, res) => {
-  // ...
-});
-          </code></pre>
-        </section>
-        <section>
-          <h3>e. Gabungkan Kode</h3>
-          <pre><code class="hljs javascript">
-// index.js (gabungan)
-const express = require('express');
-const cors = require('cors');
-const pool = require('./db');
-          </code></pre>
-        </section>
-        <section>
-          <h3>f. Test Endpoint</h3>
-          <ul>
-            <li class="fragment fade-in"><code>POST /produk</code></li>
-            <li class="fragment fade-up"><code>GET /produk</code></li>
-          </ul>
-        </section>
+pool.query(`
+  CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE
+  );
+`);
+</code></pre>
       </section>
 
-      <!-- Slide 10: Kriteria Penilaian -->
-      <section data-transition="convex">
-        <h2>📊 Kriteria Penilaian</h2>
-        <ul>
-          <li class="fragment fade-in"><strong>Koneksi PostgreSQL</strong> berhasil (30%).</li>
-          <li class="fragment fade-up"><strong>CREATE</strong> &amp; <strong>READ</strong> berjalan (70%).</li>
-        </ul>
-      </section>
-
-      <!-- Slide 11: Checklist Praktikum -->
-      <section data-transition="fade">
-        <h2>✅ Checklist Praktikum</h2>
-        <ul>
-          <li class="fragment fade-in">File <code>db.js</code> &amp; koneksi DB sukses.</li>
-          <li class="fragment fade-up">Tabel <code>produk</code> terbentuk.</li>
-          <li class="fragment fade-in">Endpoint <code>POST</code> & <code>GET</code> berjalan baik.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 12: Latihan Mandiri -->
+      <!-- Slide 7: Operasi INSERT -->
       <section data-transition="zoom">
-        <h2>🧑‍💻 Latihan Mandiri</h2>
-        <ol>
-          <li class="fragment fade-in">Tambahkan route <code>DELETE</code> dan <code>UPDATE</code>.</li>
-          <li class="fragment fade-up">Test dengan Postman, cek data di DB.</li>
-        </ol>
+        <h2>📝 Operasi INSERT</h2>
+        <p class="fragment fade-in">Contoh <strong>route POST</strong> untuk menambah data:</p>
+        <pre class="fragment fade-up"><code class="hljs javascript">
+// index.js
+const express = require('express');
+const app = express();
+const pool = require('./db');
+
+app.use(express.json());
+
+app.post('/users', async (req, res) => {
+  const { name, email } = req.body;
+  try {
+    const result = await pool.query(
+      'INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *',
+      [name, email]
+    );
+    res.json({ user: result.rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error inserting user');
+  }
+});
+
+app.listen(3000, () => console.log('Server running...'));
+</code></pre>
       </section>
 
-      <!-- Slide 13: Deadline & Pengumpulan -->
+      <!-- Slide 8: Operasi SELECT -->
       <section data-transition="fade">
-        <h2>📅 Deadline &amp; Pengumpulan</h2>
-        <ul>
-          <li class="fragment fade-in">Akhir Pekan 3</li>
-          <li class="fragment fade-up">Screenshot query + Link repo GitHub</li>
-        </ul>
+        <h2>🔍 Operasi SELECT</h2>
+        <p class="fragment fade-in">Contoh <strong>route GET</strong> untuk menampilkan data:</p>
+        <pre class="fragment fade-up"><code class="hljs javascript">
+// index.js
+app.get('/users', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM users');
+    res.json({ users: result.rows });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error fetching users');
+  }
+});
+</code></pre>
+        <p class="fragment fade-in">Dapat diakses via <code>GET http://localhost:3000/users</code>.</p>
       </section>
 
-      <!-- Slide 14: Troubleshooting Tips -->
-      <section data-transition="convex">
-        <h2>🛠️ Troubleshooting Tips</h2>
-        <ul>
-          <li class="fragment fade-in">ECONNREFUSED: Pastikan DB &amp; host config benar.</li>
-          <li class="fragment fade-up">Syntax Error: Cek penulisan SQL.</li>
-          <li class="fragment fade-in">RETURNING: Pastikan PostgreSQL mendukung.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 15: Inspirasi Hari Ini -->
+      <!-- Slide 9: Struktur Kode Direkomendasikan -->
       <section data-transition="zoom-in fade-out">
-        <h2>🌟 Inspirasi Hari Ini</h2>
+        <h2>📂 Struktur Kode</h2>
+        <pre><code class="hljs">
+my-backend/
+├─ db.js          (koneksi Pool)
+├─ routes/
+│   └─ userRoutes.js
+├─ index.js       (entry point)
+└─ ...
+        </code></pre>
+        <p class="fragment fade-in">Pisahkan file <code>db.js</code>, <code>routes</code>, dsb. agar kode lebih rapih &amp; mudah di-maintain.</p>
+      </section>
+
+      <!-- Slide 10: Pembagian Tugas Tim -->
+      <section data-transition="fade">
+        <h2>👥 Pembagian Tugas Tim</h2>
+        <ul>
+          <li class="fragment fade-in">
+            <strong>Backend Engineer</strong>: Membuat koneksi database &amp; query dasar (CREATE TABLE, INSERT, SELECT).
+          </li>
+          <li class="fragment fade-up">
+            <strong>Frontend Engineer</strong>: Mulai menyiapkan struktur data (akan di-<em>fetch</em> di React).
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 11: Penutup & Next Steps -->
+      <section data-transition="slide">
+        <h2>🚀 Penutup &amp; Next Steps</h2>
+        <ul>
+          <li class="fragment fade-in">
+            Sudah memahami cara menghubungkan Express.js ke PostgreSQL.
+          </li>
+          <li class="fragment fade-up">
+            Bisa menjalankan operasi <strong>CREATE TABLE</strong>, <strong>INSERT</strong>, <strong>SELECT</strong>.
+          </li>
+          <li class="fragment fade-in">
+            Selanjutnya: lanjutkan CRUD (UPDATE, DELETE) &amp; integrasi ke <em>frontend</em>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 12: Q&A / Quote -->
+      <section data-transition="fade">
+        <h2>💡 Q&amp;A &amp; Inspirasi</h2>
         <blockquote class="fragment fade-in">
-          “Keberanian adalah perlawanan terhadap rasa takut, bukan ketiadaan rasa takut.” – Mark Twain
+          “Data is the new oil. It's valuable, but if unrefined it cannot really be used.” <br>
+          <small>— Clive Humby</small>
         </blockquote>
+        <p class="fragment fade-up">Ada pertanyaan?</p>
       </section>
 
     </div>
@@ -268,12 +282,12 @@ const pool = require('./db');
     Reveal.initialize({
       slideNumber: true,
       touch: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
       pdfSeparateFragments: false,
-      pdfExport: true,
       overview: true,
       transition: 'convex',
       autoAnimate: true,
-      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
+      pdfExport: true
     });
   </script>
 </body>

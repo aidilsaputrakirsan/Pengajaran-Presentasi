@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pekan Ini - Sedang Dalam Pembuatan</title>
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <link rel="stylesheet" href="../../reveal/dist/theme/beige.css">
+  <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  <style>
+    .watermark {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.3);
+      font-style: italic;
+    }
+    .emoji {
+      font-size: 2em;
+    }
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #3498db;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="reveal">
+    <div class="slides">
+      
+      <section>
+        <h2>🚧 Sedang Dalam Pembuatan 🚧</h2>
+        <p class="fragment fade-in">Mohon bersabar ya, materi pekan ini sedang dipersiapkan dengan baik! 🔧✨</p>
+        <div class="loader fragment fade-in"></div>
+      </section>
+      
+      <section>
+        <h2>👀 Sementara Itu...</h2>
+        <ul>
+          <li class="fragment fade-in">Silakan pelajari materi sebelumnya.</li>
+          <li class="fragment fade-in">Jelajahi sumber modul praktikum yang lengkap di <a href="https://aidilsaputrakirsan.github.io">aidilsaputrakirsan.github.io</a> → Educational Resources → Practicals (Members Only).</li>
+          <li class="fragment fade-in">Gunakan waktu ini untuk berdiskusi dengan teman!</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>🕰️ Kapan Materi Akan Tersedia?</h2>
+        <p class="fragment fade-in">Kami sedang bekerja keras untuk menyiapkan materi terbaik untuk Anda.</p>
+        <p class="fragment fade-in">Stay tuned! 🔔</p>
+      </section>
+      
+    </div>
+  </div>
+  
+  <script src="../../reveal/dist/reveal.js"></script>
+  <script src="../../reveal/plugin/markdown/markdown.js"></script>
+  <script src="../../reveal/plugin/highlight/highlight.js"></script>
+  <script src="../../reveal/plugin/notes/notes.js"></script>
+  <script src="../../reveal/plugin/zoom/zoom.js"></script>
+  <script>
+    Reveal.initialize({
+      slideNumber: true,
+      touch: true,
+      pdfSeparateFragments: false,
+      pdfExport: true,
+      overview: true,
+      transition: 'slide',
+      autoAnimate: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+    });
+  </script>
+
+</body>
+</html>

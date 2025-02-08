@@ -8,7 +8,7 @@
   <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
   <!-- Reveal.js Theme (League) -->
-  <link rel="stylesheet" href="../../reveal/dist/theme/blood.css">
+  <link rel="stylesheet" href="../../reveal/dist/theme/solarized.css">
   <!-- Highlight.js CSS -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
   <style>
@@ -53,17 +53,16 @@
     <div class="slides">
 
       <!-- Slide 1: Judul & Pembukaan -->
-      <section data-transition="zoom">
-        <h2>☁️ Komputasi Awan</h2>
-        <h3>Pekan 1: Persiapan Lingkungan dan Pengenalan Dasar</h3>
-        <p class="fragment fade-in">Mata Kuliah Komputasi Awan</p>
+      <section data-background-image="https://source.unsplash.com/1600x900/?cloud,technology">
+        <h2 style="color: white;">☁️ Komputasi Awan</h2>
+        <p class="fragment fade-in" style="color: white;">Pekan 1: Persiapan Lingkungan dan Pengenalan Dasar</p>
       </section>
 
       <!-- Slide 2: Deskripsi Singkat dengan slide vertikal -->
       <section data-transition="slide">
         
         <!-- Sub-slide pertama: Penjelasan -->
-        <section>
+        <section data-auto-animate>
           <h2>🔄 Deskripsi Singkat</h2>
           <p class="fragment fade-in">
             Pada pekan pertama, kita akan mempelajari konsep dasar komputasi awan dan containerization. 
@@ -73,7 +72,7 @@
         </section>
 
         <!-- Sub-slide kedua: Gambar Konsep Komputasi Awan -->
-        <section>
+        <section data-auto-animate>
           <div class="illustration">
             <img src="https://images.spiceworks.com/wp-content/uploads/2021/07/09134159/38-3-e1715636964776.png" alt="Konsep Komputasi Awan">
             <p>Gambar: Konsep Komputasi Awan</p>
@@ -152,15 +151,14 @@
         
         <!-- Sub-slide pertama: Penjelasan SaaS, PaaS, IaaS -->
         <section>
-          <h2>☁️ Layanan Cloud: SaaS, PaaS, IaaS</h2>
-          <p class="fragment fade-in">
-            Layanan cloud terbagi dalam tiga kategori utama:
-          </p>
-          <ul>
-            <li class="fragment fade-in"><strong>SaaS (Software as a Service):</strong> Aplikasi siap pakai yang diakses melalui internet.</li>
-            <li class="fragment fade-up"><strong>PaaS (Platform as a Service):</strong> Platform untuk mengembangkan dan mengelola aplikasi tanpa mengurus infrastruktur.</li>
-            <li class="fragment fade-in"><strong>IaaS (Infrastructure as a Service):</strong> Penyediaan sumber daya komputasi seperti server, penyimpanan, dan jaringan secara virtual.</li>
-          </ul>
+          <h2>☁️ Layanan Cloud</h2>
+          <pre class="mermaid">
+            graph TD;
+              A[SaaS] -->|Aplikasi Siap Pakai| B[Google Docs];
+              A --> C[Dropbox];
+              D[PaaS] -->|Platform Dev| E[Heroku];
+              F[IaaS] -->|Server Virtual| G[AWS EC2];
+          </pre>
         </section>
 
         <!-- Sub-slide kedua: Gambar SaaS, PaaS, IaaS -->
@@ -202,7 +200,7 @@
       </section>
 
       <!-- Slide 13: Referensi & Sumber Daya -->
-      <section data-transition="zoom-in fade-out">
+      <section data-transition="zoom">
         <h2>🔗 Referensi & Sumber Daya</h2>
         <ul>
           <li class="fragment fade-in"><a href="https://www.python.org/">Dokumentasi Python</a></li>
@@ -210,6 +208,7 @@
           <li class="fragment fade-in"><a href="https://www.postgresql.org/">Dokumentasi PostgreSQL</a></li>
           <li class="fragment fade-up"><a href="https://www.docker.com/">Dokumentasi Docker</a></li>
         </ul>
+        <button onclick="Reveal.slide(0)">⬅️ Kembali ke Awal</button>
       </section>
 
     </div>
@@ -231,6 +230,10 @@
       autoAnimate: true,
       plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
     });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
   </script>
 </body>
 </html>

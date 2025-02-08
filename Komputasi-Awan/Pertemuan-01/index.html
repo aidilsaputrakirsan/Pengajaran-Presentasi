@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Pekan 1: Persiapan Lingkungan dan Pengenalan Dasar</title>
-  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
@@ -17,7 +17,7 @@
       bottom: 15px;
       right: 15px;
       font-size: 25px;
-      color: rgba(255, 255, 255, 0.3); /* Sesuaikan warna agar visible di theme "league" */
+      color: rgba(255, 255, 255, 0.3);
       z-index: 1000;
       font-style: italic;
     }
@@ -39,71 +39,80 @@
       max-width: 70%;
       height: auto;
     }
+    .logos img {
+      max-width: 50px;
+      margin: 0 5px;
+    }
   </style>
 </head>
 <body>
 
   <!-- Watermark -->
   <div class="watermark">
-    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="Logo">
     © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
   </div>
 
   <div class="reveal">
     <div class="slides">
 
-      <!-- Slide 1: Judul -->
+      <!-- Slide 1: Judul & Pembukaan -->
       <section data-transition="zoom">
         <h2>☁️ Komputasi Awan</h2>
         <h3>Pekan 1: Persiapan Lingkungan dan Pengenalan Dasar</h3>
       </section>
 
-      <!-- Slide 2: Pengantar #1 -->
+      <!-- Slide 2: Mengapa Persiapan Lingkungan? -->
       <section data-transition="slide">
         <h2>🔧 Mengapa Persiapan Lingkungan?</h2>
         <ul>
-          <li class="fragment fade-in">Python, Node.js, PostgreSQL, dan Docker → fondasi untuk proyek cloud & containerization.</li>
-          <li class="fragment fade-up">Membuat workflow development lebih efisien.</li>
+          <li class="fragment fade-in">Instalasi Python, Node.js, PostgreSQL, dan Docker sebagai fondasi untuk aplikasi cloud & containerization.</li>
+          <li class="fragment fade-up">Menyusun workflow development yang efisien dari pengembangan hingga deployment.</li>
         </ul>
         <div class="illustration fragment fade-in">
-          <img src="../assets/cloud-infra.jpg" alt="Infrastruktur Cloud">
+          <img src="https://source.unsplash.com/featured/?cloud,technology" alt="Infrastruktur Cloud">
           <p>Ilustrasi: Infrastruktur Cloud</p>
         </div>
       </section>
 
-      <!-- Slide 3: Pengantar #2 -->
+      <!-- Slide 3: Konsep Dasar Containerization -->
       <section data-transition="fade">
         <h2>🌐 Konsep Dasar Containerization</h2>
         <ul>
-          <li class="fragment fade-in">Isolasi aplikasi & dependensi dalam container.</li>
-          <li class="fragment fade-up">Memudahkan deploy di berbagai platform (dev, staging, production).</li>
+          <li class="fragment fade-in">Mengisolasi aplikasi beserta dependensinya dalam container.</li>
+          <li class="fragment fade-up">Memudahkan deployment ke berbagai lingkungan (development, staging, production).</li>
         </ul>
         <div class="illustration fragment fade-in">
-          <img src="../assets/docker-containers.png" alt="Ilustrasi Container">
+          <img src="https://source.unsplash.com/featured/?docker,container" alt="Containerization Illustration">
+          <p>Ilustrasi: Containerization</p>
         </div>
       </section>
 
-      <!-- Slide 4: Pengantar #3 -->
+      <!-- Slide 4: Workflow Pengembangan Proyek -->
       <section data-transition="convex">
-        <h2>🔄 Workflow Pengembangan</h2>
+        <h2>🔄 Workflow Pengembangan Proyek</h2>
         <ol>
-          <li class="fragment fade-in">Persiapan environment (Python, Node.js, DB, Docker).</li>
-          <li class="fragment fade-up">Pengembangan backend Flask, frontend React.</li>
-          <li class="fragment fade-in">Containerization & Orchestration.</li>
+          <li class="fragment fade-in">Persiapan environment (instalasi Python, Node.js, DB, Docker).</li>
+          <li class="fragment fade-up">Pengembangan backend menggunakan Flask dan frontend dengan React.js.</li>
+          <li class="fragment fade-in">Containerization & orchestration untuk deployment.</li>
         </ol>
+        <div class="illustration fragment fade-in">
+          <img src="https://source.unsplash.com/featured/?workflow,development" alt="Workflow Development">
+          <p>Ilustrasi: Alur Workflow</p>
+        </div>
       </section>
 
-      <!-- Slide 5: Masuk Modul Praktikum -->
+      <!-- Slide 5: Modul Praktikum -->
       <section data-transition="zoom-in fade-out">
         <h2>📝 Modul Praktikum</h2>
+        <p class="fragment fade-in">Materi praktikum mencakup instalasi, konfigurasi, dan pemahaman konsep dasar yang diperlukan untuk proyek cloud.</p>
       </section>
 
-      <!-- Slide 6: Deskripsi Singkat (Isi dari modul) -->
+      <!-- Slide 6: Deskripsi Singkat -->
       <section data-transition="fade">
         <h2>🔄 Deskripsi Singkat</h2>
         <p class="fragment fade-in">
-          Pada pekan pertama, mahasiswa mempersiapkan seluruh lingkungan pengembangan: instalasi Python, Node.js, PostgreSQL, dan Docker.
-          Selain itu, mempelajari konsep dasar containerization dan workflow pengembangan secara keseluruhan.
+          Pada pekan pertama, mahasiswa menyiapkan seluruh lingkungan pengembangan: instalasi Python, Node.js, PostgreSQL, dan Docker, serta mempelajari dasar containerization dan alur kerja pengembangan aplikasi.
         </p>
       </section>
 
@@ -111,9 +120,15 @@
       <section data-transition="slide">
         <h2>🎯 Tujuan Pembelajaran</h2>
         <ul>
-          <li class="fragment fade-in">Menginstal dan mengonfigurasi Python, Node.js, PostgreSQL, dan Docker.</li>
-          <li class="fragment fade-up">Memahami alur kerja dan struktur direktori proyek (Flask, React.js, Docker).</li>
+          <li class="fragment fade-in">Mampu menginstal dan mengonfigurasi Python, Node.js, PostgreSQL, dan Docker.</li>
+          <li class="fragment fade-up">Memahami alur kerja dan struktur direktori proyek berbasis Flask, React.js, dan Docker.</li>
         </ul>
+        <div class="logos fragment fade-in">
+          <img src="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png" alt="Python">
+          <img src="https://nodejs.org/static/images/logo.svg" alt="Node.js">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.png" alt="Docker">
+        </div>
       </section>
 
       <!-- Slide 8: Pembagian Tugas Tim -->
@@ -123,34 +138,42 @@
           <li class="fragment fade-in"><strong>Backend Engineer</strong>: Menyiapkan Python & Flask.</li>
           <li class="fragment fade-up"><strong>Infrastructure Engineer</strong>: Menyiapkan Docker & PostgreSQL.</li>
         </ul>
+        <div class="illustration fragment fade-in">
+          <img src="https://source.unsplash.com/featured/?teamwork,technology" alt="Pembagian Tugas Tim">
+          <p>Ilustrasi: Kolaborasi Tim</p>
+        </div>
       </section>
 
-      <!-- Slide 9: Langkah-Langkah Praktikum (vertical slides) -->
+      <!-- Slide 9: Langkah-Langkah Praktikum (Vertical Slides) -->
       <section data-transition="slide">
-        
+        <!-- Sub-slide: Instalasi Python -->
         <section>
           <h3>Instalasi Python</h3>
           <pre><code class="hljs bash">
-# Contoh:
+# Periksa versi Python & pip
 python --version
 pip --version
           </code></pre>
-          <p>(Detail langkah di modul)</p>
+          <p>(Lihat panduan lengkap di modul praktikum.)</p>
         </section>
+        <!-- Sub-slide: Instalasi Node.js -->
         <section>
           <h3>Instalasi Node.js</h3>
           <pre><code class="hljs bash">
+# Periksa versi Node.js & npm
 node --version
 npm --version
           </code></pre>
         </section>
+        <!-- Sub-slide: Instalasi PostgreSQL -->
         <section>
           <h3>Instalasi PostgreSQL</h3>
-          <p class="fragment fade-in">Buat user & database awal di pgAdmin atau CLI <code>psql</code>.</p>
+          <p class="fragment fade-in">Buat user dan database awal melalui pgAdmin atau CLI <code>psql</code>.</p>
         </section>
+        <!-- Sub-slide: Instalasi Docker -->
         <section>
           <h3>Instalasi Docker</h3>
-          <p class="fragment fade-in">Cek dengan <code>docker --version</code> & <code>docker compose version</code>.</p>
+          <p class="fragment fade-in">Verifikasi instalasi dengan <code>docker --version</code> dan <code>docker compose version</code>.</p>
         </section>
       </section>
 
@@ -158,29 +181,41 @@ npm --version
       <section data-transition="convex">
         <h2>📊 Kriteria Penilaian</h2>
         <ul>
-          <li class="fragment fade-in">Kesiapan lingkungan (30%)</li>
-          <li class="fragment fade-up">Pengetahuan dasar konsep Docker (30%)</li>
+          <li class="fragment fade-in">Kesiapan lingkungan pengembangan (30%)</li>
+          <li class="fragment fade-up">Pemahaman konsep dasar Docker (30%)</li>
           <li class="fragment fade-in">Kerapian struktur direktori (20%)</li>
-          <li class="fragment fade-up">Kemampuan instalasi tanpa error (20%)</li>
+          <li class="fragment fade-up">Instalasi berjalan tanpa error (20%)</li>
         </ul>
+        <div class="illustration fragment fade-in">
+          <img src="https://source.unsplash.com/featured/?evaluation" alt="Kriteria Penilaian">
+          <p>Ilustrasi: Evaluasi & Penilaian</p>
+        </div>
       </section>
 
       <!-- Slide 11: Checklist Praktikum -->
       <section data-transition="fade">
         <h2>✅ Checklist Praktikum</h2>
         <ul>
-          <li class="fragment fade-in">Python, Node.js, PostgreSQL, Docker terinstal</li>
-          <li class="fragment fade-up">Struktur direktori <code>cloud-project/</code> terbentuk</li>
+          <li class="fragment fade-in">Instalasi Python, Node.js, PostgreSQL, dan Docker selesai.</li>
+          <li class="fragment fade-up">Struktur direktori proyek (mis. <code>cloud-project/</code>) telah terbentuk.</li>
         </ul>
+        <div class="illustration fragment fade-in">
+          <img src="https://source.unsplash.com/featured/?checklist" alt="Checklist">
+          <p>Ilustrasi: Checklist Praktikum</p>
+        </div>
       </section>
 
       <!-- Slide 12: Latihan Mandiri -->
       <section data-transition="zoom">
         <h2>🙋‍♂️ Latihan Mandiri</h2>
         <ul>
-          <li class="fragment fade-in">Coba jalankan Hello World di Python & Node.js</li>
-          <li class="fragment fade-up">Buat database tambahan di PostgreSQL</li>
+          <li class="fragment fade-in">Jalankan program Hello World di Python & Node.js.</li>
+          <li class="fragment fade-up">Buat database tambahan di PostgreSQL untuk eksplorasi.</li>
         </ul>
+        <div class="illustration fragment fade-in">
+          <img src="https://source.unsplash.com/featured/?coding" alt="Latihan Mandiri">
+          <p>Ilustrasi: Coding & Eksperimen</p>
+        </div>
       </section>
 
       <!-- Slide 13: Deadline & Pengumpulan -->
@@ -193,8 +228,7 @@ npm --version
       <section data-transition="zoom-in fade-out">
         <h2>✨ Kata Motivasi</h2>
         <blockquote class="fragment fade-in">
-          "Setiap pengembang hebat yang Anda kenal sampai di sana dengan menyelesaikan masalah yang pada awalnya 
-          mereka tidak yakin bisa mereka selesaikan, hingga mereka benar-benar melakukannya." – Patrick McKenzie
+          "Setiap pengembang hebat yang Anda kenal pernah menyelesaikan masalah yang awalnya mereka ragukan, hingga akhirnya mereka benar-benar melakukannya." – Patrick McKenzie
         </blockquote>
       </section>
 
@@ -210,8 +244,6 @@ npm --version
     Reveal.initialize({
       slideNumber: true,
       touch: true,
-      // Gunakan theme "league"
-      // pdfSeparateFragments, pdfExport, overview, transition, dll.
       pdfSeparateFragments: false,
       pdfExport: true,
       overview: true,

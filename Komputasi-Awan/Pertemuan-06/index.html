@@ -2,249 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pekan 6: Dockerization Bagian 1 (Membuat Dockerfile untuk Flask)</title>
+  <title>Pekan Ini - Sedang Dalam Pembuatan</title>
   <link rel="icon" href="../assets/icon.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
-  <!-- Reveal.js Theme (League) -->
-  <link rel="stylesheet" href="../../reveal/dist/theme/league.css">
-  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/beige.css">
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
   <style>
     .watermark {
       position: fixed;
       bottom: 15px;
       right: 15px;
-      font-size: 25px;
-      color: rgba(255, 255, 255, 0.3); /* Warna sesuai permintaan */
-      z-index: 1000;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.3);
       font-style: italic;
     }
-    .watermark img {
-      height: 25px;
-      vertical-align: middle;
+    .emoji {
+      font-size: 2em;
     }
-    @media screen and (max-width: 768px) {
-      img {
-        max-width: 100%;
-        height: auto;
-      }
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #3498db;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
     }
-    .illustration {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .illustration img {
-      max-width: 70%;
-      height: auto;
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-
-  <!-- Watermark -->
-  <div class="watermark">
-    <img src="../assets/logoSI.png" alt="Logo Universitas">
-    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
-  </div>
-
+  
   <div class="reveal">
     <div class="slides">
-
-      <!-- Slide 1: Judul -->
-      <section data-transition="zoom">
-        <h2>☁️ Komputasi Awan</h2>
-        <h3>Pekan 6: Dockerization Bagian 1 (Membuat Dockerfile untuk Flask)</h3>
+      
+      <section>
+        <h2>🚧 Sedang Dalam Pembuatan 🚧</h2>
+        <p class="fragment fade-in">Mohon bersabar ya, materi pekan ini sedang dipersiapkan dengan baik! 🔧✨</p>
+        <div class="loader fragment fade-in"></div>
       </section>
-
-      <!-- Slide 2: Pengantar #1 -->
-      <section data-transition="slide">
-        <h2>🐳 Mengapa Docker?</h2>
+      
+      <section>
+        <h2>👀 Sementara Itu...</h2>
         <ul>
-          <li class="fragment fade-in">Docker mempermudah pengelolaan lingkungan pengembangan dan produksi.</li>
-          <li class="fragment fade-up">Isolasi aplikasi dan dependensi dalam container.</li>
-        </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/docker-logo.png" alt="Docker Logo">
-          <p>Ilustrasi: Docker dan Container</p>
-        </div>
-      </section>
-
-      <!-- Slide 3: Pengantar #2 -->
-      <section data-transition="fade">
-        <h2>📦 Apa Itu Dockerfile?</h2>
-        <ul>
-          <li class="fragment fade-in">Dockerfile adalah script yang berisi instruksi untuk membangun Docker image.</li>
-          <li class="fragment fade-up">Mengautomasi proses build dan konfigurasi aplikasi.</li>
-        </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/dockerfile-example.png" alt="Contoh Dockerfile">
-          <p>Contoh Struktur Dockerfile</p>
-        </div>
-      </section>
-
-      <!-- Slide 4: Pengantar #3 -->
-      <section data-transition="convex">
-        <h2>🚀 Manfaat Dockerization</h2>
-        <ul>
-          <li class="fragment fade-in">Konsistensi lingkungan antara development dan production.</li>
-          <li class="fragment fade-up">Mudah dalam scaling dan deployment.</li>
-          <li class="fragment fade-in">Mengurangi konflik dependensi antar proyek.</li>
+          <li class="fragment fade-in">Silakan pelajari materi sebelumnya.</li>
+          <li class="fragment fade-in">Jelajahi sumber modul praktikum yang lengkap di <a href="https://aidilsaputrakirsan.github.io">aidilsaputrakirsan.github.io</a> → Educational Resources → Practicals (Members Only).</li>
+          <li class="fragment fade-in">Gunakan waktu ini untuk berdiskusi dengan teman!</li>
         </ul>
       </section>
-
-      <!-- Slide 5: Masuk Modul Praktikum -->
-      <section data-transition="zoom-in fade-out">
-        <h2>📝 Modul Praktikum</h2>
+      
+      <section>
+        <h2>🕰️ Kapan Materi Akan Tersedia?</h2>
+        <p class="fragment fade-in">Kami sedang bekerja keras untuk menyiapkan materi terbaik untuk Anda.</p>
+        <p class="fragment fade-in">Stay tuned! 🔔</p>
       </section>
-
-      <!-- Slide 6: Deskripsi Singkat -->
-      <section data-transition="fade">
-        <h2>🔄 Deskripsi Singkat</h2>
-        <p class="fragment fade-in">
-          Mahasiswa akan belajar membuat Dockerfile untuk aplikasi Flask, sehingga aplikasi dapat dijalankan dalam container. Fokus pada pembuatan Dockerfile, build image, dan menjalankan container.
-        </p>
-      </section>
-
-      <!-- Slide 7: Tujuan Pembelajaran -->
-      <section data-transition="slide">
-        <h2>🎯 Tujuan Pembelajaran</h2>
-        <ul>
-          <li class="fragment fade-in">Memahami sintaks dasar Dockerfile.</li>
-          <li class="fragment fade-up">Mampu membangun Docker image untuk aplikasi Flask.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 8: Pembagian Tugas Tim -->
-      <section data-transition="zoom">
-        <h2>👩‍💻 Pembagian Tugas Tim</h2>
-        <ul>
-          <li class="fragment fade-in"><strong>Backend Engineer</strong>: Mengatur Dockerfile Flask.</li>
-          <li class="fragment fade-up"><strong>Infrastructure Engineer</strong>: Menjalankan container dan menguji image yang dibuat.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 9: Langkah-Langkah Praktikum (vertical slides) -->
-      <section data-transition="slide">
-       
-        <section>
-          <h3>Persiapan Awal</h3>
-          <p class="fragment fade-in">Pastikan Docker Desktop telah berjalan sebelum menjalankan perintah Docker.</p>
-          <pre><code class="hljs bash">
-    # Cek status Docker
-    docker info
-          </code></pre>
-        </section>
-        <section>
-          <h3>Membuat Dockerfile</h3>
-          <pre><code class="hljs dockerfile">
-    # backend/Dockerfile
-    FROM python:3.9-slim
-
-    WORKDIR /app
-
-    COPY requirements.txt requirements.txt
-    RUN pip install --no-cache-dir -r requirements.txt
-
-    COPY . .
-
-    EXPOSE 5000
-    CMD ["python", "app.py"]
-          </code></pre>
-        </section>
-        <section>
-          <h3>Menyiapkan <code>requirements.txt</code></h3>
-          <pre><code class="hljs plaintext">
-    flask
-    flask-cors
-    psycopg2-binary
-          </code></pre>
-        </section>
-        <section>
-          <h3>Membangun Docker Image</h3>
-          <pre><code class="hljs bash">
-    cd backend
-    docker build -t flask-backend:1.0 .
-          </code></pre>
-          <p class="fragment fade-in">Pastikan build berjalan tanpa error.</p>
-        </section>
-        <section>
-          <h3>Menjalankan Docker Container</h3>
-          <pre><code class="hljs bash">
-    docker run -d -p 5000:5000 --name flask-container flask-backend:1.0
-          </code></pre>
-          <p class="fragment fade-in">Cek container berjalan dengan <code>docker ps</code>.</p>
-        </section>
-        <section>
-          <h3>Verifikasi di Browser</h3>
-          <p class="fragment fade-in">Buka <code>http://localhost:5000</code> untuk memastikan Flask API berjalan di dalam container.</p>
-          <div class="illustration fragment fade-in">
-            <img src="../assets/flask-docker-browser.png" alt="Flask API di Docker">
-            <p>Flask API Berjalan di Docker</p>
-          </div>
-        </section>
-      </section>
-
-      <!-- Slide 10: Kriteria Penilaian -->
-      <section data-transition="convex">
-        <h2>📊 Kriteria Penilaian</h2>
-        <ul>
-          <li class="fragment fade-in">Dockerfile berfungsi dan tidak error (40%).</li>
-          <li class="fragment fade-up">Image dapat berjalan sebagai container (40%).</li>
-          <li class="fragment fade-in">Dokumentasi Dockerfile singkat (20%).</li>
-        </ul>
-      </section>
-
-      <!-- Slide 11: Checklist Praktikum -->
-      <section data-transition="fade">
-        <h2>✅ Checklist Praktikum</h2>
-        <ul>
-          <li class="fragment fade-in">Dockerfile dibuat di folder <code>backend/</code>.</li>
-          <li class="fragment fade-up">Docker image berhasil dibangun tanpa error.</li>
-          <li class="fragment fade-in">Container berjalan di port 5000.</li>
-          <li class="fragment fade-up">Flask API dapat diakses dari host.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 12: Latihan Mandiri -->
-      <section data-transition="zoom">
-        <h2>🙋‍♂️ Latihan Mandiri</h2>
-        <ul>
-          <li class="fragment fade-in">Buat tag versi berbeda, misalnya <code>flask-backend:2.0</code>.</li>
-          <li class="fragment fade-up">Push image ke Docker Hub (opsional, jika memiliki akun).</li>
-        </ul>
-      </section>
-
-      <!-- Slide 13: Deadline & Pengumpulan -->
-      <section data-transition="fade">
-        <h2>📢 Deadline & Pengumpulan</h2>
-        <ul>
-          <li class="fragment fade-in">Kumpulkan screenshot container yang berjalan (<code>docker ps</code>) dan respon dari <code>http://localhost:5000</code>.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 14: Troubleshooting Tips -->
-      <section data-transition="convex">
-        <h2>🛠️ Troubleshooting Tips</h2>
-        <ul>
-          <li class="fragment fade-in">Port 5000 sudah digunakan: Gunakan port lain seperti <code>5001</code>.</li>
-          <li class="fragment fade-up">Container tidak berjalan: Periksa logs dengan <code>docker logs flask-container</code>.</li>
-          <li class="fragment fade-in">Error pada Flask: Pastikan semua dependensi terinstal dengan benar.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 15: Inspirasi / Kata Motivasi -->
-      <section data-transition="zoom-in fade-out">
-        <h2>✨ Kata Motivasi</h2>
-        <blockquote class="fragment fade-in">
-          “Containers are the future of development!” – Anonymous
-        </blockquote>
-      </section>
-
+      
     </div>
   </div>
-
+  
   <script src="../../reveal/dist/reveal.js"></script>
   <script src="../../reveal/plugin/markdown/markdown.js"></script>
   <script src="../../reveal/plugin/highlight/highlight.js"></script>
@@ -257,10 +76,11 @@
       pdfSeparateFragments: false,
       pdfExport: true,
       overview: true,
-      transition: 'convex',
+      transition: 'slide',
       autoAnimate: true,
       plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
     });
   </script>
+
 </body>
 </html>

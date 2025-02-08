@@ -64,13 +64,13 @@
         <section>
           <h2>🔄 Deskripsi Singkat</h2>
           <p class="fragment fade-in">
-            Pada pekan kedua, mahasiswa akan membuat API sederhana menggunakan Flask. Tahap ini menitikberatkan pada struktur dasar Flask, routing, dan menjalankan server lokal.
+            Pada pekan kedua, mahasiswa akan membuat API sederhana menggunakan Flask. Materi ini menitikberatkan pada struktur dasar Flask, penjelasan routing, dan menjalankan server lokal.
           </p>
         </section>
         <!-- Sub-slide kedua: Gambar Flask -->
         <section>
           <div class="illustration">
-            <img src="https://flask.palletsprojects.com/en/2.0.x/_images/flask-logo.png" alt="Logo Flask">
+            <img src="https://media.licdn.com/dms/image/D4D12AQFWFLeRgjzEdA/article-cover_image-shrink_600_2000/0/1674452473282?e=2147483647&v=beta&t=CTX82s8PK-F_rq_u0U5-qx_Pavm7l6y0WolsperM6N0" alt="Logo Flask">
             <p>Gambar: Logo Flask</p>
           </div>
         </section>
@@ -78,59 +78,128 @@
 
       <!-- Slide 3: Tujuan Pembelajaran -->
       <section data-transition="fade">
-        <h2>🎯 Capaian Pembelajaran</h2>
+        <h2>🎯 Tujuan Pembelajaran</h2>
         <ul>
           <li class="fragment fade-in">Memahami struktur folder dan best practice dasar dalam pembuatan API Flask.</li>
           <li class="fragment fade-up">Mampu membuat endpoint dasar dengan Flask.</li>
+          <li class="fragment fade-in">Memahami konsep routing dan cara kerjanya dalam aplikasi Flask.</li>
         </ul>
       </section>
 
-      <!-- Slide 4: Struktur Dasar Flask & Routing -->
+      <!-- Slide 4: Pengenalan Flask dan Struktur Aplikasi -->
       <section data-transition="convex">
-        <h2>🛠️ Struktur Dasar Flask & Routing</h2>
-        <p class="fragment fade-in">
-          Flask adalah framework minimalis Python untuk web development. Materi ini mencakup pembuatan aplikasi, konfigurasi folder, dan penentuan routing untuk API.
-        </p>
+        <!-- Sub-slide pertama: Pengenalan Flask -->
+        <section>
+          <h2>🐍 Pengenalan Flask</h2>
+          <p class="fragment fade-in">
+            Flask adalah framework web minimalis untuk Python yang memungkinkan pembuatan aplikasi web dan API dengan mudah. Flask dikenal karena kesederhanaannya dan fleksibilitasnya.
+          </p>
+          <ul>
+            <li class="fragment fade-in">Mudah dipelajari dan digunakan</li>
+            <li class="fragment fade-up">Tidak terlalu memaksakan struktur tertentu</li>
+            <li class="fragment fade-in">Cocok untuk aplikasi kecil hingga menengah</li>
+          </ul>
+        </section>
+        <!-- Sub-slide kedua: Struktur Dasar Aplikasi Flask -->
+        <section>
+          <h2>🗂️ Struktur Dasar Aplikasi Flask</h2>
+          <p class="fragment fade-in">
+            Struktur aplikasi Flask yang sederhana umumnya melibatkan:
+          </p>
+          <ul>
+            <li class="fragment fade-in"><code>app.py</code> sebagai file utama</li>
+            <li class="fragment fade-up">Folder <code>venv/</code> untuk virtual environment</li>
+            <li class="fragment fade-in">File <code>requirements.txt</code> untuk daftar dependensi</li>
+          </ul>
+          <p class="fragment fade-up">
+            Contoh kode dasar dalam <code>app.py</code>:
+          </p>
+          <pre class="fragment fade-in"><code class="python">
+from flask import Flask
+app = Flask(__name__)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+          </code></pre>
+        </section>
       </section>
 
-      <!-- Slide 5: Contoh Kode API Sederhana -->
+      <!-- Slide 5: Penjelasan Routing di Flask -->
+      <section data-transition="slide">
+        <!-- Sub-slide pertama: Konsep Routing -->
+        <section>
+          <h2>🔀 Konsep Routing di Flask</h2>
+          <p class="fragment fade-in">
+            Routing adalah mekanisme untuk menghubungkan URL dengan fungsi yang menangani permintaan. Dengan menggunakan decorator <code>@app.route()</code>, kita dapat menentukan endpoint dan metode HTTP (GET, POST, dll).
+          </p>
+          <ul>
+            <li class="fragment fade-in">Mapping URL ke fungsi</li>
+            <li class="fragment fade-up">Mendukung parameter URL untuk endpoint dinamis</li>
+            <li class="fragment fade-in">Mendukung berbagai metode HTTP seperti GET dan POST</li>
+          </ul>
+        </section>
+        <!-- Sub-slide kedua: Contoh Routing -->
+        <section>
+          <h2>💡 Contoh Routing</h2>
+          <pre class="fragment fade-in"><code class="python">
+@app.route('/api/hello', methods=['GET'])
+def hello():
+    return jsonify({'message': 'Hello, World!'})
+          </code></pre>
+          <p class="fragment fade-up">
+            Pada contoh di atas, ketika URL <code>/api/hello</code> diakses dengan metode GET, fungsi <code>hello()</code> akan mengembalikan respon berupa JSON.
+          </p>
+        </section>
+      </section>
+
+      <!-- Slide 6: Contoh Kode API Sederhana dengan Flask -->
       <section data-transition="zoom-in">
-        <h2>💻 Contoh Kode API dengan Flask</h2>
+        <h2>💻 Contoh Kode API Sederhana</h2>
         <pre class="fragment fade-in"><code class="python">
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+# Endpoint untuk menyapa umum
 @app.route('/api/hello', methods=['GET'])
 def hello():
     return jsonify({'message': 'Hello, World!'})
 
+# Endpoint dengan parameter dinamis
+@app.route('/api/greet/<name>', methods=['GET'])
+def greet(name):
+    return jsonify({'message': f'Hello, {name}!'})
+
 if __name__ == '__main__':
     app.run(debug=True)
         </code></pre>
+        <p class="fragment fade-up">
+          Kode di atas menunjukkan pembuatan API sederhana dengan dua endpoint: satu untuk menyapa secara umum dan satu lagi untuk menyapa berdasarkan parameter nama yang diberikan di URL.
+        </p>
       </section>
 
-      <!-- Slide 6: Pembagian Tugas Tim -->
+      <!-- Slide 7: Pembagian Tugas Tim -->
       <section data-transition="slide">
         <h2>👩‍💻 Pembagian Tugas Tim</h2>
         <ul>
-          <li class="fragment fade-in"><strong>Backend Engineer:</strong> Membuat aplikasi Flask sederhana dan routing dasar.</li>
-          <li class="fragment fade-up"><strong>Infrastructure Engineer:</strong> Memastikan lingkungan Python dan virtual environment berjalan baik.</li>
+          <li class="fragment fade-in"><strong>Backend Engineer:</strong> Membuat aplikasi Flask sederhana, konfigurasi routing, dan penanganan request.</li>
+          <li class="fragment fade-up"><strong>Infrastructure Engineer:</strong> Memastikan lingkungan Python dan virtual environment berjalan dengan baik.</li>
         </ul>
       </section>
 
-      <!-- Slide 7: Rangkuman & Diskusi -->
+      <!-- Slide 8: Rangkuman & Diskusi -->
       <section data-transition="fade">
         <h2>📝 Rangkuman & Diskusi</h2>
         <ul>
-          <li class="fragment fade-in">Pengenalan struktur dasar Flask dan konsep routing.</li>
-          <li class="fragment fade-up">Pemahaman tentang pembuatan API sederhana dengan Flask.</li>
-          <li class="fragment fade-in">Pembagian tugas dalam pembuatan API dan pengelolaan lingkungan.</li>
+          <li class="fragment fade-in">Pengenalan Flask sebagai framework web minimalis untuk Python.</li>
+          <li class="fragment fade-up">Struktur dasar aplikasi Flask dan cara membuat file utama.</li>
+          <li class="fragment fade-in">Penjelasan konsep routing dan contoh implementasinya.</li>
+          <li class="fragment fade-up">Pembuatan API sederhana dengan endpoint dinamis.</li>
         </ul>
         <p class="fragment fade-up">Sesi tanya jawab dan diskusi</p>
       </section>
 
-      <!-- Slide 8: Referensi & Sumber Daya -->
+      <!-- Slide 9: Referensi & Sumber Daya -->
       <section data-transition="zoom">
         <h2>🔗 Referensi & Sumber Daya</h2>
         <ul>

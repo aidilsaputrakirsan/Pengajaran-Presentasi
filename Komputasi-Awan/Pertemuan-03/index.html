@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
-  <!-- Reveal.js Theme (League) -->
-  <link rel="stylesheet" href="../../reveal/dist/theme/league.css">
+  <!-- Reveal.js Theme (Night) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/night.css">
   <!-- Highlight.js CSS -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
   <style>
@@ -17,7 +17,7 @@
       bottom: 15px;
       right: 15px;
       font-size: 25px;
-      color: rgba(255, 255, 255, 0.3); /* Warna sesuai permintaan */
+      color: rgba(255, 255, 255, 0.3);
       z-index: 1000;
       font-style: italic;
     }
@@ -39,6 +39,15 @@
       max-width: 70%;
       height: auto;
     }
+    .flex-images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .flex-images img {
+      max-width: 40%;
+    }
   </style>
 </head>
 <body>
@@ -52,175 +61,134 @@
   <div class="reveal">
     <div class="slides">
 
-      <!-- Slide 1: Judul -->
-      <section data-transition="zoom">
-        <h2>☁️ Komputasi Awan</h2>
-        <h3>Pekan 3: Membuat Aplikasi Frontend Sederhana dengan React + Vite</h3>
+      <!-- Slide 1: Judul & Pembukaan -->
+      <section>
+        <h2 style="color: white;">☁️ Komputasi Awan</h2>
+        <p class="fragment fade-in" style="color: white;">Pekan 3: Membuat Aplikasi Frontend Sederhana dengan React + Vite</p>
       </section>
 
-      <!-- Slide 2: Pengantar #1 -->
+      <!-- Slide 2: Deskripsi Singkat -->
       <section data-transition="slide">
-        <h2>🔥 Mengapa React + Vite?</h2>
-        <ul>
-          <li class="fragment fade-in">React: Library populer untuk UI dinamis.</li>
-          <li class="fragment fade-up">Vite: Build tool cepat (hot reload, bundler minimalis).</li>
-        </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/react-vite-logo.png" alt="React & Vite Logo">
-          <p>Ilustrasi: React dan Vite</p>
-        </div>
+        <!-- Sub-slide: Penjelasan -->
+        <section>
+          <h2>🔄 Deskripsi Singkat</h2>
+          <p class="fragment fade-in">
+            Mahasiswa akan membuat kerangka kerja aplikasi frontend menggunakan React yang dikonfigurasi dengan Vite. 
+            Fokusnya adalah membuat tampilan dasar yang menampilkan tulisan sederhana (misalnya, "Hello, React!") guna memastikan setup dan integrasi berjalan dengan baik.
+          </p>
+        </section>
+        <!-- Sub-slide: Gambar Logo React & Vite -->
+        <section>
+          <div class="illustration flex-images">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="Logo React">
+            <img src="https://vitejs.dev/logo.svg" alt="Logo Vite">
+          </div>
+          <p class="fragment fade-in" style="text-align: center;">Gambar: Logo React dan Vite</p>
+        </section>
       </section>
 
-      <!-- Slide 3: Pengantar #2 -->
+      <!-- Slide 3: Tujuan Pembelajaran -->
       <section data-transition="fade">
-        <h2>🏗️ Struktur Proyek React + Vite</h2>
-        <ul>
-          <li class="fragment fade-in">Folder <code>src</code> untuk source code.</li>
-          <li class="fragment fade-up">Folder <code>public</code> untuk aset statis.</li>
-          <li class="fragment fade-in">File konfigurasi seperti <code>vite.config.js</code>.</li>
-        </ul>
-        <div class="illustration fragment fade-up">
-          <img src="../assets/react-vite-structure.png" alt="Struktur Proyek React + Vite">
-          <p>Struktur Direktori React + Vite</p>
-        </div>
-      </section>
-
-      <!-- Slide 4: Pengantar #3 -->
-      <section data-transition="convex">
-        <h2>🚀 Keuntungan Menggunakan Vite</h2>
-        <ul>
-          <li class="fragment fade-in">Start up server sangat cepat.</li>
-          <li class="fragment fade-up">Hot Module Replacement (HMR) yang efisien.</li>
-          <li class="fragment fade-in">Bundling yang optimal untuk produksi.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 5: Masuk Modul Praktikum -->
-      <section data-transition="zoom-in fade-out">
-        <h2>📝 Modul Praktikum</h2>
-      </section>
-
-      <!-- Slide 6: Deskripsi Singkat -->
-      <section data-transition="fade">
-        <h2>🔄 Deskripsi Singkat</h2>
-        <p class="fragment fade-in">
-          Mahasiswa akan membuat kerangka React menggunakan Vite untuk frontend. Tujuannya adalah membuat tampilan dasar dan menampilkan tulisan sederhana untuk memastikan React berhasil dijalankan dengan Vite.
-        </p>
-      </section>
-
-      <!-- Slide 7: Tujuan Pembelajaran -->
-      <section data-transition="slide">
-        <h2>🎯 Tujuan Pembelajaran</h2>
+        <h2>🎯 Capaian Pembelajaran</h2>
         <ul>
           <li class="fragment fade-in">Memahami workflow pembuatan proyek React dengan Vite.</li>
-          <li class="fragment fade-up">Mampu menjalankan aplikasi React di local development server menggunakan Vite.</li>
+          <li class="fragment fade-up">Mampu menjalankan aplikasi React secara lokal dengan Vite.</li>
+          <li class="fragment fade-in">Mengenal dasar-dasar React seperti komponen, props, dan state.</li>
+          <li class="fragment fade-up">Memahami struktur proyek modern yang dihasilkan oleh Vite.</li>
         </ul>
       </section>
 
-      <!-- Slide 8: Pembagian Tugas Tim -->
-      <section data-transition="zoom">
+      <!-- Slide 4: Pengenalan React & Vite -->
+      <section data-transition="convex">
+        <!-- Sub-slide: Penjelasan React & Vite -->
+        <section>
+          <h2>🔍 Pengenalan React & Vite</h2>
+          <p class="fragment fade-in">
+            <strong>React</strong> adalah library JavaScript untuk membangun antarmuka pengguna secara deklaratif, dengan konsep komponen yang reusable.
+          </p>
+          <p class="fragment fade-up">
+            <strong>Vite</strong> adalah build tool modern yang menawarkan kecepatan tinggi dalam proses development berkat hot module replacement (HMR) dan optimasi build.
+          </p>
+        </section>
+        <!-- Sub-slide: Gambar Logo dan Diagram Sederhana -->
+        <section>
+          <div class="illustration flex-images">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="Logo React">
+            <img src="https://vitejs.dev/logo.svg" alt="Logo Vite">
+          </div>
+          <p class="fragment fade-up" style="text-align: center;">Gambar: Logo React dan Vite</p>
+        </section>
+      </section>
+
+      <!-- Slide 5: Workflow Pembuatan Proyek dengan Vite -->
+      <section data-transition="slide">
+        <h2>🛠️ Workflow Pembuatan Proyek dengan Vite</h2>
+        <ol>
+          <li class="fragment fade-in"><strong>Instalasi Node.js dan npm:</strong> Pastikan Node.js sudah terpasang di sistem.</li>
+          <li class="fragment fade-up"><strong>Membuat Proyek Baru:</strong> Jalankan perintah berikut:
+            <pre class="fragment fade-in"><code class="bash">npm create vite@latest my-react-app -- --template react</code></pre>
+          </li>
+          <li class="fragment fade-in"><strong>Instalasi Dependensi:</strong> Jalankan <code>npm install</code> atau <code>yarn</code>.</li>
+          <li class="fragment fade-up"><strong>Menjalankan Development Server:</strong> Gunakan perintah <code>npm run dev</code> atau <code>yarn dev</code>.</li>
+        </ol>
+        <div class="illustration">
+          <img src="https://via.placeholder.com/600x400?text=Workflow+Diagram" alt="Diagram Workflow">
+          <p class="fragment fade-up">Gambar: Diagram Workflow Pembuatan Proyek</p>
+        </div>
+      </section>
+
+      <!-- Slide 6: Contoh Aplikasi React Sederhana -->
+      <section data-transition="zoom-in">
+        <h2>💻 Contoh Aplikasi React Sederhana</h2>
+        <p class="fragment fade-in">
+          Berikut adalah contoh kode untuk menampilkan tulisan <code>Hello, React!</code> menggunakan React:
+        </p>
+        <pre class="fragment fade-in"><code class="jsx">
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+function App() {
+  return <h1>Hello, React!</h1>;
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+        </code></pre>
+        <div class="illustration">
+          <img src="https://via.placeholder.com/600x400?text=Screenshot+Hello+React" alt="Screenshot Aplikasi React">
+          <p class="fragment fade-up">Gambar: Tampilan Aplikasi React Sederhana</p>
+        </div>
+      </section>
+
+      <!-- Slide 7: Pembagian Tugas Tim -->
+      <section data-transition="slide">
         <h2>👩‍💻 Pembagian Tugas Tim</h2>
         <ul>
-          <li class="fragment fade-in"><strong>Backend Engineer</strong>: Membantu menyesuaikan endpoint di Flask untuk uji coba fetch data.</li>
-          <li class="fragment fade-up"><strong>Infrastructure Engineer</strong>: Menyiapkan Node.js environment dan setup React + Vite boilerplate.</li>
+          <li class="fragment fade-in"><strong>Backend Engineer:</strong> Menyesuaikan endpoint di aplikasi Flask untuk uji coba fetch data jika dibutuhkan.</li>
+          <li class="fragment fade-up"><strong>Infrastructure Engineer:</strong> Menyiapkan Node.js environment dan setup boilerplate proyek React menggunakan Vite.</li>
         </ul>
       </section>
 
-      <!-- Slide 9: Langkah-Langkah Praktikum (vertical slides) -->
-      <section data-transition="slide">
-      
-        <section>
-          <h3>Membuat Proyek React dengan Vite</h3>
-          <pre><code class="hljs bash">
-    cd ../frontend
-    npm create vite@latest my-react-app -- --template react
-    cd my-react-app
-    npm install
-    npm run dev
-          </code></pre>
-          <p class="fragment fade-in">Buka URL lokal (misal: <code>http://127.0.0.1:5173/</code>) di browser.</p>
-        </section>
-        <section>
-          <h3>Struktur Direktori React + Vite</h3>
-          <pre><code class="hljs plaintext">
-    frontend/
-    └─ my-react-app/
-        ├─ src/
-        ├─ public/
-        ├─ package.json
-        ├─ vite.config.js
-        └─ ...
-          </code></pre>
-        </section>
-        <section>
-          <h3>Membuat Halaman Sederhana</h3>
-          <pre><code class="hljs javascript">
-// src/App.jsx
-import React from 'react';
-
-<!--
-function App() {
-  return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Hello from React + Vite!</h1>
-      <p>This is a simple React app built with Vite.</p>
-    </div>
-  );
-}
--->
-export default App;
-          </code></pre>
-        </section>
-        <section>
-          <h3>Menjalankan Aplikasi React + Vite</h3>
-          <pre><code class="hljs bash">
-    npm run dev
-          </code></pre>
-          <p class="fragment fade-in">Pastikan tampilan "Hello from React + Vite!" muncul di browser.</p>
-        </section>
-      </section>
-
-      <!-- Slide 10: Kriteria Penilaian -->
-      <section data-transition="convex">
-        <h2>📊 Kriteria Penilaian</h2>
-        <ul>
-          <li class="fragment fade-in">Aplikasi React berjalan dan menampilkan tampilan sederhana (50%).</li>
-          <li class="fragment fade-up">Struktur proyek dan kebersihan kode (30%).</li>
-          <li class="fragment fade-in">Dokumentasi singkat (20%).</li>
-        </ul>
-      </section>
-
-      <!-- Slide 11: Checklist Praktikum -->
+      <!-- Slide 8: Rangkuman & Diskusi -->
       <section data-transition="fade">
-        <h2>✅ Checklist Praktikum</h2>
+        <h2>📝 Rangkuman & Diskusi</h2>
         <ul>
-          <li class="fragment fade-in">Proyek React berhasil dibuat menggunakan Vite.</li>
-          <li class="fragment fade-up">Tampilan "Hello from React + Vite!" muncul di browser.</li>
-          <li class="fragment fade-in">Tidak ada error pada console browser.</li>
+          <li class="fragment fade-in">Pengenalan React dan Vite serta keunggulan keduanya.</li>
+          <li class="fragment fade-up">Workflow pembuatan proyek React dengan Vite dari instalasi Node.js hingga running development server.</li>
+          <li class="fragment fade-in">Contoh aplikasi sederhana yang menampilkan <code>Hello, React!</code>.</li>
+          <li class="fragment fade-up">Pentingnya kolaborasi antara tim backend dan frontend.</li>
         </ul>
+        <p class="fragment fade-up">Sesi tanya jawab dan diskusi</p>
       </section>
 
-      <!-- Slide 12: Latihan Mandiri -->
+      <!-- Slide 9: Referensi & Sumber Daya -->
       <section data-transition="zoom">
-        <h2>🙋‍♂️ Latihan Mandiri</h2>
+        <h2>🔗 Referensi & Sumber Daya</h2>
         <ul>
-          <li class="fragment fade-in">Tambahkan komponen baru (misalnya <code>Header.jsx</code>) dan tampilkan pesan berbeda.</li>
-          <li class="fragment fade-up">Coba styling sederhana (CSS).</li>
+          <li class="fragment fade-in"><a href="https://reactjs.org/">Dokumentasi React</a></li>
+          <li class="fragment fade-up"><a href="https://vitejs.dev/">Dokumentasi Vite</a></li>
+          <li class="fragment fade-in"><a href="https://nodejs.org/">Dokumentasi Node.js</a></li>
         </ul>
-      </section>
-
-      <!-- Slide 13: Deadline & Pengumpulan -->
-      <section data-transition="fade">
-        <h2>📢 Deadline & Pengumpulan</h2>
-        <p class="fragment fade-in">Kumpulkan screenshot hasil request ke aplikasi React + Vite di LMS.</p>
-      </section>
-
-      <!-- Slide 14: Inspirasi / Kata Motivasi -->
-      <section data-transition="zoom-in fade-out">
-        <h2>✨ Kata Motivasi</h2>
-        <blockquote class="fragment fade-in">
-          “The best way to get a project done faster is to start sooner.” – Jim Highsmith
-        </blockquote>
+        <button class="fragment fade-in" onclick="Reveal.slide(0)">⬅️ Kembali ke Awal</button>
       </section>
 
     </div>
@@ -243,5 +211,6 @@ export default App;
       plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
     });
   </script>
+
 </body>
 </html>

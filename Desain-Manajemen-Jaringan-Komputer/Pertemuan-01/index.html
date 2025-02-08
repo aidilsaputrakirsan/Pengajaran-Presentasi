@@ -66,7 +66,6 @@
       <section>
         <h2 style="color: white;">Desain dan Manajemen Jaringan Komputer</h2>
         <p class="fragment fade-in" style="color: white;">Pekan 1: Pengantar Jaringan & Model OSI</p>
-        <p class="fragment fade-in" style="color: white;">Dosen: [Nama Dosen] | [Tanggal]</p>
       </section>
 
       <!-- Slide 2: Capaian Pembelajaran -->
@@ -92,19 +91,69 @@
         </ul>
       </section>
 
-      <!-- Slide 4: Topologi Jaringan -->
-      <section data-transition="slide">
-        <h2>Topologi Jaringan</h2>
-        <p class="fragment fade-in">
-          Topologi menggambarkan pola hubungan antar perangkat dalam jaringan. Berikut beberapa jenis topologi:
-        </p>
-        <ul>
-          <li class="fragment fade-in"><strong>Star:</strong> Semua perangkat terhubung ke satu titik pusat (switch/hub).</li>
-          <li class="fragment fade-in"><strong>Bus:</strong> Semua perangkat terhubung pada satu kabel utama.</li>
-          <li class="fragment fade-in"><strong>Ring:</strong> Perangkat tersusun dalam lingkaran dengan aliran data searah.</li>
-          <li class="fragment fade-in"><strong>Mesh:</strong> Setiap perangkat terhubung langsung satu sama lain untuk redundansi tinggi.</li>
-        </ul>
-      </section>
+      <!-- Slide 4: Topologi Jaringan dengan sub-sections -->
+        <section data-transition="slide">
+        
+            <!-- Sub-slide utama: Pengantar Topologi Jaringan -->
+            <section>
+            <h2>🔗 Topologi Jaringan</h2>
+            <p class="fragment fade-in">
+                Topologi menggambarkan pola hubungan antar perangkat dalam jaringan. Berikut beberapa jenis topologi:
+            </p>
+            <ul>
+                <li class="fragment fade-in"><strong>Star:</strong> Semua perangkat terhubung ke satu titik pusat (switch/hub).</li>
+                <li class="fragment fade-in"><strong>Bus:</strong> Semua perangkat terhubung pada satu kabel utama.</li>
+                <li class="fragment fade-in"><strong>Ring:</strong> Perangkat tersusun dalam lingkaran dengan aliran data searah.</li>
+                <li class="fragment fade-in"><strong>Mesh:</strong> Setiap perangkat terhubung langsung satu sama lain untuk redundansi tinggi.</li>
+            </ul>
+            </section>
+        
+            <!-- Sub-slide 1: Topologi Star -->
+            <section>
+            <h2>⭐ Topologi Star</h2>
+            <p class="fragment fade-in">
+                Semua perangkat terhubung ke satu titik pusat seperti switch atau hub. Jika salah satu perangkat mengalami masalah, jaringan tidak akan terpengaruh.
+            </p>
+            <div class="illustration">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-6wSdly05wwOVoVdMaRNe7nDmirSz8fH4idAcaWVKnWLhHLUF2OVzpBb1fFnA944-0a67F36txxG54SjS9r4ovEd5QnAFmY4xMWCj4igq9TZ5R8zy0yttqPBqxwfXP739J40WP0g8KL1T55_d4FVvnNd3myL_Nr8QeLGqBUnVq5odLgMYcoHCCY_wpQ/s625/topologi-star.PNG" alt="Topologi Star">
+            </div>
+            </section>
+        
+            <!-- Sub-slide 2: Topologi Bus -->
+            <section>
+            <h2>🚌 Topologi Bus</h2>
+            <p class="fragment fade-in">
+                Semua perangkat terhubung melalui satu kabel utama. Data dikirim dalam satu arah. Jika kabel utama rusak, seluruh jaringan dapat terpengaruh.
+            </p>
+            <div class="illustration">
+                <img src="https://asset.kompas.com/crops/1-SZQocrKVscpy6u8_2vx_KzJHs=/42x52:2215x1501/1200x800/data/photo/2022/08/15/62f9de76b669a.png" alt="Topologi Bus">
+            </div>
+            </section>
+        
+            <!-- Sub-slide 3: Topologi Ring -->
+            <section>
+            <h2>⭕ Topologi Ring</h2>
+            <p class="fragment fade-in">
+                Setiap perangkat terhubung ke dua perangkat lainnya dalam pola melingkar. Data bergerak searah dan jika satu perangkat bermasalah, jaringan bisa terganggu.
+            </p>
+            <div class="illustration">
+                <img src="https://i0.wp.com/umsu.ac.id/berita/wp-content/uploads/2024/07/memahami-topologi-ring-definisi-cara-kerja-dan-fungsinya-dalam-jaringan.png?fit=750%2C500&ssl=1" alt="Topologi Ring">
+            </div>
+            </section>
+        
+            <!-- Sub-slide 4: Topologi Mesh -->
+            <section>
+            <h2>🕸️ Topologi Mesh</h2>
+            <p class="fragment fade-in">
+                Setiap perangkat terhubung langsung ke semua perangkat lain, menciptakan banyak jalur komunikasi. Sangat andal tetapi lebih kompleks dalam konfigurasi.
+            </p>
+            <div class="illustration">
+                <img src="https://asset.kompas.com/crops/NRaLnrLUUTOZ4wflgTJeE0yRPUw=/0x38:2245x1535/1200x800/data/photo/2022/08/15/62f9df0f8d232.png" alt="Topologi Mesh">
+            </div>
+            </section>
+        
+        </section>
+  
 
       <!-- Slide 5: Model OSI & Aliran Data (Tampilan Dua Kolom) -->
       <section data-transition="fade">

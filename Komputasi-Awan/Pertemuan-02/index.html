@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
-  <!-- Theme: league -->
-  <link rel="stylesheet" href="../../reveal/dist/theme/league.css">
+  <!-- Reveal.js Theme (Night) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/night.css">
   <!-- Highlight.js CSS -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
   <style>
@@ -43,183 +43,124 @@
 </head>
 <body>
 
-<div class="watermark">
-  <img src="../assets/logoSI.png" alt="Logo Universitas">
-  © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
-</div>
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+  </div>
 
-<div class="reveal">
-  <div class="slides">
+  <div class="reveal">
+    <div class="slides">
 
-    <!-- Slide 1: Judul -->
-    <section data-transition="zoom">
-      <h2>☁️ Komputasi Awan</h2>
-      <h3>Pekan 2: Membuat API Sederhana dengan Flask</h3>
-    </section>
-
-    <!-- Slide 2: Pengantar #1 -->
-    <section data-transition="slide">
-      <h2>💡 Kenapa Flask?</h2>
-      <ul>
-        <li class="fragment fade-in">Framework Python minimalis untuk membuat API cepat.</li>
-        <li class="fragment fade-up">Struktur sederhana, cocok untuk microservices & prototyping.</li>
-      </ul>
-      <div class="illustration fragment fade-in">
-        <img src="../assets/flask-logo.png" alt="Flask Logo">
-      </div>
-    </section>
-
-    <!-- Slide 3: Pengantar #2 -->
-    <section data-transition="fade">
-      <h2>🏗️ Virtual Environment</h2>
-      <ul>
-        <li class="fragment fade-in">Penting untuk memisahkan dependensi antar proyek.</li>
-        <li class="fragment fade-up">Gunakan <code>venv</code> atau <code>conda</code>.</li>
-      </ul>
-      <p class="fragment fade-in">“Lingkungan bersih, hati tenang.” 😁</p>
-    </section>
-
-    <!-- Slide 4: Pengantar #3 -->
-    <section data-transition="convex">
-      <h2>🌐 Menjalankan Server Lokal</h2>
-      <p class="fragment fade-in">
-        Jalankan <code>app.run()</code> di Flask → <em>localhost:5000</em>.
-      </p>
-      <div class="illustration fragment fade-in">
-        <img src="../assets/flask-route.png" alt="Ilustrasi Routing Flask">
-      </div>
-    </section>
-
-    <!-- Slide 5: Masuk Modul Praktikum -->
-    <section data-transition="zoom-in fade-out">
-      <h2>📝 Modul Praktikum</h2>
-    </section>
-
-    <!-- Slide 6: Deskripsi Singkat (Isi modul) -->
-    <section data-transition="fade">
-      <h2>🔄 Deskripsi Singkat</h2>
-      <p>Pekan ini, mahasiswa akan membuat API sederhana dengan Flask. Fokus pada struktur dasar Flask, routing, dan menjalankan server lokal.</p>
-    </section>
-
-    <!-- Slide 7: Tujuan Pembelajaran -->
-    <section data-transition="slide">
-      <h2>🎯 Tujuan Pembelajaran</h2>
-      <ul>
-        <li class="fragment fade-in">Memahami struktur folder dan best practice dasar pembuatan API Flask.</li>
-        <li class="fragment fade-up">Mampu membuat endpoint dasar dengan Flask.</li>
-      </ul>
-    </section>
-
-    <!-- Slide 8: Pembagian Tugas Tim -->
-    <section data-transition="zoom">
-      <h2>👩‍💻 Pembagian Tugas Tim</h2>
-      <ul>
-        <li class="fragment fade-in"><strong>Backend Engineer</strong>: Membuat aplikasi Flask & routing dasar.</li>
-        <li class="fragment fade-up"><strong>Infrastructure Engineer</strong>: Memastikan environment Python + venv jalan.</li>
-      </ul>
-    </section>
-
-    <!-- Slide 9: Langkah-Langkah Praktikum (vertical) -->
-    <section data-transition="slide">
-      
+      <!-- Slide 1: Judul & Pembukaan -->
       <section>
-        <h3>Membuat Virtual Environment</h3>
-        <pre><code class="hljs bash">
-cd cloud-project/backend
-python -m venv venv
-          </code></pre>
-        <p class="fragment fade-in">Aktifkan dengan <code>source venv/bin/activate</code> (Mac/Linux) atau <code>.\venv\Scripts\activate</code> (Windows).</p>
+        <h2 style="color: white;">☁️ Komputasi Awan</h2>
+        <p class="fragment fade-in" style="color: white;">Pekan 2: Membuat API Sederhana dengan Flask</p>
       </section>
-      <section>
-        <h3>Menginstal Flask</h3>
-        <pre><code class="hljs bash">
-pip install Flask
-          </code></pre>
+
+      <!-- Slide 2: Deskripsi Singkat dengan slide vertikal -->
+      <section data-transition="slide">
+        <!-- Sub-slide pertama: Penjelasan -->
+        <section>
+          <h2>🔄 Deskripsi Singkat</h2>
+          <p class="fragment fade-in">
+            Pada pekan kedua, mahasiswa akan membuat API sederhana menggunakan Flask. Tahap ini menitikberatkan pada struktur dasar Flask, routing, dan menjalankan server lokal.
+          </p>
+        </section>
+        <!-- Sub-slide kedua: Gambar Flask -->
+        <section>
+          <div class="illustration">
+            <img src="https://flask.palletsprojects.com/en/2.0.x/_images/flask-logo.png" alt="Logo Flask">
+            <p>Gambar: Logo Flask</p>
+          </div>
+        </section>
       </section>
-      <section>
-        <h3>Membuat file <code>app.py</code></h3>
-        <pre><code class="hljs python">
+
+      <!-- Slide 3: Tujuan Pembelajaran -->
+      <section data-transition="fade">
+        <h2>🎯 Capaian Pembelajaran</h2>
+        <ul>
+          <li class="fragment fade-in">Memahami struktur folder dan best practice dasar dalam pembuatan API Flask.</li>
+          <li class="fragment fade-up">Mampu membuat endpoint dasar dengan Flask.</li>
+        </ul>
+      </section>
+
+      <!-- Slide 4: Struktur Dasar Flask & Routing -->
+      <section data-transition="convex">
+        <h2>🛠️ Struktur Dasar Flask & Routing</h2>
+        <p class="fragment fade-in">
+          Flask adalah framework minimalis Python untuk web development. Materi ini mencakup pembuatan aplikasi, konfigurasi folder, dan penentuan routing untuk API.
+        </p>
+      </section>
+
+      <!-- Slide 5: Contoh Kode API Sederhana -->
+      <section data-transition="zoom-in">
+        <h2>💻 Contoh Kode API dengan Flask</h2>
+        <pre class="fragment fade-in"><code class="python">
 from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return jsonify({"message": "Hello from Flask!"})
+@app.route('/api/hello', methods=['GET'])
+def hello():
+    return jsonify({'message': 'Hello, World!'})
+
+if __name__ == '__main__':
+    app.run(debug=True)
         </code></pre>
       </section>
-      <section>
-        <h3>Menjalankan Aplikasi Flask</h3>
-        <pre><code class="hljs bash">
-python app.py
-# Akses http://localhost:5000/
-          </code></pre>
+
+      <!-- Slide 6: Pembagian Tugas Tim -->
+      <section data-transition="slide">
+        <h2>👩‍💻 Pembagian Tugas Tim</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Backend Engineer:</strong> Membuat aplikasi Flask sederhana dan routing dasar.</li>
+          <li class="fragment fade-up"><strong>Infrastructure Engineer:</strong> Memastikan lingkungan Python dan virtual environment berjalan baik.</li>
+        </ul>
       </section>
-    </section>
 
-    <!-- Slide 10: Kriteria Penilaian -->
-    <section data-transition="convex">
-      <h2>📊 Kriteria Penilaian</h2>
-      <ul>
-        <li class="fragment fade-in">Fungsi API Hello World berjalan (40%).</li>
-        <li class="fragment fade-up">Kerapian kode & struktur proyek (30%).</li>
-        <li class="fragment fade-in">Dokumentasi singkat (20%).</li>
-        <li class="fragment fade-up">Kesalahan minimal / tidak ada (10%).</li>
-      </ul>
-    </section>
+      <!-- Slide 7: Rangkuman & Diskusi -->
+      <section data-transition="fade">
+        <h2>📝 Rangkuman & Diskusi</h2>
+        <ul>
+          <li class="fragment fade-in">Pengenalan struktur dasar Flask dan konsep routing.</li>
+          <li class="fragment fade-up">Pemahaman tentang pembuatan API sederhana dengan Flask.</li>
+          <li class="fragment fade-in">Pembagian tugas dalam pembuatan API dan pengelolaan lingkungan.</li>
+        </ul>
+        <p class="fragment fade-up">Sesi tanya jawab dan diskusi</p>
+      </section>
 
-    <!-- Slide 11: Checklist Praktikum -->
-    <section data-transition="fade">
-      <h2>✅ Checklist Praktikum</h2>
-      <ul>
-        <li class="fragment fade-in">Virtual environment terbuat & aktif.</li>
-        <li class="fragment fade-up">Flask terinstal.</li>
-        <li class="fragment fade-in">Endpoint <code>/</code> menampilkan JSON Hello World.</li>
-      </ul>
-    </section>
+      <!-- Slide 8: Referensi & Sumber Daya -->
+      <section data-transition="zoom">
+        <h2>🔗 Referensi & Sumber Daya</h2>
+        <ul>
+          <li class="fragment fade-in"><a href="https://flask.palletsprojects.com/">Dokumentasi Flask</a></li>
+          <li class="fragment fade-up"><a href="https://docs.python.org/3/tutorial/">Tutorial Python</a></li>
+          <li class="fragment fade-in"><a href="https://virtualenv.pypa.io/en/latest/">Dokumentasi Virtualenv</a></li>
+        </ul>
+        <button class="fragment fade-in" onclick="Reveal.slide(0)">⬅️ Kembali ke Awal</button>
+      </section>
 
-    <!-- Slide 12: Latihan Mandiri -->
-    <section data-transition="zoom">
-      <h2>🙋‍♂️ Latihan Mandiri</h2>
-      <ul>
-        <li class="fragment fade-in">Tambahkan endpoint <code>/about</code> menampilkan info mahasiswa.</li>
-        <li class="fragment fade-up">Gunakan parameter di endpoint <code>/hello/&lt;nama&gt;</code>.</li>
-      </ul>
-    </section>
-
-    <!-- Slide 13: Deadline & Pengumpulan -->
-    <section data-transition="fade">
-      <h2>📢 Deadline & Pengumpulan</h2>
-      <p>Kumpulkan screenshot hasil request ke API Flask di LMS.</p>
-    </section>
-
-    <!-- Slide 14: Inspirasi -->
-    <section data-transition="zoom-in fade-out">
-      <h2>✨ Kata Motivasi</h2>
-      <blockquote class="fragment fade-in">
-        “Simplicity is the soul of efficiency.” – Austin Freeman
-      </blockquote>
-    </section>
-
+    </div>
   </div>
-</div>
 
-<script src="../../reveal/dist/reveal.js"></script>
-<script src="../../reveal/plugin/markdown/markdown.js"></script>
-<script src="../../reveal/plugin/highlight/highlight.js"></script>
-<script src="../../reveal/plugin/notes/notes.js"></script>
-<script src="../../reveal/plugin/zoom/zoom.js"></script>
-<script>
-  Reveal.initialize({
-    slideNumber: true,
-    touch: true,
-    pdfSeparateFragments: false,
-    pdfExport: true,
-    overview: true,
-    transition: 'convex',
-    autoAnimate: true,
-    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
-  });
-</script>
+  <script src="../../reveal/dist/reveal.js"></script>
+  <script src="../../reveal/plugin/markdown/markdown.js"></script>
+  <script src="../../reveal/plugin/highlight/highlight.js"></script>
+  <script src="../../reveal/plugin/notes/notes.js"></script>
+  <script src="../../reveal/plugin/zoom/zoom.js"></script>
+  <script>
+    Reveal.initialize({
+      slideNumber: true,
+      touch: true,
+      pdfSeparateFragments: false,
+      pdfExport: true,
+      overview: true,
+      transition: 'convex',
+      autoAnimate: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+    });
+  </script>
+
 </body>
 </html>

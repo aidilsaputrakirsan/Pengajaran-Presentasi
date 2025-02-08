@@ -3,20 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Pekan 1: Persiapan Lingkungan dan Pengenalan Dasar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ====== Reveal.js CSS (Lokal) ====== -->
-  <link rel="stylesheet" href="../../reveal/dist/reveal.css">
-  <!-- Ganti “blood.css” sesuai selera tema -->
-  <link rel="stylesheet" href="../../reveal/dist/theme/blood.css">
-
-  <!-- (Opsi) Highlight.js CSS (jika Anda punya juga secara lokal, taruh di folder tersendiri)
-  <link rel="stylesheet" href="../../path-ke-highlight-css/monokai.css">
-  -->
-
   <link rel="icon" href="../assets/icon.png" type="image/png">
-
-  <!-- Style tambahan Anda -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reveal.js Core CSS -->
+  <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Reveal.js Theme (League) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/blood.css">
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
   <style>
     .watermark {
       position: fixed;
@@ -66,6 +60,7 @@
 
       <!-- Slide 2: Deskripsi Singkat dengan slide vertikal -->
       <section data-transition="slide">
+        
         <!-- Sub-slide pertama: Penjelasan -->
         <section data-auto-animate>
           <h2>🔄 Deskripsi Singkat</h2>
@@ -75,6 +70,7 @@
             Fokusnya adalah pada pemahaman konsep, sedangkan aspek teknis akan dibahas di sesi praktikum.
           </p>
         </section>
+
         <!-- Sub-slide kedua: Gambar Konsep Komputasi Awan -->
         <section data-auto-animate>
           <div class="illustration">
@@ -82,6 +78,7 @@
             <p>Gambar: Konsep Komputasi Awan</p>
           </div>
         </section>
+
       </section>
 
       <!-- Slide 3: Capaian Pembelajaran -->
@@ -128,6 +125,7 @@
 
       <!-- Slide 8: Alur Kerja Pengembangan Aplikasi dengan slide vertikal -->
       <section data-transition="convex">
+        
         <!-- Sub-slide pertama: Teks Penjelasan -->
         <section>
           <h2>🔄 Alur Kerja Pengembangan Aplikasi</h2>
@@ -136,6 +134,7 @@
             Teknologi cloud membantu meningkatkan efisiensi di setiap tahap.
           </p>
         </section>
+
         <!-- Sub-slide kedua: Gambar Frontend, Backend, & Docker -->
         <section>
           <div class="illustration">
@@ -143,22 +142,26 @@
             <p>Gambar: Frontend, Backend, & Docker</p>
           </div>
         </section>
+
       </section>
+
 
       <!-- Slide 9: Layanan Cloud (SaaS, PaaS, IaaS) dengan slide vertikal -->
       <section data-transition="slide">
-        <!-- Sub-slide pertama: Penjelasan Mermaid -->
+        
+        <!-- Sub-slide pertama: Penjelasan SaaS, PaaS, IaaS -->
         <section>
-          <h2>☁️ Layanan Cloud</h2>
-          <!-- data-no-highlight agar highlight.js tidak mengganggu Mermaid -->
-          <div class="mermaid" data-no-highlight>
-graph TD
-    A[SaaS] -->|Digunakan oleh User| B[Google Docs]
-    A --> C[Dropbox]
-    D[PaaS] -->|Platform Dev| E[Heroku]
-    F[IaaS] -->|Server Virtual| G[AWS EC2]
-          </div>
+          <h2>☁️ Layanan Cloud: SaaS, PaaS, IaaS</h2>
+          <p class="fragment fade-in">
+            Layanan cloud terbagi dalam tiga kategori utama:
+          </p>
+          <ul>
+            <li class="fragment fade-in"><strong>SaaS (Software as a Service):</strong> Aplikasi siap pakai yang diakses melalui internet.</li>
+            <li class="fragment fade-up"><strong>PaaS (Platform as a Service):</strong> Platform untuk mengembangkan dan mengelola aplikasi tanpa mengurus infrastruktur.</li>
+            <li class="fragment fade-in"><strong>IaaS (Infrastructure as a Service):</strong> Penyediaan sumber daya komputasi seperti server, penyimpanan, dan jaringan secara virtual.</li>
+          </ul>
         </section>
+
         <!-- Sub-slide kedua: Gambar SaaS, PaaS, IaaS -->
         <section>
           <div class="illustration">
@@ -166,6 +169,7 @@ graph TD
             <p>Gambar: Perbedaan SaaS, PaaS, dan IaaS</p>
           </div>
         </section>
+
       </section>
 
       <!-- Slide 10: Prinsip Pengelolaan Proyek -->
@@ -211,27 +215,12 @@ graph TD
     </div>
   </div>
 
-  <!-- =====================
-       Reveal.js (lokal)
-       ===================== -->
   <script src="../../reveal/dist/reveal.js"></script>
-
-  <!-- Plugin-plugin Reveal.js (markdown, highlight, notes, zoom) -->
   <script src="../../reveal/plugin/markdown/markdown.js"></script>
   <script src="../../reveal/plugin/highlight/highlight.js"></script>
   <script src="../../reveal/plugin/notes/notes.js"></script>
   <script src="../../reveal/plugin/zoom/zoom.js"></script>
-
-  <!-- Mermaid (CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-
   <script>
-    // Inisialisasi Mermaid terlebih dahulu
-    mermaid.initialize({
-      startOnLoad: true
-    });
-
-    // Inisialisasi Reveal.js
     Reveal.initialize({
       slideNumber: true,
       touch: true,
@@ -240,14 +229,12 @@ graph TD
       overview: true,
       transition: 'convex',
       autoAnimate: true,
-      plugins: [
-        RevealMarkdown,
-        RevealHighlight,
-        RevealNotes,
-        RevealZoom
-      ]
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
     });
   </script>
-
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>

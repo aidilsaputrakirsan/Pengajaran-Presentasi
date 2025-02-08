@@ -5,12 +5,14 @@
   <title>Pekan 1: Persiapan Lingkungan dan Pengenalan Dasar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Reveal.js Core CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
-  <!-- Reveal.js Theme, misalnya “blood” (bisa diganti) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/blood.css">
-  <!-- Highlight.js (untuk syntax highlighting code block biasa) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/monokai.min.css">
+  <!-- ====== Reveal.js CSS (Lokal) ====== -->
+  <link rel="stylesheet" href="../../reveal/dist/reveal.css">
+  <!-- Ganti “blood.css” sesuai selera tema -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/blood.css">
+
+  <!-- (Opsi) Highlight.js CSS (jika Anda punya juga secara lokal, taruh di folder tersendiri)
+  <link rel="stylesheet" href="../../path-ke-highlight-css/monokai.css">
+  -->
 
   <link rel="icon" href="../assets/icon.png" type="image/png">
 
@@ -55,7 +57,7 @@
 
   <div class="reveal">
     <div class="slides">
-      
+
       <!-- Slide 1: Judul & Pembukaan -->
       <section data-background-image="https://source.unsplash.com/1600x900/?cloud,technology">
         <h2 style="color: white;">☁️ Komputasi Awan</h2>
@@ -148,7 +150,7 @@
         <!-- Sub-slide pertama: Penjelasan Mermaid -->
         <section>
           <h2>☁️ Layanan Cloud</h2>
-          <!-- Perhatikan data-no-highlight agar tidak diserobot highlight.js -->
+          <!-- data-no-highlight agar highlight.js tidak mengganggu Mermaid -->
           <div class="mermaid" data-no-highlight>
 graph TD
     A[SaaS] -->|Digunakan oleh User| B[Google Docs]
@@ -209,15 +211,18 @@ graph TD
     </div>
   </div>
 
-  <!-- Reveal.js Core JS -->
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.js"></script>
-  <!-- Plugin tambahan Reveal.js (markdown, highlight, notes, zoom, dsb.) -->
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/plugin/markdown/markdown.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/plugin/highlight/highlight.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/plugin/notes/notes.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/plugin/zoom/zoom.js"></script>
+  <!-- =====================
+       Reveal.js (lokal)
+       ===================== -->
+  <script src="../../reveal/dist/reveal.js"></script>
 
-  <!-- Mermaid -->
+  <!-- Plugin-plugin Reveal.js (markdown, highlight, notes, zoom) -->
+  <script src="../../reveal/plugin/markdown/markdown.js"></script>
+  <script src="../../reveal/plugin/highlight/highlight.js"></script>
+  <script src="../../reveal/plugin/notes/notes.js"></script>
+  <script src="../../reveal/plugin/zoom/zoom.js"></script>
+
+  <!-- Mermaid (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 
   <script>
@@ -226,7 +231,7 @@ graph TD
       startOnLoad: true
     });
 
-    // Baru inisialisasi Reveal.js
+    // Inisialisasi Reveal.js
     Reveal.initialize({
       slideNumber: true,
       touch: true,

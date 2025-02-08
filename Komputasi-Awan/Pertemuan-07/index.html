@@ -2,245 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pekan 7: Dockerization Bagian 2 (Membuat Dockerfile untuk React dengan Vite)</title>
+  <title>Pekan Ini - Sedang Dalam Pembuatan</title>
   <link rel="icon" href="../assets/icon.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
-  <!-- Reveal.js Theme (League) -->
-  <link rel="stylesheet" href="../../reveal/dist/theme/league.css">
-  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/beige.css">
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
   <style>
     .watermark {
       position: fixed;
       bottom: 15px;
       right: 15px;
-      font-size: 25px;
-      color: rgba(255, 255, 255, 0.3); /* Warna sesuai permintaan */
-      z-index: 1000;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.3);
       font-style: italic;
     }
-    .watermark img {
-      height: 25px;
-      vertical-align: middle;
+    .emoji {
+      font-size: 2em;
     }
-    @media screen and (max-width: 768px) {
-      img {
-        max-width: 100%;
-        height: auto;
-      }
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #3498db;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
     }
-    .illustration {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .illustration img {
-      max-width: 70%;
-      height: auto;
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-
-  <!-- Watermark -->
-  <div class="watermark">
-    <img src="../assets/logoSI.png" alt="Logo Universitas">
-    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
-  </div>
-
+  
   <div class="reveal">
     <div class="slides">
-
-      <!-- Slide 1: Judul -->
-      <section data-transition="zoom">
-        <h2>☁️ Komputasi Awan</h2>
-        <h3>Pekan 7: Dockerization Bagian 2 (Membuat Dockerfile untuk React dengan Vite)</h3>
+      
+      <section>
+        <h2>🚧 Sedang Dalam Pembuatan 🚧</h2>
+        <p class="fragment fade-in">Mohon bersabar ya, materi pekan ini sedang dipersiapkan dengan baik! 🔧✨</p>
+        <div class="loader fragment fade-in"></div>
       </section>
-
-      <!-- Slide 2: Pengantar #1 -->
-      <section data-transition="slide">
-        <h2>⚙️ Mengapa Docker untuk React?</h2>
+      
+      <section>
+        <h2>👀 Sementara Itu...</h2>
         <ul>
-          <li class="fragment fade-in">Mengemas aplikasi frontend ke dalam container mempermudah deployment.</li>
-          <li class="fragment fade-up">Menciptakan lingkungan yang konsisten antara development dan production.</li>
-        </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/docker-react.png" alt="Docker dan React">
-          <p>Ilustrasi: Docker dan React</p>
-        </div>
-      </section>
-
-      <!-- Slide 3: Pengantar #2 -->
-      <section data-transition="fade">
-        <h2>📦 Multi-Stage Build dengan Docker</h2>
-        <ul>
-          <li class="fragment fade-in">Menggunakan multi-stage build untuk optimasi ukuran image.</li>
-          <li class="fragment fade-up">Build aplikasi di satu stage, serve dengan Nginx di stage berikutnya.</li>
-        </ul>
-        <div class="illustration fragment fade-in">
-          <img src="../assets/multi-stage-docker.png" alt="Multi-Stage Docker Build">
-          <p>Diagram Multi-Stage Build</p>
-        </div>
-      </section>
-
-      <!-- Slide 4: Pengantar #3 -->
-      <section data-transition="convex">
-        <h2>🚀 Menjalankan React di Docker dengan Nginx</h2>
-        <ul>
-          <li class="fragment fade-in">Menggunakan Nginx untuk serve aplikasi React secara efisien.</li>
-          <li class="fragment fade-up">Optimasi performa dan keamanan dengan konfigurasi Nginx.</li>
+          <li class="fragment fade-in">Silakan pelajari materi sebelumnya.</li>
+          <li class="fragment fade-in">Jelajahi sumber modul praktikum yang lengkap di <a href="https://aidilsaputrakirsan.github.io">aidilsaputrakirsan.github.io</a> → Educational Resources → Practicals (Members Only).</li>
+          <li class="fragment fade-in">Gunakan waktu ini untuk berdiskusi dengan teman!</li>
         </ul>
       </section>
-
-      <!-- Slide 5: Masuk Modul Praktikum -->
-      <section data-transition="zoom-in fade-out">
-        <h2>📝 Modul Praktikum</h2>
+      
+      <section>
+        <h2>🕰️ Kapan Materi Akan Tersedia?</h2>
+        <p class="fragment fade-in">Kami sedang bekerja keras untuk menyiapkan materi terbaik untuk Anda.</p>
+        <p class="fragment fade-in">Stay tuned! 🔔</p>
       </section>
-
-      <!-- Slide 6: Deskripsi Singkat -->
-      <section data-transition="fade">
-        <h2>🔄 Deskripsi Singkat</h2>
-        <p class="fragment fade-in">
-          Melanjutkan proses containerization, mahasiswa akan membuat Dockerfile untuk aplikasi React yang menggunakan Vite. Tujuannya adalah menjalankan frontend di dalam container menggunakan Nginx, sehingga aplikasi frontend dapat di-deploy secara efisien dan konsisten.
-        </p>
-      </section>
-
-      <!-- Slide 7: Tujuan Pembelajaran -->
-      <section data-transition="slide">
-        <h2>🎯 Tujuan Pembelajaran</h2>
-        <ul>
-          <li class="fragment fade-in">Memahami pembuatan Dockerfile untuk aplikasi React berbasis Vite.</li>
-          <li class="fragment fade-up">Mampu membangun Docker image dan menjalankan container React dengan Vite.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 8: Pembagian Tugas Tim -->
-      <section data-transition="zoom">
-        <h2>👩‍💻 Pembagian Tugas Tim</h2>
-        <ul>
-          <li class="fragment fade-in"><strong>Frontend Engineer</strong>: Mengatur Dockerfile React.</li>
-          <li class="fragment fade-up"><strong>Infrastructure Engineer</strong>: Menjalankan container React dan menguji.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 9: Langkah-Langkah Praktikum (vertical slides) -->
-      <section data-transition="slide">
-       
-        <section>
-          <h3>Persiapan Awal</h3>
-          <p class="fragment fade-in">Pastikan Docker Desktop telah berjalan sebelum menjalankan perintah Docker.</p>
-          <pre><code class="hljs bash">
-    # Cek status Docker
-    docker info
-          </code></pre>
-        </section>
-        <section>
-          <h3>Membuat Dockerfile untuk React dengan Vite</h3>
-          <pre><code class="hljs dockerfile">
-    # frontend/my-react-app/Dockerfile
-    FROM node:14-alpine AS build
-
-    WORKDIR /app
-
-    COPY package*.json ./
-    RUN npm install
-
-    COPY . .
-    RUN npm run build
-
-    FROM nginx:stable-alpine
-    COPY --from=build /app/dist /usr/share/nginx/html
-
-    EXPOSE 80
-    CMD ["nginx", "-g", "daemon off;"]
-          </code></pre>
-        </section>
-        <section>
-          <h3>Membangun Docker Image</h3>
-          <pre><code class="hljs bash">
-    cd frontend/my-react-app
-    docker build -t react-frontend-vite:1.0 .
-          </code></pre>
-          <p class="fragment fade-in">Pastikan build berjalan tanpa error dan folder <code>dist</code> dihasilkan.</p>
-        </section>
-        <section>
-          <h3>Menjalankan Docker Container</h3>
-          <pre><code class="hljs bash">
-    docker run -d -p 3000:80 --name react-container-vite react-frontend-vite:1.0
-          </code></pre>
-          <p class="fragment fade-in">Cek container berjalan dengan <code>docker ps</code>.</p>
-        </section>
-        <section>
-          <h3>Verifikasi di Browser</h3>
-          <p class="fragment fade-in">Buka <code>http://localhost:3000</code> untuk memastikan aplikasi React berjalan di dalam container.</p>
-          <div class="illustration fragment fade-in">
-            <img src="../assets/react-docker-browser.png" alt="React di Docker">
-            <p>React App Berjalan di Docker dengan Nginx</p>
-          </div>
-        </section>
-      </section>
-
-      <!-- Slide 10: Kriteria Penilaian -->
-      <section data-transition="convex">
-        <h2>📊 Kriteria Penilaian</h2>
-        <ul>
-          <li class="fragment fade-in">Dockerfile React dengan Vite berfungsi tanpa error (40%).</li>
-          <li class="fragment fade-up">Image berhasil dibangun dan container berjalan (40%).</li>
-          <li class="fragment fade-in">Struktur Dockerfile bersih dan terdokumentasi (20%).</li>
-        </ul>
-      </section>
-
-      <!-- Slide 11: Checklist Praktikum -->
-      <section data-transition="fade">
-        <h2>✅ Checklist Praktikum</h2>
-        <ul>
-          <li class="fragment fade-in">Dockerfile dibuat di folder <code>frontend/my-react-app/</code>.</li>
-          <li class="fragment fade-up">Docker image berhasil dibangun tanpa error.</li>
-          <li class="fragment fade-in">Container berjalan di port 3000.</li>
-          <li class="fragment fade-up">React App muncul di browser.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 12: Latihan Mandiri -->
-      <section data-transition="zoom">
-        <h2>🙋‍♂️ Latihan Mandiri</h2>
-        <ul>
-          <li class="fragment fade-in">Ubah base image Node.js ke versi lain (misalnya <code>node:16-alpine</code>).</li>
-          <li class="fragment fade-up">Tambahkan environment variable di Dockerfile untuk build arguments.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 13: Deadline & Pengumpulan -->
-      <section data-transition="fade">
-        <h2>📢 Deadline & Pengumpulan</h2>
-        <ul>
-          <li class="fragment fade-in">Kumpulkan screenshot container yang berjalan (<code>docker ps</code>) dan tampilan browser React.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 14: Troubleshooting Tips -->
-      <section data-transition="convex">
-        <h2>🛠️ Troubleshooting Tips</h2>
-        <ul>
-          <li class="fragment fade-in">Out of Memory: Pastikan sistem memiliki RAM yang cukup atau tambahkan swap.</li>
-          <li class="fragment fade-up">File Not Found: Pastikan Anda berada di direktori <code>my-react-app</code> sebelum menjalankan <code>docker build</code>.</li>
-          <li class="fragment fade-in">Port Konflik: Jika port 3000 sudah digunakan, ubah port yang dipetakan, misalnya <code>-p 4000:80</code>.</li>
-          <li class="fragment fade-up">Folder <code>dist</code> Tidak Ada: Pastikan perintah <code>npm run build</code> berhasil dan menghasilkan folder <code>dist</code>.</li>
-        </ul>
-      </section>
-
-      <!-- Slide 15: Inspirasi / Kata Motivasi -->
-      <section data-transition="zoom-in fade-out">
-        <h2>✨ Kata Motivasi</h2>
-        <blockquote class="fragment fade-in">
-          “Code is like humor. When you have to explain it, it’s bad.” – Cory House
-        </blockquote>
-      </section>
-
+      
     </div>
   </div>
-
+  
   <script src="../../reveal/dist/reveal.js"></script>
   <script src="../../reveal/plugin/markdown/markdown.js"></script>
   <script src="../../reveal/plugin/highlight/highlight.js"></script>
@@ -253,10 +76,11 @@
       pdfSeparateFragments: false,
       pdfExport: true,
       overview: true,
-      transition: 'convex',
+      transition: 'slide',
       autoAnimate: true,
       plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
     });
   </script>
+
 </body>
 </html>

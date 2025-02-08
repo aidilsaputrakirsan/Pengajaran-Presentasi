@@ -8,7 +8,7 @@
   <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
   <!-- Reveal.js Theme (Night) -->
-  <link rel="stylesheet" href="../../reveal/dist/theme/moon.css">
+  <link rel="stylesheet" href="../../reveal/dist/theme/night.css">
   <!-- Highlight.js CSS -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
   <style>
@@ -39,6 +39,16 @@
       max-width: 70%;
       height: auto;
     }
+    /* Style untuk dua kolom pada slide Model OSI */
+    .two-columns {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .two-columns ol {
+      list-style-position: inside;
+      padding: 0;
+    }
   </style>
 </head>
 <body>
@@ -46,7 +56,7 @@
   <!-- Watermark -->
   <div class="watermark">
     <img src="../assets/logoSI.png" alt="Logo Universitas">
-    © <script>document.write(new Date().getFullYear());</script> Nama Dosen / Institusi
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
   </div>
 
   <div class="reveal">
@@ -59,15 +69,14 @@
         <p class="fragment fade-in" style="color: white;">Dosen: [Nama Dosen] | [Tanggal]</p>
       </section>
 
-      <!-- Slide 2: Agenda/Outline -->
+      <!-- Slide 2: Capaian Pembelajaran -->
       <section data-transition="slide">
-        <h2>Agenda</h2>
+        <h2>Capaian Pembelajaran</h2>
         <ul>
-          <li class="fragment fade-in">Konsep Dasar Jaringan Komputer</li>
-          <li class="fragment fade-in">Topologi Jaringan</li>
-          <li class="fragment fade-in">Model OSI & Aliran Data</li>
-          <li class="fragment fade-in">Praktikum: Instalasi & Topologi Sederhana</li>
-          <li class="fragment fade-in">Capaian Pembelajaran</li>
+          <li class="fragment fade-in">Memahami konsep dasar dan manfaat jaringan komputer.</li>
+          <li class="fragment fade-in">Menjelaskan jenis-jenis topologi jaringan beserta kelebihan dan kekurangannya.</li>
+          <li class="fragment fade-in">Mengenal 7 lapisan Model OSI dan fungsinya.</li>
+          <li class="fragment fade-in">Mampu menginstal Cisco Packet Tracer dan membangun topologi sederhana.</li>
         </ul>
       </section>
 
@@ -97,22 +106,30 @@
         </ul>
       </section>
 
-      <!-- Slide 5: Model OSI & Aliran Data -->
+      <!-- Slide 5: Model OSI & Aliran Data (Tampilan Dua Kolom) -->
       <section data-transition="fade">
         <h2>Model OSI (Open Systems Interconnection)</h2>
         <p class="fragment fade-in">
           Model OSI membagi proses komunikasi jaringan menjadi 7 lapisan:
         </p>
-        <ol>
-          <li class="fragment fade-in"><strong>Physical:</strong> Transmisi sinyal melalui media fisik (kabel, konektor).</li>
-          <li class="fragment fade-in"><strong>Data Link:</strong> Pengiriman data dalam bentuk frame dan deteksi error.</li>
-          <li class="fragment fade-in"><strong>Network:</strong> Routing dan pengalamatan (misalnya, IP addressing).</li>
-          <li class="fragment fade-in"><strong>Transport:</strong> Pengiriman data secara handal (TCP/UDP).</li>
-          <li class="fragment fade-in"><strong>Session:</strong> Manajemen sesi komunikasi antar aplikasi.</li>
-          <li class="fragment fade-in"><strong>Presentation:</strong> Format data, enkripsi, dan dekripsi.</li>
-          <li class="fragment fade-in"><strong>Application:</strong> Antarmuka interaksi dengan pengguna dan aplikasi.</li>
-        </ol>
-        <p class="fragment fade-in">
+        <div class="two-columns">
+          <div>
+            <ol>
+              <li class="fragment fade-in"><strong>Physical:</strong> Transmisi sinyal melalui media fisik (kabel, konektor).</li>
+              <li class="fragment fade-in"><strong>Data Link:</strong> Pengiriman data dalam bentuk frame dan deteksi error.</li>
+              <li class="fragment fade-in"><strong>Network:</strong> Routing dan pengalamatan (misalnya, IP addressing).</li>
+              <li class="fragment fade-in"><strong>Transport:</strong> Pengiriman data secara handal (TCP/UDP).</li>
+            </ol>
+          </div>
+          <div>
+            <ol start="5">
+              <li class="fragment fade-in"><strong>Session:</strong> Manajemen sesi komunikasi antar aplikasi.</li>
+              <li class="fragment fade-in"><strong>Presentation:</strong> Format data, enkripsi, dan dekripsi.</li>
+              <li class="fragment fade-in"><strong>Application:</strong> Antarmuka interaksi dengan pengguna dan aplikasi.</li>
+            </ol>
+          </div>
+        </div>
+        <p class="fragment fade-in" style="margin-top:20px;">
           Data bergerak melalui proses encapsulation dan decapsulation di setiap lapisan.
         </p>
       </section>
@@ -143,9 +160,9 @@
         </ul>
       </section>
 
-      <!-- Slide 8: Capaian Pembelajaran & Kesimpulan -->
+      <!-- Slide 8: Kesimpulan -->
       <section data-transition="convex">
-        <h2>Capaian Pembelajaran & Kesimpulan</h2>
+        <h2>Kesimpulan</h2>
         <ul>
           <li class="fragment fade-in">Memahami konsep dan manfaat jaringan komputer.</li>
           <li class="fragment fade-in">Menjelaskan berbagai jenis topologi beserta kelebihan dan kekurangannya.</li>

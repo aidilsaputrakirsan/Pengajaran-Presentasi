@@ -152,13 +152,13 @@
         <!-- Sub-slide pertama: Penjelasan SaaS, PaaS, IaaS -->
         <section>
           <h2>☁️ Layanan Cloud</h2>
-          <pre class="mermaid">
+          <div class="mermaid">
             graph TD;
-              A[SaaS] -->|Aplikasi Siap Pakai| B[Google Docs];
-              A --> C[Dropbox];
-              D[PaaS] -->|Platform Dev| E[Heroku];
-              F[IaaS] -->|Server Virtual| G[AWS EC2];
-          </pre>
+              A[SaaS] -->|Digunakan oleh User| B[Google Docs]
+              A --> C[Dropbox]
+              D[PaaS] -->|Platform Dev| E[Heroku]
+              F[IaaS] -->|Server Virtual| G[AWS EC2]
+            </div>                        
         </section>
 
         <!-- Sub-slide kedua: Gambar SaaS, PaaS, IaaS -->
@@ -231,9 +231,21 @@
       plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
     });
   </script>
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
+  <script>
+    Reveal.initialize({
+      slideNumber: true,
+      touch: true,
+      pdfSeparateFragments: false,
+      pdfExport: true,
+      overview: true,
+      transition: 'convex',
+      autoAnimate: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+      dependencies: [
+        { src: 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js', async: true, callback: function() { mermaid.init(); } }
+      ]
+    });
   </script>
+  
 </body>
 </html>

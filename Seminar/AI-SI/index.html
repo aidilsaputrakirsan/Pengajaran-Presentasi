@@ -47,6 +47,20 @@
       max-width: 70%;
       height: auto;
     }
+
+     /* CSS untuk animasi icon */
+     .animated-icon {
+      width: 60px;
+      height: auto;
+      display: inline-block;
+      margin-top: 20px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-15px); }
+      60% { transform: translateY(-7px); }
+    }
   </style>
 </head>
 <body>
@@ -63,6 +77,9 @@
       <!-- SLIDE 1: Judul & Pembukaan -->
       <section>
         <h2 style="color: white;">Mengoptimalkan Peran Mahasiswa Sistem Informasi</h2>
+        <!-- Icon animasi -->
+        <img src="../AI-SI/assets/animated_icon.png" alt="Animated Icon" class="animated-icon">
+        <!-- Konten slide lainnya -->
         <p class="fragment fade-in" style="margin-top: 20px; color: #bbb;">
           Dalam Pemanfaatan dan Pemahaman Alur Logika Kreatif AI di Era Industri 4.0<br>
           untuk Pembangunan Berkelanjutan

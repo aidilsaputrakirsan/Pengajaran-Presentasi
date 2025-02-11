@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>AI & Sistem Informasi: Presentasi</title>
-  <!-- Favicon (opsional) -->
-  <link rel="icon" href="../AI-SI/assets/icon.png" type="image/png">
-
+  <!-- Favicon (menggunakan gambar online) -->
+  <link rel="icon" href="https://via.placeholder.com/32?text=Icon" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
   <!-- Reveal.js Theme (night) -->
   <link rel="stylesheet" href="../../reveal/dist/theme/night.css">
-  <!-- Highlight.js CSS (meski tidak digunakan di slide, tetap dimuat) -->
+  <!-- Highlight.js CSS -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  <!-- Animate.css dari CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <style>
     /* Watermark (opsional) */
@@ -48,26 +49,20 @@
       height: auto;
     }
 
-     /* CSS untuk animasi icon */
-     .animated-icon {
+    /* Kelas tambahan untuk icon animasi */
+    .animated-icon {
       width: 60px;
       height: auto;
       display: inline-block;
       margin-top: 20px;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-15px); }
-      60% { transform: translateY(-7px); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Watermark -->
+  <!-- Watermark dengan gambar online -->
   <div class="watermark">
-    <img src="../AI-SI/assets/logoSI.png" alt="Logo Universitas">
+    <img src="https://via.placeholder.com/100x50?text=Logo+Universitas" alt="Logo Universitas">
     © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
   </div>
 
@@ -76,151 +71,177 @@
 
       <!-- SLIDE 1: Judul & Pembukaan -->
       <section>
-        <h2 style="color: white;">Mengoptimalkan Peran Mahasiswa Sistem Informasi</h2>
-        <!-- Icon animasi -->
-        <img src="../AI-SI/assets/animated_icon.png" alt="Animated Icon" class="animated-icon">
-        <!-- Konten slide lainnya -->
-        <p class="fragment fade-in" style="margin-top: 20px; color: #bbb;">
+        <h2 class="animate__animated animate__fadeInDown" style="color: white;">
+          Mengoptimalkan Peran Mahasiswa Sistem Informasi
+        </h2>
+        <!-- Animated Icon dengan sumber gambar dari internet -->
+        <img src="https://picsum.photos/seed/slide1icon/60/60" alt="Animated Icon" class="animated-icon animate__animated animate__bounce">
+        <p class="fragment fade-in animate__animated animate__fadeIn" style="margin-top: 20px; color: #bbb;">
           Dalam Pemanfaatan dan Pemahaman Alur Logika Kreatif AI di Era Industri 4.0<br>
           untuk Pembangunan Berkelanjutan
         </p>
-        <p class="fragment fade-up" style="color: #bbb;">
+        <p class="fragment fade-up animate__animated animate__fadeInUp" style="color: #bbb;">
           <strong>Perkenalan:</strong> Nama/Jurusan/Institusi<br>
           <strong>Latar Belakang:</strong> Transformasi digital & peran AI bagi SI<br>
           <strong>Tujuan Presentasi:</strong> Memahami peran SI dalam AI, alur logika AI, kaitan SDGs
         </p>
+        <!-- Ilustrasi slide 1 -->
+        <div class="illustration">
+          <img src="https://picsum.photos/seed/slide1/800/400" alt="Slide 1 Illustration" class="animate__animated animate__fadeInUp">
+        </div>
       </section>
 
       <!-- SLIDE 2: Outline Presentasi -->
       <section data-transition="slide">
-        <h2>Outline Presentasi</h2>
+        <h2 class="animate__animated animate__fadeInDown">Outline Presentasi</h2>
         <ul>
-          <li class="fragment fade-in">Sekilas tentang Artificial Intelligence (AI)</li>
-          <li class="fragment fade-up">Peran Mahasiswa Sistem Informasi dalam Era AI</li>
-          <li class="fragment fade-in">Alur Logika AI</li>
-          <li class="fragment fade-up">Integrasi Kreativitas Mahasiswa SI dalam AI</li>
-          <li class="fragment fade-in">Framework Inovasi untuk Industri 4.0</li>
-          <li class="fragment fade-up">AI dan Sustainable Development Goals (SDGs)</li>
-          <li class="fragment fade-in">Kesimpulan & Diskusi</li>
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">Sekilas tentang Artificial Intelligence (AI)</li>
+          <li class="fragment fade-up animate__animated animate__fadeInRight">Peran Mahasiswa Sistem Informasi dalam Era AI</li>
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">Alur Logika AI</li>
+          <li class="fragment fade-up animate__animated animate__fadeInRight">Integrasi Kreativitas Mahasiswa SI dalam AI</li>
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">Framework Inovasi untuk Industri 4.0</li>
+          <li class="fragment fade-up animate__animated animate__fadeInRight">AI dan Sustainable Development Goals (SDGs)</li>
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">Kesimpulan & Diskusi</li>
         </ul>
+        <div class="illustration">
+          <img src="https://picsum.photos/seed/slide2/800/400" alt="Slide 2 Illustration" class="animate__animated animate__fadeInUp">
+        </div>
       </section>
 
       <!-- SLIDE 3: Definisi & Evolusi AI -->
       <section data-transition="fade">
-        <h2>Definisi & Evolusi AI</h2>
+        <h2 class="animate__animated animate__fadeInDown">Definisi & Evolusi AI</h2>
         <ul>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Definisi AI:</strong> Kecerdasan Buatan yang meniru proses kognitif manusia (belajar, berpikir, memecahkan masalah).
           </li>
-          <li class="fragment fade-up">
+          <li class="fragment fade-up animate__animated animate__fadeInRight">
             <strong>Evolusi Singkat AI:</strong><br>
             - Sistem Pakar, rule-based, logika fuzzy<br>
             - Machine Learning (supervised & unsupervised)<br>
             - Deep Learning (neural network, big data)
           </li>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Perkembangan Terkini:</strong> Generative AI (ChatGPT, DALL-E), penerapan di kesehatan, edukasi, dsb.
           </li>
         </ul>
+        <div class="illustration">
+          <img src="https://picsum.photos/seed/slide3/800/400" alt="Slide 3 Illustration" class="animate__animated animate__fadeInUp">
+        </div>
       </section>
 
       <!-- SLIDE 4: Teknologi Machine Learning Kontemporer -->
       <section data-transition="convex">
-        <h2>Teknologi Machine Learning Kontemporer</h2>
+        <h2 class="animate__animated animate__fadeInDown">Teknologi Machine Learning Kontemporer</h2>
         <ul>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             Supervised, Unsupervised, Reinforcement Learning
           </li>
-          <li class="fragment fade-up">
+          <li class="fragment fade-up animate__animated animate__fadeInRight">
             <strong>Contoh Implementasi:</strong><br>
             - Computer Vision (pengenalan wajah, deteksi objek)<br>
             - NLP (chatbot, analisis sentimen)<br>
             - Sistem Rekomendasi (e-commerce, streaming)
           </li>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Tantangan & Etika:</strong> Bias data, privasi, keamanan, transparansi
           </li>
         </ul>
+        <div class="illustration">
+          <img src="https://picsum.photos/seed/slide4/800/400" alt="Slide 4 Illustration" class="animate__animated animate__fadeInUp">
+        </div>
       </section>
 
       <!-- SLIDE 5: Peran Mahasiswa Sistem Informasi -->
       <section data-transition="zoom-in">
-        <h2>Peran Mahasiswa Sistem Informasi</h2>
+        <h2 class="animate__animated animate__fadeInDown">Peran Mahasiswa Sistem Informasi</h2>
         <ul>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Posisi Strategis:</strong> Memahami aspek bisnis, manajemen, dan teknologi; penghubung stakeholder
           </li>
-          <li class="fragment fade-up">
+          <li class="fragment fade-up animate__animated animate__fadeInRight">
             <strong>Fondasi Kompetensi:</strong> Manajemen proyek, analisis kebutuhan, database, dasar pemrograman AI
           </li>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Kontribusi Era AI:</strong> Desain sistem user-centric, data pipeline & integrasi, keamanan info, etika
           </li>
         </ul>
+        <div class="illustration">
+          <img src="https://picsum.photos/seed/slide5/800/400" alt="Slide 5 Illustration" class="animate__animated animate__fadeInUp">
+        </div>
       </section>
 
       <!-- SLIDE 6: Alur Logika AI (Logical Flow) -->
       <section data-transition="slide">
-        <h2>Alur Logika AI</h2>
+        <h2 class="animate__animated animate__fadeInDown">Alur Logika AI</h2>
         <ol>
-          <li class="fragment fade-in">Kumpulan Data (Collection)</li>
-          <li class="fragment fade-up">Preprocessing & Feature Extraction</li>
-          <li class="fragment fade-in">Modeling & Training (pilih algoritma, latih model)</li>
-          <li class="fragment fade-up">Evaluation & Validation (akurasi, precision, recall)</li>
-          <li class="fragment fade-in">Deployment & Maintenance (monitoring, update model)</li>
-          <li class="fragment fade-up">Iterasi & Continuous Improvement</li>
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">Kumpulan Data (Collection)</li>
+          <li class="fragment fade-up animate__animated animate__fadeInRight">Preprocessing & Feature Extraction</li>
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">Modeling & Training (pilih algoritma, latih model)</li>
+          <li class="fragment fade-up animate__animated animate__fadeInRight">Evaluation & Validation (akurasi, precision, recall)</li>
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">Deployment & Maintenance (monitoring, update model)</li>
+          <li class="fragment fade-up animate__animated animate__fadeInRight">Iterasi & Continuous Improvement</li>
         </ol>
-        <p class="fragment fade-in">
+        <p class="fragment fade-in animate__animated animate__fadeIn">
           <em>Peran SI:</em> Pastikan relevansi kebutuhan bisnis & etika di setiap tahap.
         </p>
+        <div class="illustration">
+          <img src="https://picsum.photos/seed/slide6/800/400" alt="Slide 6 Illustration" class="animate__animated animate__fadeInUp">
+        </div>
       </section>
 
       <!-- SLIDE 7: Integrasi Kreativitas Mahasiswa SI dalam AI -->
       <section data-transition="fade">
-        <h2>Integrasi Kreativitas Mahasiswa SI</h2>
+        <h2 class="animate__animated animate__fadeInDown">Integrasi Kreativitas Mahasiswa SI</h2>
         <ul>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Pendekatan Multidisipliner:</strong> Kolaborasi dengan desain, psikologi, ekonomi
           </li>
-          <li class="fragment fade-up">
+          <li class="fragment fade-up animate__animated animate__fadeInRight">
             <strong>Metodologi Pengembangan AI:</strong> Agile, Scrum, Design Thinking
           </li>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Adaptasi Model:</strong> Konteks lokal, bahasa, trade-off akurasi & interpretabilitas
           </li>
-          <li class="fragment fade-up">
+          <li class="fragment fade-up animate__animated animate__fadeInRight">
             <strong>Transformasi:</strong> Dampak pada proses bisnis, pola masyarakat, pembelajaran
           </li>
         </ul>
+        <div class="illustration">
+          <img src="https://picsum.photos/seed/slide7/800/400" alt="Slide 7 Illustration" class="animate__animated animate__fadeInUp">
+        </div>
       </section>
 
       <!-- SLIDE 8: Framework Inovasi untuk Industri 4.0 -->
       <section data-transition="convex">
-        <h2>Framework Inovasi untuk Industri 4.0</h2>
+        <h2 class="animate__animated animate__fadeInDown">Framework Inovasi untuk Industri 4.0</h2>
         <ul>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Kolaborasi SI & AI:</strong> ERP cerdas, predictive analytics, chatbot
           </li>
-          <li class="fragment fade-up">
+          <li class="fragment fade-up animate__animated animate__fadeInRight">
             <strong>Implementasi Sistem Terintegrasi:</strong> Integrasi data, cloud, IoT real-time
           </li>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Kebutuhan Industri:</strong> Data analytics, manajemen proyek AI, keamanan siber
           </li>
-          <li class="fragment fade-up">
+          <li class="fragment fade-up animate__animated animate__fadeInRight">
             <strong>Tren Masa Depan:</strong> Edge computing, blockchain + AI, 5G/6G, quantum computing
           </li>
         </ul>
+        <div class="illustration">
+          <img src="https://picsum.photos/seed/slide8/800/400" alt="Slide 8 Illustration" class="animate__animated animate__fadeInUp">
+        </div>
       </section>
 
       <!-- SLIDE 9: AI dan Sustainable Development Goals (SDGs) -->
       <section data-transition="slide">
-        <h2>AI dan Sustainable Development Goals (SDGs)</h2>
+        <h2 class="animate__animated animate__fadeInDown">AI dan Sustainable Development Goals (SDGs)</h2>
         <ul>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Konteks Dasar SDGs:</strong> 17 tujuan global, peran teknologi
           </li>
-          <li class="fragment fade-up">
+          <li class="fragment fade-up animate__animated animate__fadeInRight">
             <strong>Contoh Implementasi:</strong><br>
             - Goal 1: Pemetaan kemiskinan<br>
             - Goal 4: E-learning cerdas<br>
@@ -229,42 +250,51 @@
             - Goal 8: Otomasi proses, efisiensi<br>
             - Goal 10: Analisis kesenjangan akses
           </li>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Tantangan:</strong> Infrastruktur, SDM, regulasi, etika (bias data)
           </li>
         </ul>
+        <div class="illustration">
+          <img src="https://picsum.photos/seed/slide9/800/400" alt="Slide 9 Illustration" class="animate__animated animate__fadeInUp">
+        </div>
       </section>
 
       <!-- SLIDE 10: Kesimpulan & Ajakan -->
       <section data-transition="fade">
-        <h2>Kesimpulan & Ajakan</h2>
+        <h2 class="animate__animated animate__fadeInDown">Kesimpulan & Ajakan</h2>
         <ul>
-          <li class="fragment fade-in">
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">
             <strong>Kesimpulan:</strong>  
             - AI: Teknologi inti Industri 4.0  
             - Mahasiswa SI: Penggerak inovasi AI & etika  
             - SDGs: Dapat terbantu AI, perlu kolaborasi lintas sektor
           </li>
-          <li class="fragment fade-up">
+          <li class="fragment fade-up animate__animated animate__fadeInRight">
             <strong>Ajakan:</strong>  
             - Tingkatkan literasi data & pemrograman AI  
             - Ikuti riset kolaboratif & inovasi berkelanjutan  
             - Aktif di komunitas AI / data science kampus
           </li>
         </ul>
+        <div class="illustration">
+          <img src="https://picsum.photos/seed/slide10/800/400" alt="Slide 10 Illustration" class="animate__animated animate__fadeInUp">
+        </div>
       </section>
 
       <!-- SLIDE 11: Sesi Diskusi / Q&A -->
       <section data-transition="zoom-in">
-        <h2>Sesi Diskusi / Q&A</h2>
+        <h2 class="animate__animated animate__fadeInDown">Sesi Diskusi / Q&A</h2>
         <ul>
-          <li class="fragment fade-in">Bagaimana implementasi AI di kampus untuk SI?</li>
-          <li class="fragment fade-up">Cara mengatasi bias data & isu etika?</li>
-          <li class="fragment fade-in">Kendala terbesar penerapan AI di Indonesia?</li>
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">Bagaimana implementasi AI di kampus untuk SI?</li>
+          <li class="fragment fade-up animate__animated animate__fadeInRight">Cara mengatasi bias data & isu etika?</li>
+          <li class="fragment fade-in animate__animated animate__fadeInLeft">Kendala terbesar penerapan AI di Indonesia?</li>
         </ul>
-        <p class="fragment fade-in" style="margin-top: 20px;">
+        <p class="fragment fade-in animate__animated animate__fadeIn" style="margin-top: 20px;">
           <em>Terima kasih dan selamat berdiskusi!</em>
         </p>
+        <div class="illustration">
+          <img src="https://picsum.photos/seed/slide11/800/400" alt="Slide 11 Illustration" class="animate__animated animate__fadeInUp">
+        </div>
       </section>
 
     </div>

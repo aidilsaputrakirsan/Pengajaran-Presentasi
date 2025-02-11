@@ -1,32 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Reveal.js AI & SI Presentation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+  <title>Seminar: AI & Sistem Informasi</title>
 
-  <!-- REVEAL.JS CORE CSS -->
+  <!-- Favicon atau logo (opsional); sesuaikan path -->
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
-
-  <!-- THEME (pilih salah satu dari folder theme: black, league, moon, etc.) -->
-  <link rel="stylesheet" href="../../reveal/dist/theme/league.css" id="theme">
-
-  <!-- PLUGIN HIGHLIGHT.JS CSS -->
+  <!-- Reveal.js Theme (contoh: dracula, league, night, dll.) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/dracula.css">
+  <!-- Highlight.js CSS (untuk syntax highlighting) -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
-
+  
   <!-- KUSTOM CSS (opsional) -->
   <style>
-    /* Contoh gaya latar belakang gradien */
+    /* Contoh watermark (opsional) */
+    .watermark {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      font-size: 25px;
+      color: rgba(255,255,255,0.3);
+      z-index: 1000;
+      font-style: italic;
+    }
+    .watermark img {
+      height: 25px;
+      vertical-align: middle;
+    }
+
+    /* Gaya tambahan untuk responsivitas gambar */
+    @media screen and (max-width: 768px) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
     .slide-bg-gradient {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #fff;
     }
-
-    /* Contoh styling tambahan */
     h1, h2, h3 {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
-
     p, li {
       font-size: 1.1em;
     }
@@ -34,75 +54,59 @@
 </head>
 <body>
 
-<div class="reveal">
-  <div class="slides">
+  <!-- Watermark (opsional) -->
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Nama Anda
+  </div>
 
-    <!-- SLIDE 1: Cover / Pembuka -->
-    <section data-markdown data-separator="^---$" data-separator-vertical="^--$">
-<script type="text/template">
+  <div class="reveal">
+    <div class="slides">
 
-# Mengoptimalkan Peran Mahasiswa Sistem Informasi  
-### (Dalam Pemanfaatan dan Pemahaman Alur Logika Kreatif AI)
+      <!-- SLIDE 1: Cover / Pembuka -->
+      <section data-transition="zoom">
+        <h2>Mengoptimalkan Peran Mahasiswa Sistem Informasi</h2>
+        <h3>(Dalam Pemanfaatan dan Pemahaman Alur Logika Kreatif AI)</h3>
+        <p class="fragment fade-in" style="margin-top:20px;">
+          Era Industri 4.0 &amp; Pembangunan Berkelanjutan
+        </p>
+        <p class="fragment fade-up">
+          <strong>Durasi:</strong> 30 Menit Presentasi + 30 Menit Diskusi
+        </p>
+      </section>
 
-**Era Industri 4.0 & Pembangunan Berkelanjutan**
+      <!-- SLIDE 2: Outline -->
+      <section data-transition="slide">
+        <h2>Outline Presentasi</h2>
+        <ul>
+          <li class="fragment fade-in">Sekilas tentang AI</li>
+          <li class="fragment fade-up">Peran Mahasiswa SI dalam Era AI</li>
+          <li class="fragment fade-in">Alur Logika AI</li>
+          <li class="fragment fade-up">Integrasi Kreativitas &amp; Kolaborasi</li>
+          <li class="fragment fade-in">Framework Inovasi Industri 4.0</li>
+          <li class="fragment fade-up">AI &amp; SDGs</li>
+          <li class="fragment fade-in">Kesimpulan &amp; Diskusi</li>
+        </ul>
+      </section>
 
-**Pemateri:** Nama Anda  
-**Waktu:** 30 Menit Presentasi + 30 Menit Diskusi  
+      <!-- SLIDE 3: Sekilas tentang AI -->
+      <section data-transition="fade">
+        <h2>Sekilas tentang Artificial Intelligence</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Definisi AI:</strong> Sistem yang meniru kecerdasan manusia.</li>
+          <li class="fragment fade-up">
+            <strong>Evolusi Singkat:</strong> Sistem Pakar (Rule-based) → Machine Learning → Deep Learning.
+          </li>
+          <li class="fragment fade-in">
+            <strong>Contoh Teknologi:</strong> Computer Vision, NLP, Reinforcement Learning, Generative AI.
+          </li>
+        </ul>
+      </section>
 
-???
-
-Catatan Presenter (Notes):  
-- Sapa audiens, perkenalkan diri.  
-- Tekankan pentingnya materi ini bagi mahasiswa SI.
-
----
-
-## Outline Presentasi
-
-1. **Sekilas tentang AI**  
-2. **Peran Mahasiswa SI dalam Era AI**  
-3. **Alur Logika AI**  
-4. **Integrasi Kreativitas & Kolaborasi**  
-5. **Framework Inovasi Industri 4.0**  
-6. **AI & SDGs**  
-7. **Kesimpulan & Diskusi**
-
-???
-Catatan Presenter (Notes):
-- Sampaikan garis besar materi.
-- Jelaskan durasi dan format diskusi.
-
-</script>
-    </section>
-
-    <!-- SLIDE 2: Sekilas tentang AI -->
-    <section data-markdown>
-<script type="text/template">
-
-# Sekilas tentang Artificial Intelligence
-
-- **Definisi AI:** Kecerdasan Buatan yang meniru pemrosesan dan pengambilan keputusan seperti manusia.  
-- **Evolusi Singkat:**  
-  - Sistem Pakar (Rule-based)  
-  - Machine Learning (Supervised / Unsupervised)  
-  - Deep Learning & Neural Networks  
-
-**Contoh Teknologi Terkini:**  
-- *Computer Vision*, *NLP*, *Reinforcement Learning*, *Generative AI*
-
-???
-
-Catatan Presenter:
-- Tekankan relevansi AI di era Industri 4.0
-- Contoh pemakaian AI di berbagai sektor (kesehatan, keuangan, edukasi)
-
-</script>
-    </section>
-
-    <!-- SLIDE 3: Contoh Code Highlight -->
-    <section>
-      <h2>Contoh Code (Highlight.js)</h2>
-      <pre><code class="hljs python">
+      <!-- SLIDE 4: Contoh Code (Highlight.js) -->
+      <section data-transition="convex">
+        <h2>Contoh Kode (Highlight.js)</h2>
+        <pre><code class="hljs python">
 import tensorflow as tf
 
 # Contoh model sederhana
@@ -113,152 +117,139 @@ model = tf.keras.Sequential([
 
 model.compile(optimizer='adam', loss='binary_crossentropy')
 model.summary()
-      </code></pre>
-      <aside class="notes">
-        Ini adalah catatan presenter untuk menjelaskan code pada sesi tertentu.
-      </aside>
-    </section>
+        </code></pre>
+        <p class="fragment fade-in" style="font-size:0.9em;">Contoh <em>Neural Network</em> dengan TensorFlow.</p>
+      </section>
 
-    <!-- SLIDE 4: Contoh Rumus Matematika -->
-    <section>
-      <h2>Contoh Rumus Matematika (Math Plugin)</h2>
-      <p>Kita dapat menulis rumus seperti \( E = mc^2 \) atau persamaan integral:</p>
-      <p>
-        \[
-          \int_{0}^{\infty} x^n e^{-x}\,dx = n!
-        \]
-      </p>
-      <aside class="notes">
-        Jelaskan kegunaan tampilan rumus, misal untuk analisis statistik 
-        atau kalkulasi ilmiah.
-      </aside>
-    </section>
+      <!-- SLIDE 5: Contoh Rumus (Jika Menggunakan Math Plugin) -->
+      <section data-transition="fade">
+        <h2>Contoh Rumus Matematika</h2>
+        <p>
+          Kita bisa menulis rumus seperti \( E = mc^2 \) atau persamaan integral:
+        </p>
+        <p>
+          \[
+            \int_{0}^{\infty} x^n e^{-x}\,dx = n!
+          \]
+        </p>
+      </section>
 
-    <!-- SLIDE 5: Background Gradien (class) -->
-    <section class="slide-bg-gradient">
-      <h2>Peran Mahasiswa SI dalam Era AI</h2>
-      <ul>
-        <li><strong>Posisi Strategis:</strong> Memahami bisnis + teknologi</li>
-        <li><strong>Fondasi Kompetensi:</strong> Analisis sistem, manajemen proyek, database</li>
-        <li><strong>Kontribusi:</strong> Mewujudkan solusi AI yang relevan dan berkelanjutan</li>
-      </ul>
-      <aside class="notes">
-        Fokus pada poin bridging antara kebutuhan bisnis dan teknis.
-      </aside>
-    </section>
+      <!-- SLIDE 6: Peran Mahasiswa SI -->
+      <section data-transition="zoom" class="slide-bg-gradient">
+        <h2>Peran Mahasiswa SI dalam Era AI</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Posisi Strategis:</strong> Mengerti aspek bisnis, teknologi, dan user.</li>
+          <li class="fragment fade-up"><strong>Fondasi Kompetensi:</strong> Analisis sistem, manajemen proyek, database.</li>
+          <li class="fragment fade-in"><strong>Kontribusi:</strong> Implementasi solusi AI yang relevan dan berkelanjutan.</li>
+        </ul>
+      </section>
 
-    <!-- SLIDE 6: Integrasi Kreativitas -->
-    <section data-markdown>
-<script type="text/template">
+      <!-- SLIDE 7: Alur Logika AI -->
+      <section data-transition="slide">
+        <h2>Alur Logika AI</h2>
+        <ol>
+          <li class="fragment fade-in">Kumpulan Data → <em>preprocessing</em> &amp; <em>feature extraction</em>.</li>
+          <li class="fragment fade-up">Modeling &amp; Training → Validasi dengan data uji.</li>
+          <li class="fragment fade-in">Deployment &amp; Maintenance → Monitoring kinerja.</li>
+          <li class="fragment fade-up">Iterasi &amp; Continuous Improvement.</li>
+        </ol>
+      </section>
 
-## Integrasi Kreativitas dalam AI
+      <!-- SLIDE 8: Integrasi Kreativitas -->
+      <section data-transition="fade">
+        <h2>Integrasi Kreativitas dalam AI</h2>
+        <ul>
+          <li class="fragment fade-in">Pendekatan Holistik &amp; Kolaborasi Multidisipliner.</li>
+          <li class="fragment fade-up">Metodologi Pengembangan: Design Thinking, Agile, dsb.</li>
+          <li class="fragment fade-in">Adaptasi Model: Sesuai konteks lokal &amp; budaya.</li>
+          <li class="fragment fade-up">Transformasi Melalui AI: Mengubah proses bisnis &amp; masyarakat.</li>
+        </ul>
+      </section>
 
-- **Pendekatan Multidisipliner:** Kolaborasi dengan ilmu lain (desain, sosial, ekonomi)
-- **Metodologi Pengembangan:** Design Thinking, Agile, dsb.
-- **Adaptasi Model:** Sesuaikan dengan konteks lokal & budaya
-- **Transformasi Melalui AI:** Mengubah proses bisnis & masyarakat
+      <!-- SLIDE 9: Framework Inovasi Industri 4.0 -->
+      <section data-transition="convex">
+        <h2>Framework Inovasi untuk Industri 4.0</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Aplikasi Kolaborasi SI &amp; AI:</strong> ERP cerdas, predictive analytics, chatbot.</li>
+          <li class="fragment fade-up"><strong>Implementasi Sistem Terintegrasi:</strong> Interoperabilitas data &amp; keamanan siber.</li>
+          <li class="fragment fade-in"><strong>Kebutuhan Industri:</strong> Data analytics, cloud, automation, dan <em>soft skill</em> kolaborasi.</li>
+          <li class="fragment fade-up"><strong>Tren Masa Depan:</strong> IoT + AI, Edge computing, blockchain + AI.</li>
+        </ul>
+      </section>
 
-???
-Catatan Presenter:
-- Tunjukkan contoh nyata proyek kolaboratif AI
+      <!-- SLIDE 10: AI & SDGs -->
+      <section data-transition="slide">
+        <h2>AI dan Sustainable Development Goals (SDGs)</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Goal 1 (No Poverty):</strong> Pemetaan kemiskinan, subsidi tepat sasaran.</li>
+          <li class="fragment fade-up"><strong>Goal 3 (Good Health):</strong> Diagnosa penyakit, telemedicine.</li>
+          <li class="fragment fade-in"><strong>Goal 4 (Quality Education):</strong> E-learning cerdas, personalisasi.</li>
+          <li class="fragment fade-up"><strong>Goals 13,14,15:</strong> Prediksi cuaca ekstrem, pemantauan polusi.</li>
+          <li class="fragment fade-in"><strong>Goal 8 (Decent Work):</strong> Otomasi proses, peningkatan efisiensi.</li>
+          <li class="fragment fade-up"><strong>Goal 10 (Reduced Inequalities):</strong> Analisis kesenjangan akses.</li>
+        </ul>
+      </section>
 
-</script>
-    </section>
+      <!-- SLIDE 11: Kesimpulan & Diskusi -->
+      <section data-transition="zoom">
+        <h2>Kesimpulan &amp; Diskusi</h2>
+        <p class="fragment fade-in">
+          AI merupakan teknologi kunci di era Industri 4.0,  
+          Mahasiswa SI memiliki peluang strategis sebagai penggerak inovasi,  
+          Kolaborasi &amp; etika sangat penting dalam memanfaatkan AI untuk SDGs.
+        </p>
+        <p class="fragment fade-up">
+          <strong>Diskusi:</strong><br>
+          1. Contoh konkrit implementasi AI di kampus? <br>
+          2. Bagaimana menyeimbangkan inovasi &amp; etika? <br>
+          3. Tantangan terbesar di Indonesia?
+        </p>
+      </section>
 
-    <!-- SLIDE 7: AI dan SDGs -->
-    <section data-markdown>
-<script type="text/template">
-
-# AI dan Sustainable Development Goals (SDGs)
-
-1. **Goal 1 (No Poverty):** Pemetaan kemiskinan, subsidi tepat sasaran  
-2. **Goal 3 (Good Health):** Diagnosa penyakit (radiologi, telemedicine)  
-3. **Goal 4 (Quality Education):** E-learning cerdas, personalisasi pembelajaran  
-4. **Goals 13,14,15 (Iklim & Lingkungan):** Prediksi cuaca ekstrem, pemantauan polusi  
-5. **Goal 8 (Decent Work):** Otomasi & efisiensi, peningkatan produktivitas  
-6. **Goal 10 (Reduced Inequalities):** Analisis kesenjangan, pemerataan akses
-
-**Tantangan:**  
-- Infrastruktur, regulasi, etika penggunaan data
-
-???
-Catatan Presenter:
-- Beri contoh inisiatif AI untuk SDGs di Indonesia / global
-
-</script>
-    </section>
-
-    <!-- SLIDE 8: Kesimpulan & Diskusi -->
-    <section data-markdown>
-<script type="text/template">
-
-# Kesimpulan & Diskusi
-
-**Kesimpulan:**  
-- AI berperan penting di era Industri 4.0  
-- Mahasiswa SI bisa menjadi penggerak inovasi  
-- Tantangan etika & keberlanjutan perlu diperhatikan
-
-**Diskusi:**  
-1. Bagaimana contoh konkrit implementasi AI di kampus?  
-2. Bagaimana menjaga keseimbangan antara inovasi dan etika?  
-3. Apa hambatan terbesar dalam penerapan AI di Indonesia?
-
-**Terima Kasih!**  
-
-???
-Catatan Presenter:
-- Motivasi audiens untuk bertanya
-- Beri waktu sekitar 30 menit diskusi
-
-</script>
-    </section>
-
+    </div>
   </div>
-</div>
 
-<!-- REVEAL.JS CORE (local) -->
-<script src="../../reveal/dist/reveal.js"></script>
+  <!-- SCRIPTS: Reveal.js & Plugin (panggil dari folder lokal) -->
+  <script src="../../reveal/dist/reveal.js"></script>
+  <script src="../../reveal/plugin/markdown/markdown.js"></script>
+  <script src="../../reveal/plugin/highlight/highlight.js"></script>
+  <script src="../../reveal/plugin/notes/notes.js"></script>
+  <script src="../../reveal/plugin/zoom/zoom.js"></script>
+  <script src="../../reveal/plugin/search/search.js"></script>
+  <script src="../../reveal/plugin/math/math.js"></script>
 
-<!-- PLUGINS (local) -->
-<script src="../../reveal/plugin/markdown/markdown.js"></script>
-<script src="../../reveal/plugin/notes/notes.js"></script>
-<script src="../../reveal/plugin/highlight/highlight.js"></script>
-<script src="../../reveal/plugin/search/search.js"></script>
-<script src="../../reveal/plugin/zoom/zoom.js"></script>
-<script src="../../reveal/plugin/math/math.js"></script>
+  <script>
+    Reveal.initialize({
+      slideNumber: true,
+      touch: true,
+      overview: true,
+      // Pilihan transisi: 'slide', 'fade', 'convex', 'concave', 'zoom'
+      transition: 'convex',
+      // Contoh transisi latar belakang
+      backgroundTransition: 'zoom',
 
-<script>
-  Reveal.initialize({
-    // Pengaturan dasar
-    controls: true,
-    progress: true,
-    center: true,
-    hash: false,
+      // Aktifkan plugin (sesuaikan kebutuhan)
+      plugins: [
+        RevealMarkdown,
+        RevealHighlight,
+        RevealNotes,
+        RevealZoom,
+        RevealSearch,
+        // Opsi: Math plugin (pilih MathJax / KaTeX)
+        RevealMath.MathJax
+      ],
 
-    // Tipe transisi antar slide
-    transition: 'slide',            // slide / fade / convex / concave / zoom
-    backgroundTransition: 'zoom',   // slide / fade / zoom / convex / concave
+      // Pengaturan Auto-Animate, Export PDF, dll.
+      autoAnimate: true,
+      pdfSeparateFragments: false,
+      pdfExport: true,
 
-    // Plugin yang diaktifkan
-    plugins: [
-      RevealMarkdown,
-      RevealNotes,
-      RevealHighlight,
-      RevealSearch,
-      RevealZoom,
-      // Pilih salah satu: RevealMath.MathJax atau RevealMath.KaTeX
-      RevealMath.MathJax
-    ],
-
-    // Konfigurasi plugin Math
-    math: {
-      // Contoh penggunaan MathJax dari folder lokal
-      mathjax: '../../reveal/plugin/math/mathjax/es5/tex-chtml.js',
-      config: 'TeX-AMS_HTML-full'
-    }
-  });
-</script>
-
+      // Khusus plugin Math
+      math: {
+        mathjax: '../../reveal/plugin/math/mathjax/es5/tex-chtml.js',
+        config: 'TeX-AMS_HTML-full'
+      }
+    });
+  </script>
 </body>
 </html>

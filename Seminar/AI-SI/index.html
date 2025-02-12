@@ -56,6 +56,34 @@
       display: inline-block;
       margin-top: 20px;
     }
+
+    .slide-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Jarak antara kolom kiri & kanan */
+  }
+
+  .column {
+    flex: 1;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .right {
+    text-align: center;
+  }
+
+  /* Untuk tampilan lebih kecil, kolom jadi vertikal */
+  @media screen and (max-width: 768px) {
+    .slide-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
   </style>
 </head>
 <body>
@@ -94,18 +122,29 @@
       <!-- SLIDE 2: Outline Presentasi -->
       <section data-transition="slide" data-visibility="visible">
         <h2 class="animate__animated animate__fadeInDown">Outline Presentasi</h2>
-        <ul>
-          <li class="fragment fade-in">Sekilas tentang Artificial Intelligence (AI)</li>
-          <li class="fragment fade-in">Peran Mahasiswa Sistem Informasi dalam Era AI</li>
-          <li class="fragment fade-in">Alur Logika AI</li>
-          <li class="fragment fade-in">Integrasi Kreativitas Mahasiswa SI dalam AI</li>
-          <li class="fragment fade-in">Framework Inovasi untuk Industri 4.0</li>
-          <li class="fragment fade-in">AI dan Sustainable Development Goals (SDGs)</li>
-          <li class="fragment fade-in">Kesimpulan & Diskusi</li>
-        </ul>
         
-        <div class="illustration">
-          <img src="https://lh4.googleusercontent.com/proxy/rdUZKRqbTazR9WO3ecZxbyR3WyhN6M2at4yVdeJFdtU4oxkopGi-6khdfsXr6MtpvERucfu-N-KvOkHHNd15pvrN2bD1ZF85ttUEwSNlscs0bm3-rZ-BvRby7I9DNVkOhA" alt="Slide 2 Illustration" class="animate__animated animate__fadeInUp" width="450" height="auto"  style="animation-delay: 5s;"> 
+        <div class="slide-content">
+          <!-- Kolom Kiri: Teks -->
+          <div class="column left">
+            <ul>
+              <li class="fragment fade-in">Sekilas tentang Artificial Intelligence (AI)</li>
+              <li class="fragment fade-in">Peran Mahasiswa Sistem Informasi dalam Era AI</li>
+              <li class="fragment fade-in">Alur Logika AI</li>
+              <li class="fragment fade-in">Integrasi Kreativitas Mahasiswa SI dalam AI</li>
+              <li class="fragment fade-in">Framework Inovasi untuk Industri 4.0</li>
+              <li class="fragment fade-in">AI dan Sustainable Development Goals (SDGs)</li>
+              <li class="fragment fade-in">Kesimpulan & Diskusi</li>
+            </ul>
+          </div>
+
+          <!-- Kolom Kanan: Gambar -->
+          <div class="column right">
+            <img src="https://lh4.googleusercontent.com/proxy/rdUZKRqbTazR9WO3ecZxbyR3WyhN6M2at4yVdeJFdtU4oxkopGi-6khdfsXr6MtpvERucfu-N-KvOkHHNd15pvrN2bD1ZF85ttUEwSNlscs0bm3-rZ-BvRby7I9DNVkOhA" 
+              alt="Slide 2 Illustration" 
+              class="animate__animated animate__fadeInUp" 
+              width="450" height="auto"  
+              style="animation-delay: 0.5s;"> 
+          </div>
         </div>
       </section>
       

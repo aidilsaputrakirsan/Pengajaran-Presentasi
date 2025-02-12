@@ -47,6 +47,15 @@
     .illustration img {
       max-width: 70%;
       height: auto;
+      border-radius: 20px; /* Membuat sudut lebih bulat */
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Efek interaktif ketika di-hover */
+    .illustration img:hover {
+      transform: scale(1.05); /* Membesar sedikit */
+      box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.5); /* Bayangan lebih jelas */
     }
 
     /* Kelas tambahan untuk icon animasi */

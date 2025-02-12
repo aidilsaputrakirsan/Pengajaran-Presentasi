@@ -41,7 +41,10 @@
     }
 
     .illustration {
-      text-align: center;
+      display: flex;
+      justify-content: center; /* Tengahkan gambar secara horizontal */
+      align-items: center; /* Jika ingin vertikal tengah juga */
+      width: 100%;
       margin-top: 20px;
     }
     .illustration-img {
@@ -102,6 +105,9 @@
     }
     .left, .right {
       width: 100%;
+    }
+    .illustration {
+    justify-content: center; /* Pastikan tetap di tengah */
     }
     .illustration-img {
     max-width: 90%; /* Perbesar agar lebih sesuai di layar kecil */

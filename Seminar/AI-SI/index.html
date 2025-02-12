@@ -45,17 +45,20 @@
       margin-top: 20px;
     }
     .illustration-img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 20px; /* Membulatkan sudut */
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+      max-width: 80%; /* Batasi ukuran maksimum agar seragam */
+      height: auto; /* Biarkan tinggi menyesuaikan proporsi */
+      display: block; /* Mencegah efek inline yang dapat merusak tata letak */
+      margin: 0 auto; /* Pusatkan gambar */
+      object-fit: contain; /* Pastikan gambar tidak terpotong */
+      border-radius: 15px; /* Membulatkan sudut agar lebih halus */
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan untuk tampilan lebih estetik */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     /* Efek saat gambar di-hover */
     .illustration-img:hover {
-      transform: scale(1.05); /* Membesar sedikit */
-      box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.5); /* Bayangan lebih kuat */
+      transform: scale(1.05); /* Sedikit membesar saat di-hover */
+      box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.5);
     }
 
     /* Kelas tambahan untuk icon animasi */
@@ -99,6 +102,9 @@
     }
     .left, .right {
       width: 100%;
+    }
+    .illustration-img {
+    max-width: 90%; /* Perbesar agar lebih sesuai di layar kecil */
     }
   }
 

@@ -44,19 +44,20 @@
       text-align: center;
       margin-top: 20px;
     }
-    .illustration img {
-      max-width: 70%;
+    .illustration-img {
+      max-width: 100%;
       height: auto;
-      border-radius: 20px; /* Membuat sudut lebih bulat */
+      border-radius: 20px; /* Membulatkan sudut */
       box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Efek bayangan */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Efek interaktif ketika di-hover */
-    .illustration img:hover {
+    /* Efek saat gambar di-hover */
+    .illustration-img:hover {
       transform: scale(1.05); /* Membesar sedikit */
-      box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.5); /* Bayangan lebih jelas */
+      box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.5); /* Bayangan lebih kuat */
     }
+
 
     /* Kelas tambahan untuk icon animasi */
     .animated-icon {
@@ -159,9 +160,8 @@
           <div class="column right">
             <img src="https://lh4.googleusercontent.com/proxy/rdUZKRqbTazR9WO3ecZxbyR3WyhN6M2at4yVdeJFdtU4oxkopGi-6khdfsXr6MtpvERucfu-N-KvOkHHNd15pvrN2bD1ZF85ttUEwSNlscs0bm3-rZ-BvRby7I9DNVkOhA" 
               alt="Slide 2 Illustration" 
-              class="animate__animated animate__fadeInRight" 
-              width="450" height="auto"  
-              style="animation-delay: 5s;"> 
+              class="illustration-img animate__animated animate__fadeInRight" 
+              style="animation-delay: 5s;">
           </div>
         </div>
       </section>

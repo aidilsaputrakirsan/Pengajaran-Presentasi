@@ -45,13 +45,13 @@
       margin-top: 20px;
     }
     .illustration-img {
-      max-width: 80%; /* Batasi ukuran maksimum agar seragam */
-      height: auto; /* Biarkan tinggi menyesuaikan proporsi */
-      display: block; /* Mencegah efek inline yang dapat merusak tata letak */
-      margin: 0 auto; /* Pusatkan gambar */
-      object-fit: contain; /* Pastikan gambar tidak terpotong */
-      border-radius: 15px; /* Membulatkan sudut agar lebih halus */
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan untuk tampilan lebih estetik */
+      width: 600px; /* Pastikan semua gambar memiliki lebar yang sama */
+      height: 350px; /* Tetapkan tinggi agar seragam */
+      object-fit: cover; /* Potong gambar jika perlu, tetapi tetap mempertahankan proporsi */
+      display: block;
+      margin: 0 auto;
+      border-radius: 15px;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 

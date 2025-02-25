@@ -127,70 +127,54 @@
         </ul>
       </section>
 
-      <!-- Slide 7: Studi Kasus: Soal Konfigurasi Static Routing -->
+     <!-- Slide 7: Soal Studi Kasus (Hanya Gambar) -->
     <section data-transition="fade">
-      <h2>Studi Kasus: Soal Static Routing</h2>
+      <!-- Tidak ada teks, hanya menampilkan gambar topologi -->
+      <div class="fragment fade-in">
+        <img src="https://itbox.id/wp-content/uploads/elementor/thumbs/kmgmt-2334-Static-Routing-RV160-RV260-image-1-qrpv4vrurzudfqdocykbqbfqqol3c2y88cpifwavfk.webp" alt="Soal Studi Kasus Static Routing" style="width:500px; height:auto;">
+      </div>
+    </section>
+
+    <!-- Slide 8: Jawaban Studi Kasus -->
+    <section data-transition="fade">
+      <h3>Jawaban Studi Kasus: Konfigurasi Static Routing</h3>
       <p class="fragment fade-in">
-        Diberikan topologi jaringan dengan tiga router yang terhubung sebagai berikut:
+        Berdasarkan topologi, berikut langkah-langkah konfigurasi static routing pada Router A dan Router B:
       </p>
       <ul>
         <li class="fragment fade-in">
-          <strong>Router A</strong> memiliki jaringan internal <code>192.168.1.0/24</code> dan terhubung ke Router B melalui network <code>192.168.12.0/30</code>.
+          <strong>Router A</strong>:
+          <pre class="fragment fade-in">
+    ! IP interface ke PC A: 192.168.2.1
+    ! IP interface ke Router B: 10.2.0.2
+
+    ip route 192.168.1.0 255.255.255.0 10.2.0.1
+          </pre>
+          <small class="fragment fade-in">
+            Menambahkan rute statis agar Router A mengetahui jaringan 192.168.1.0/24 melalui Router B (10.2.0.1).
+          </small>
         </li>
+
         <li class="fragment fade-in">
-          <strong>Router B</strong> memiliki dua interface: satu menghubungkan ke Router A melalui <code>192.168.12.0/30</code> dan satu lagi menghubungkan ke Router C melalui <code>192.168.23.0/30</code>.
-        </li>
-        <li class="fragment fade-in">
-          <strong>Router C</strong> memiliki jaringan internal <code>192.168.3.0/24</code> dan terhubung ke Router B melalui network <code>192.168.23.0/30</code>.
+          <strong>Router B</strong>:
+          <pre class="fragment fade-in">
+    ! IP interface ke PC B: 192.168.1.1
+    ! IP interface ke Router A: 10.2.0.1
+
+    ip route 192.168.2.0 255.255.255.0 10.2.0.2
+          </pre>
+          <small class="fragment fade-in">
+            Menambahkan rute statis agar Router B mengetahui jaringan 192.168.2.0/24 melalui Router A (10.2.0.2).
+          </small>
         </li>
       </ul>
       <p class="fragment fade-in">
-        Tugas: Konfigurasikan static routing pada masing-masing router agar komunikasi antara jaringan <code>192.168.1.0/24</code> (Router A) dan <code>192.168.3.0/24</code> (Router C) dapat terjalin.
+        Setelah konfigurasi, lakukan uji konektivitas dengan perintah <code>ping</code> dari PC A (192.168.2.10) ke PC B (192.168.1.10) dan sebaliknya.
+      </p>
+      <p class="fragment fade-in">
+        Jika <code>ping</code> berhasil, berarti routing statis telah berfungsi dengan baik.
       </p>
     </section>
-
-    <!-- Slide 8: Jawaban Studi Kasus: Konfigurasi Static Routing -->
-    <section data-transition="fade">
-      <h2>Jawaban Studi Kasus: Konfigurasi Static Routing</h2>
-      <p class="fragment fade-in">
-        Berikut adalah contoh konfigurasi static routing pada setiap router:
-      </p>
-      <ul>
-        <li class="fragment fade-in">
-          <strong>Router A:</strong>
-          <pre class="fragment fade-in">
-    ip route 192.168.3.0 255.255.255.0 192.168.12.2
-          </pre>
-          Keterangan: Semua trafik menuju jaringan 192.168.3.0/24 diarahkan ke Router B (IP 192.168.12.2).
-        </li>
-        <li class="fragment fade-in">
-          <strong>Router B:</strong>
-          <pre class="fragment fade-in">
-    ip route 192.168.1.0 255.255.255.0 192.168.12.1
-    ip route 192.168.3.0 255.255.255.0 192.168.23.2
-          </pre>
-          Keterangan: Router B meneruskan trafik ke kedua arah:
-          <ul>
-            <li class="fragment fade-in">Ke Router A melalui 192.168.12.1.</li>
-            <li class="fragment fade-in">Ke Router C melalui 192.168.23.2.</li>
-          </ul>
-        </li>
-        <li class="fragment fade-in">
-          <strong>Router C:</strong>
-          <pre class="fragment fade-in">
-    ip route 192.168.1.0 255.255.255.0 192.168.23.1
-          </pre>
-          Keterangan: Semua trafik menuju jaringan 192.168.1.0/24 diarahkan ke Router B (IP 192.168.23.1).
-        </li>
-      </ul>
-      <p class="fragment fade-in">
-        Dengan konfigurasi di atas, paket data dari jaringan 192.168.1.0/24 akan melalui Router A → Router B → Router C dan sebaliknya.
-      </p>
-      <p class="fragment fade-in">
-        Uji konektivitas dapat dilakukan dengan perintah <code>ping</code> dari masing-masing jaringan untuk memastikan rute telah berfungsi dengan benar.
-      </p>
-    </section>
-
 
 
 

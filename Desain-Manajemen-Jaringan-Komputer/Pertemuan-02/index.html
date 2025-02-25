@@ -2,68 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pekan Ini - Sedang Dalam Pembuatan</title>
+  <title>Pekan 2: IP Addressing & Subnetting</title>
   <link rel="icon" href="../assets/icon.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
-  <link rel="stylesheet" href="../../reveal/dist/theme/beige.css">
+  <!-- Reveal.js Theme (Night) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/moon.css">
+  <!-- Highlight.js CSS -->
   <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
   <style>
     .watermark {
       position: fixed;
       bottom: 15px;
       right: 15px;
-      font-size: 18px;
+      font-size: 25px;
       color: rgba(255, 255, 255, 0.3);
+      z-index: 1000;
       font-style: italic;
     }
-    .emoji {
-      font-size: 2em;
+    .watermark img {
+      height: 25px;
+      vertical-align: middle;
     }
-    .loader {
-      border: 6px solid #f3f3f3;
-      border-top: 6px solid #3498db;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto;
+    @media screen and (max-width: 768px) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .illustration {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .illustration img {
+      max-width: 70%;
+      height: auto;
+    }
+    /* Style untuk dua kolom pada slide Model OSI */
+    .two-columns {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .two-columns ol {
+      list-style-position: inside;
+      padding: 0;
     }
   </style>
 </head>
 <body>
-  
+
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+  </div>
+
   <div class="reveal">
     <div class="slides">
-      
+
+      <!-- Slide 1: Judul & Pembukaan -->
       <section>
-        <h2>🚧 Sedang Dalam Pembuatan 🚧</h2>
-        <p class="fragment fade-in">Mohon bersabar ya, materi pekan ini sedang dipersiapkan dengan baik! 🔧✨</p>
-        <div class="loader fragment fade-in"></div>
+        <h2 style="color: white;">Desain dan Manajemen Jaringan Komputer</h2>
+        <p class="fragment fade-in" style="color: white;">Pekan 2: IP Addressing & Subnetting</p>
       </section>
-      
-      <section>
-        <h2>👀 Sementara Itu...</h2>
+
+      <!-- Slide 2: Capaian Pembelajaran -->
+      <section data-transition="slide">
+        <h2>Capaian Pembelajaran</h2>
         <ul>
-          <li class="fragment fade-in">Silakan pelajari materi sebelumnya.</li>
-          <li class="fragment fade-in">Jelajahi sumber modul praktikum yang lengkap di <a href="https://aidilsaputrakirsan.github.io">aidilsaputrakirsan.github.io</a> → Educational Resources → Practicals (Members Only).</li>
-          <li class="fragment fade-in">Gunakan waktu ini untuk berdiskusi dengan teman!</li>
+          <li class="fragment fade-in">Dapat menjelaskan konsep dasar IP Address (Class A, B, C) serta subnet mask.</li>
+          <li class="fragment fade-in">Memahami perhitungan subnet menggunakan CIDR (misalnya /29, /30, /24).</li>
+          <li class="fragment fade-in">Dapat mengimplementasikan hasil perhitungan subnet di perangkat jaringan (PC/Router) secara statis.</li>
+          <li class="fragment fade-in">Mampu melakukan uji konektivitas dasar (ping) untuk memastikan konfigurasi IP sudah benar.</li>
         </ul>
       </section>
-      
+
+        <!-- Slide 1: Judul & Pendahuluan -->
       <section>
-        <h2>🕰️ Kapan Materi Akan Tersedia?</h2>
-        <p class="fragment fade-in">Kami sedang bekerja keras untuk menyiapkan materi terbaik untuk Anda.</p>
-        <p class="fragment fade-in">Stay tuned! 🔔</p>
+        <h2 style="color: white;">Konsep Dasar IP Address, Subnet Mask, dan Perhitungan Subnet dengan CIDR</h2>
+        <p class="fragment fade-in" style="color: white;">
+          Studi Kasus dan Penerapan Konsep Jaringan
+        </p>
+        <p class="fragment fade-in" style="color: white;">
+          Materi ini akan membahas pengenalan IP Address, klasifikasi (Class A, B, C), fungsi subnet mask, pengenalan CIDR, dan perhitungan subnet menggunakan notasi CIDR.
+        </p>
       </section>
-      
+
+      <!-- Slide 2: Konsep Dasar IP Address -->
+      <section data-transition="slide">
+        <h2>Konsep Dasar IP Address</h2>
+        <p class="fragment fade-in">
+          IP Address adalah alamat numerik unik yang digunakan untuk mengidentifikasi perangkat dalam jaringan.
+        </p>
+        <ul>
+          <li class="fragment fade-in">
+            <strong>Class A:</strong> Range 1.0.0.0 – 126.0.0.0 (untuk jaringan dengan jumlah host yang sangat besar)
+          </li>
+          <li class="fragment fade-in">
+            <strong>Class B:</strong> Range 128.0.0.0 – 191.255.0.0 (cocok untuk jaringan menengah)
+          </li>
+          <li class="fragment fade-in">
+            <strong>Class C:</strong> Range 192.0.0.0 – 223.255.255.0 (umum untuk jaringan lokal dengan host terbatas)
+          </li>
+        </ul>
+        <p class="fragment fade-in">
+          Catatan: Alamat khusus seperti 127.0.0.1 digunakan untuk loopback.
+        </p>
+      </section>
+
+      <!-- Slide 3: Subnet Mask & Fungsinya -->
+      <section data-transition="fade">
+        <h2>Subnet Mask & Fungsinya</h2>
+        <p class="fragment fade-in">
+          Subnet mask adalah pola biner yang memisahkan bagian network dan host dari sebuah IP Address.
+        </p>
+        <ul>
+          <li class="fragment fade-in">
+            <strong>Contoh Subnet Mask:</strong>
+            <ul>
+              <li class="fragment fade-in">Class A: 255.0.0.0</li>
+              <li class="fragment fade-in">Class B: 255.255.0.0</li>
+              <li class="fragment fade-in">Class C: 255.255.255.0</li>
+            </ul>
+          </li>
+          <li class="fragment fade-in">
+            <strong>Fungsi Utama:</strong> Membagi jaringan menjadi subnet-subnet yang lebih kecil guna meningkatkan efisiensi penggunaan alamat IP serta menambah keamanan.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 4: Pengenalan CIDR -->
+      <section data-transition="slide">
+        <h2>Pengenalan CIDR (Classless Inter-Domain Routing)</h2>
+        <p class="fragment fade-in">
+          CIDR menggunakan notasi /n (misalnya /24, /29, /30) untuk menentukan jumlah bit yang digunakan sebagai bagian network.
+        </p>
+        <ul>
+          <li class="fragment fade-in">
+            <strong>Manfaat:</strong> Memberikan fleksibilitas dalam pembagian jaringan tanpa terikat pada kelas tradisional.
+          </li>
+          <li class="fragment fade-in">
+            <strong>Mengoptimalkan:</strong> Alokasi alamat IP sesuai dengan kebutuhan jaringan.
+          </li>
+          <li class="fragment fade-in">
+            <strong>Contoh Notasi:</strong>
+            <ul>
+              <li class="fragment fade-in"><strong>/24:</strong> 256 alamat IP (254 untuk host)</li>
+              <li class="fragment fade-in"><strong>/29:</strong> 8 alamat IP (6 untuk host)</li>
+              <li class="fragment fade-in"><strong>/30:</strong> 4 alamat IP (biasanya untuk point-to-point link)</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 5: Perhitungan Subnet Menggunakan CIDR -->
+      <section data-transition="slide">
+        <h2>Perhitungan Subnet dengan CIDR</h2>
+        <p class="fragment fade-in">
+          Langkah-langkah perhitungan subnet:
+        </p>
+        <ol>
+          <li class="fragment fade-in">Tentukan jumlah host yang dibutuhkan dalam subnet.</li>
+          <li class="fragment fade-in">Pilih notasi CIDR yang sesuai (misalnya /29 untuk jaringan kecil).</li>
+          <li class="fragment fade-in">Hitung total alamat IP: 2^(32 - n) di mana n adalah jumlah bit untuk network.</li>
+          <li class="fragment fade-in">Identifikasi alamat network, alamat broadcast, dan range alamat host yang valid.</li>
+        </ol>
+        <p class="fragment fade-in">
+          <strong>Contoh /29:</strong> Total alamat = 2^(32-29) = 8 alamat, dengan 6 alamat yang dapat digunakan untuk host.
+        </p>
+      </section>
+
+      <!-- Slide 6: Studi Kasus: Perhitungan Subnet pada Jaringan Kecil -->
+      <section data-transition="fade">
+        <h2>Studi Kasus: Jaringan Kecil dengan 192.168.10.0/29</h2>
+        <ul>
+          <li class="fragment fade-in"><strong>Total alamat:</strong> 8 alamat (2^(32-29)=8)</li>
+          <li class="fragment fade-in"><strong>Network Address:</strong> 192.168.10.0</li>
+          <li class="fragment fade-in"><strong>Broadcast Address:</strong> 192.168.10.7</li>
+          <li class="fragment fade-in"><strong>Range Host:</strong> 192.168.10.1 – 192.168.10.6</li>
+        </ul>
+        <p class="fragment fade-in">
+          Studi kasus ini ideal untuk jaringan kecil seperti kantor atau laboratorium, di mana 6 host yang tersedia sudah cukup untuk kebutuhan.
+        </p>
+        <p class="fragment fade-in">
+          Analisa: Perhitungan dilakukan dengan memisahkan bit network dan host sesuai notasi /29, kemudian mengonversi nilai biner kembali ke format desimal.
+        </p>
+      </section>
+
     </div>
   </div>
-  
+
   <script src="../../reveal/dist/reveal.js"></script>
   <script src="../../reveal/plugin/markdown/markdown.js"></script>
   <script src="../../reveal/plugin/highlight/highlight.js"></script>
@@ -76,7 +206,7 @@
       pdfSeparateFragments: false,
       pdfExport: true,
       overview: true,
-      transition: 'slide',
+      transition: 'convex',
       autoAnimate: true,
       plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
     });

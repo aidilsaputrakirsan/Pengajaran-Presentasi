@@ -2,68 +2,189 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pekan Ini - Sedang Dalam Pembuatan</title>
+  <title>Pekan 5: Dynamic Routing (RIP, OSPF, dll.)</title>
   <link rel="icon" href="../assets/icon.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
-  <link rel="stylesheet" href="../../reveal/dist/theme/beige.css">
-  <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  <!-- Reveal.js Theme (Night) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/serif.css">
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="../../reveal/plugin/highlight/zenburn.css">
   <style>
     .watermark {
       position: fixed;
       bottom: 15px;
       right: 15px;
-      font-size: 18px;
+      font-size: 25px;
       color: rgba(255, 255, 255, 0.3);
+      z-index: 1000;
       font-style: italic;
     }
-    .emoji {
-      font-size: 2em;
+    .watermark img {
+      height: 25px;
+      vertical-align: middle;
     }
-    .loader {
-      border: 6px solid #f3f3f3;
-      border-top: 6px solid #3498db;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto;
+    @media screen and (max-width: 768px) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .illustration {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .illustration img {
+      max-width: 70%;
+      height: auto;
+    }
+    /* Style untuk dua kolom pada slide Model OSI */
+    .two-columns {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .two-columns ol {
+      list-style-position: inside;
+      padding: 0;
     }
   </style>
 </head>
 <body>
-  
+
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+  </div>
+
   <div class="reveal">
     <div class="slides">
-      
-      <section>
-        <h2>🚧 Sedang Dalam Pembuatan 🚧</h2>
-        <p class="fragment fade-in">Mohon bersabar ya, materi pekan ini sedang dipersiapkan dengan baik! 🔧✨</p>
-        <div class="loader fragment fade-in"></div>
-      </section>
-      
-      <section>
-        <h2>👀 Sementara Itu...</h2>
-        <ul>
-          <li class="fragment fade-in">Silakan pelajari materi sebelumnya.</li>
-          <li class="fragment fade-in">Jelajahi sumber modul praktikum yang lengkap di <a href="https://aidilsaputrakirsan.github.io">aidilsaputrakirsan.github.io</a> → Educational Resources → Practicals (Members Only).</li>
-          <li class="fragment fade-in">Gunakan waktu ini untuk berdiskusi dengan teman!</li>
-        </ul>
-      </section>
-      
-      <section>
-        <h2>🕰️ Kapan Materi Akan Tersedia?</h2>
-        <p class="fragment fade-in">Kami sedang bekerja keras untuk menyiapkan materi terbaik untuk Anda.</p>
-        <p class="fragment fade-in">Stay tuned! 🔔</p>
-      </section>
-      
+
+    <!-- Slide 1: Judul & Pembukaan -->
+    <section>
+      <h2>Desain dan Manajemen Jaringan Komputer</h2>
+      <p class="fragment fade-in">Pekan 5: Dynamic Routing (RIP, OSPF, dll.)</p>
+    </section>
+
+    <!-- Slide 2: Capaian Pembelajaran -->
+    <section data-transition="slide">
+      <h3>Capaian Pembelajaran</h3>
+      <ul>
+        <li class="fragment fade-in">Mahasiswa dapat menjelaskan dasar protokol routing dinamis (RIP, OSPF, dsb.) dan memahami konsep area serta LSDB (pada OSPF).</li>
+        <li class="fragment fade-in">Mahasiswa mampu mengkonfigurasi routing dinamis pada perangkat jaringan (router Cisco) secara manual dan memastikan routing table di-update secara otomatis.</li>
+        <li class="fragment fade-in">Mahasiswa dapat melakukan verifikasi routing table dan memastikan end-to-end connectivity antar jaringan yang terhubung melalui protokol routing dinamis.</li>
+        <li class="fragment fade-in">Mahasiswa memahami perbedaan serta kelebihan dan kekurangan antara protokol routing dinamis dan static routing.</li>
+      </ul>
+    </section>
+
+    <!-- Slide 3: Dasar Protokol Routing Dinamis -->
+    <section data-transition="slide">
+      <h3>Dasar Protokol Routing Dinamis</h3>
+      <p class="fragment fade-in">
+        Protokol routing dinamis memungkinkan router untuk bertukar informasi routing secara otomatis, menyesuaikan tabel routing ketika terjadi perubahan topologi.
+      </p>
+      <ul>
+        <li class="fragment fade-in">
+          <strong>RIP (Routing Information Protocol):</strong> Protokol distance-vector yang menggunakan hop count sebagai metrik.
+        </li>
+        <li class="fragment fade-in">
+          <strong>OSPF (Open Shortest Path First):</strong> Protokol link-state yang membangun LSDB (Link-State Database) dan menggunakan algoritma SPF (Shortest Path First).
+        </li>
+        <li class="fragment fade-in">
+          <strong>Konsep Area (pada OSPF):</strong> Jaringan besar dibagi menjadi beberapa area untuk mengurangi overhead dan mempercepat konvergensi.
+        </li>
+        <li class="fragment fade-in">
+          <strong>LSDB (Link-State Database):</strong> Berisi informasi lengkap tentang topologi jaringan dalam area OSPF.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Slide 4: Konfigurasi Routing Dinamis -->
+    <section data-transition="slide">
+      <h3>Konfigurasi Routing Dinamis (Contoh pada Router Cisco)</h3>
+      <p class="fragment fade-in">
+        Setiap protokol routing memiliki cara konfigurasi yang berbeda. Berikut contoh singkat untuk RIP dan OSPF:
+      </p>
+      <ul>
+        <li class="fragment fade-in">
+          <strong>RIP:</strong>
+          <pre class="fragment fade-in">
+    router rip
+    version 2
+    network 192.168.1.0
+    network 192.168.2.0
+          </pre>
+        </li>
+        <li class="fragment fade-in">
+          <strong>OSPF:</strong>
+          <pre class="fragment fade-in">
+    router ospf 1
+    network 192.168.1.0 0.0.0.255 area 0
+    network 192.168.2.0 0.0.0.255 area 0
+          </pre>
+        </li>
+      </ul>
+      <p class="fragment fade-in">
+        Pastikan setiap router memiliki ID unik dan area yang sesuai (untuk OSPF), serta jaringan yang tepat untuk setiap interface.
+      </p>
+    </section>
+
+    <!-- Slide 5: Verifikasi Routing Table & End-to-End Connectivity -->
+    <section data-transition="slide">
+      <h3>Verifikasi Routing Table & Konektivitas</h3>
+      <p class="fragment fade-in">
+        Setelah konfigurasi, penting untuk memeriksa tabel routing dan konektivitas.
+      </p>
+      <ul>
+        <li class="fragment fade-in">
+          Gunakan <code>show ip route</code> untuk melihat tabel routing yang dihasilkan oleh protokol dinamis.
+        </li>
+        <li class="fragment fade-in">
+          Gunakan <code>ping</code> atau <code>traceroute</code> untuk memastikan komunikasi end-to-end antar subnet atau VLAN.
+        </li>
+        <li class="fragment fade-in">
+          Jika terjadi kegagalan, periksa kembali konfigurasi jaringan dan pastikan protokol routing sudah berjalan.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Slide 6: Dynamic vs Static Routing -->
+    <section data-transition="slide">
+      <h3>Dynamic vs Static Routing</h3>
+      <table class="fragment fade-in" style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th style="border: 1px solid #ccc; padding: 8px;">Aspek</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Static Routing</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Dynamic Routing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="fragment fade-in">
+            <td style="border: 1px solid #ccc; padding: 8px;">Konfigurasi</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Manual oleh administrator</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Otomatis oleh protokol routing</td>
+          </tr>
+          <tr class="fragment fade-in">
+            <td style="border: 1px solid #ccc; padding: 8px;">Maintenance</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Lebih sulit saat topologi berubah</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Menyesuaikan diri dengan perubahan topologi</td>
+          </tr>
+          <tr class="fragment fade-in">
+            <td style="border: 1px solid #ccc; padding: 8px;">Skalabilitas</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Terbatas pada jaringan kecil atau stabil</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Cocok untuk jaringan besar yang dinamis</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
     </div>
   </div>
-  
+
   <script src="../../reveal/dist/reveal.js"></script>
   <script src="../../reveal/plugin/markdown/markdown.js"></script>
   <script src="../../reveal/plugin/highlight/highlight.js"></script>
@@ -76,7 +197,7 @@
       pdfSeparateFragments: false,
       pdfExport: true,
       overview: true,
-      transition: 'slide',
+      transition: 'convex',
       autoAnimate: true,
       plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
     });

@@ -79,17 +79,6 @@
         </ul>
       </section>
 
-        <!-- Slide 1: Judul & Pendahuluan -->
-      <section> 
-        <h3 >Konsep Dasar IP Address, Subnet Mask, dan Perhitungan Subnet dengan CIDR</h3>
-        <p class="fragment fade-in" >
-          Studi Kasus dan Penerapan Konsep Jaringan
-        </p>
-        <p class="fragment fade-in">
-          Materi ini akan membahas pengenalan IP Address, klasifikasi (Class A, B, C), fungsi subnet mask, pengenalan CIDR, dan perhitungan subnet menggunakan notasi CIDR.
-        </p>
-      </section>
-
       <!-- Slide 2: Konsep Dasar IP Address -->
       <section data-transition="slide">
    
@@ -174,22 +163,41 @@
         </p>
       </section>
 
-      <!-- Slide 6: Studi Kasus: Perhitungan Subnet pada Jaringan Kecil -->
+      <!-- Slide 6: Studi Kasus (Soal) - Kategori Mudah-Menengah -->
       <section data-transition="fade">
-        <h3>Studi Kasus: Jaringan Kecil dengan 192.168.10.0/29</h3>
+        <h2>Studi Kasus: Soal</h2>
+        <p class="fragment fade-in">
+          Diberikan sebuah jaringan dengan IP <strong>192.168.20.0/29</strong>, hitunglah:
+        </p>
         <ul>
-          <li class="fragment fade-in"><strong>Total alamat:</strong> 8 alamat (2^(32-29)=8)</li>
-          <li class="fragment fade-in"><strong>Network Address:</strong> 192.168.10.0</li>
-          <li class="fragment fade-in"><strong>Broadcast Address:</strong> 192.168.10.7</li>
-          <li class="fragment fade-in"><strong>Range Host:</strong> 192.168.10.1 – 192.168.10.6</li>
+          <li class="fragment fade-in">Network Address</li>
+          <li class="fragment fade-in">Broadcast Address</li>
+          <li class="fragment fade-in">Range Host yang valid</li>
+        </ul>
+      </section>
+
+      <!-- Slide 7: Jawaban Studi Kasus -->
+      <section data-transition="fade">
+        <h2>Jawaban Studi Kasus</h2>
+        <ul>
+          <li class="fragment fade-in">
+            <strong>Total alamat:</strong> 2<sup>(32-29)</sup> = 8 alamat.
+          </li>
+          <li class="fragment fade-in">
+            <strong>Network Address:</strong> 192.168.20.0
+          </li>
+          <li class="fragment fade-in">
+            <strong>Broadcast Address:</strong> 192.168.20.7
+          </li>
+          <li class="fragment fade-in">
+            <strong>Range Host yang valid:</strong> 192.168.20.1 - 192.168.20.6
+          </li>
         </ul>
         <p class="fragment fade-in">
-          Studi kasus ini ideal untuk jaringan kecil seperti kantor atau laboratorium, di mana 6 host yang tersedia sudah cukup untuk kebutuhan.
-        </p>
-        <p class="fragment fade-in">
-          Analisa: Perhitungan dilakukan dengan memisahkan bit network dan host sesuai notasi /29, kemudian mengonversi nilai biner kembali ke format desimal.
+          <strong>Penjelasan:</strong> Dengan notasi /29, terdapat 3 bit untuk host, sehingga total alamat adalah 8. Dua alamat (network dan broadcast) tidak dapat digunakan untuk host, sehingga tersisa 6 alamat untuk host.
         </p>
       </section>
+
 
     </div>
   </div>

@@ -2,68 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pekan Ini - Sedang Dalam Pembuatan</title>
+  <title>Pekan 6: DHCP, DNS, NAT/PAT, dan Firewall</title>
   <link rel="icon" href="../assets/icon.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reveal.js Core CSS -->
   <link rel="stylesheet" href="../../reveal/dist/reveal.css">
-  <link rel="stylesheet" href="../../reveal/dist/theme/beige.css">
-  <link rel="stylesheet" href="../../reveal/plugin/highlight/monokai.css">
+  <!-- Reveal.js Theme (Night) -->
+  <link rel="stylesheet" href="../../reveal/dist/theme/serif.css">
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="../../reveal/plugin/highlight/zenburn.css">
   <style>
     .watermark {
       position: fixed;
       bottom: 15px;
       right: 15px;
-      font-size: 18px;
+      font-size: 25px;
       color: rgba(255, 255, 255, 0.3);
+      z-index: 1000;
       font-style: italic;
     }
-    .emoji {
-      font-size: 2em;
+    .watermark img {
+      height: 25px;
+      vertical-align: middle;
     }
-    .loader {
-      border: 6px solid #f3f3f3;
-      border-top: 6px solid #3498db;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto;
+    @media screen and (max-width: 768px) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .illustration {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .illustration img {
+      max-width: 70%;
+      height: auto;
+    }
+    /* Style untuk dua kolom pada slide Model OSI */
+    .two-columns {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .two-columns ol {
+      list-style-position: inside;
+      padding: 0;
     }
   </style>
 </head>
 <body>
-  
+
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="../assets/logoSI.png" alt="Logo Universitas">
+    © <script>document.write(new Date().getFullYear());</script> Aidil Saputra Kirsan
+  </div>
+
   <div class="reveal">
     <div class="slides">
-      
-      <section>
-        <h2>🚧 Sedang Dalam Pembuatan 🚧</h2>
-        <p class="fragment fade-in">Mohon bersabar ya, materi pekan ini sedang dipersiapkan dengan baik! 🔧✨</p>
-        <div class="loader fragment fade-in"></div>
-      </section>
-      
-      <section>
-        <h2>👀 Sementara Itu...</h2>
-        <ul>
-          <li class="fragment fade-in">Silakan pelajari materi sebelumnya.</li>
-          <li class="fragment fade-in">Jelajahi sumber modul praktikum yang lengkap di <a href="https://aidilsaputrakirsan.github.io">aidilsaputrakirsan.github.io</a> → Educational Resources → Practicals (Members Only).</li>
-          <li class="fragment fade-in">Gunakan waktu ini untuk berdiskusi dengan teman!</li>
-        </ul>
-      </section>
-      
-      <section>
-        <h2>🕰️ Kapan Materi Akan Tersedia?</h2>
-        <p class="fragment fade-in">Kami sedang bekerja keras untuk menyiapkan materi terbaik untuk Anda.</p>
-        <p class="fragment fade-in">Stay tuned! 🔔</p>
-      </section>
-      
+
+   <!-- Slide 1: Judul & Pembukaan -->
+    <section>
+      <h2>Desain dan Manajemen Jaringan Komputer</h2>
+      <p class="fragment fade-in">Pekan 6: DHCP, DNS, NAT/PAT, dan Firewall</p>
+    </section>
+
+    <!-- Slide 2: Capaian Pembelajaran -->
+    <section data-transition="slide">
+      <h3>Capaian Pembelajaran</h3>
+      <ul>
+        <li class="fragment fade-in">Memahami cara kerja DHCP, DNS, serta peran NAT/PAT dalam penggunaan IP publik dan privat.</li>
+        <li class="fragment fade-in">Mampu mengonfigurasi layanan DHCP dan DNS di simulator jaringan agar perangkat klien menerima IP dan melakukan resolusi nama.</li>
+        <li class="fragment fade-in">Mampu mengimplementasikan NAT (static/PAT) pada router agar host di jaringan lokal terhubung ke jaringan eksternal.</li>
+        <li class="fragment fade-in">Memahami firewall dasar di router (ACL/zone-based) dan membuat rule sederhana untuk membatasi akses.</li>
+      </ul>
+    </section>
+
+    <!-- Slide 3: Konsep DHCP, DNS, NAT/PAT, dan Firewall -->
+    <section data-transition="slide">
+      <h3>Konsep Dasar Layanan Jaringan</h3>
+      <ul>
+        <li class="fragment fade-in">
+          <strong>DHCP:</strong> Protokol yang mengalokasikan IP secara otomatis kepada perangkat klien.
+        </li>
+        <li class="fragment fade-in">
+          <strong>DNS:</strong> Sistem yang mengonversi nama domain menjadi alamat IP agar mudah diingat.
+        </li>
+        <li class="fragment fade-in">
+          <strong>NAT/PAT:</strong> Teknik untuk menerjemahkan alamat IP privat ke IP publik, memungkinkan akses ke internet.
+        </li>
+        <li class="fragment fade-in">
+          <strong>Firewall (ACL/Zone-Based):</strong> Pengaturan aturan akses untuk membatasi trafik jaringan.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Slide 4: Konfigurasi DHCP dan DNS -->
+    <section data-transition="slide">
+      <h3>Konfigurasi DHCP dan DNS</h3>
+      <p class="fragment fade-in">
+        Contoh konfigurasi di simulator (Cisco Packet Tracer/GNS3):
+      </p>
+      <ul>
+        <li class="fragment fade-in">
+          <strong>DHCP:</strong> Mengatur pool alamat IP, subnet mask, default gateway, dan DNS server.
+        </li>
+        <li class="fragment fade-in">
+          <strong>DNS:</strong> Menetapkan nama domain dan menghubungkannya dengan alamat IP tertentu.
+        </li>
+      </ul>
+      <p class="fragment fade-in">
+        Perangkat klien yang terhubung ke jaringan akan mendapatkan IP secara otomatis dan dapat menyelesaikan nama domain.
+      </p>
+    </section>
+
+    <!-- Slide 5: Implementasi NAT/PAT -->
+    <section data-transition="slide">
+      <h3>Implementasi NAT/PAT</h3>
+      <p class="fragment fade-in">
+        NAT/PAT memungkinkan host di jaringan privat mengakses internet dengan menerjemahkan IP lokal ke IP publik.
+      </p>
+      <ul>
+        <li class="fragment fade-in">
+          <strong>NAT Static:</strong> Satu-ke-satu mapping antara IP privat dan IP publik.
+        </li>
+        <li class="fragment fade-in">
+          <strong>NAT PAT (Overloading):</strong> Banyak IP privat menggunakan satu IP publik dengan port berbeda.
+        </li>
+      </ul>
+      <p class="fragment fade-in">
+        Contoh perintah (pada router Cisco): <code>ip nat inside source list 1 interface GigabitEthernet0/1 overload</code>
+      </p>
+    </section>
+
+    <!-- Slide 6: Konfigurasi Firewall Dasar (ACL/Zone-Based) -->
+    <section data-transition="slide">
+      <h3>Firewall Dasar dengan ACL/Zone-Based</h3>
+      <p class="fragment fade-in">
+        Firewall di router membatasi akses dengan menerapkan aturan menggunakan ACL atau zone-based firewall.
+      </p>
+      <ul>
+        <li class="fragment fade-in">
+          <strong>ACL:</strong> Mengizinkan atau memblokir trafik berdasarkan alamat IP, protokol, dan port.
+        </li>
+        <li class="fragment fade-in">
+          <strong>Zone-Based Firewall:</strong> Mengelompokkan antarmuka ke dalam zona dan menerapkan aturan untuk mengontrol trafik antar zona.
+        </li>
+      </ul>
+      <p class="fragment fade-in">
+        Contoh perintah ACL: <code>access-list 101 permit ip any any</code> (disesuaikan dengan kebutuhan keamanan)
+      </p>
+    </section>
+
+
+
     </div>
   </div>
-  
+
   <script src="../../reveal/dist/reveal.js"></script>
   <script src="../../reveal/plugin/markdown/markdown.js"></script>
   <script src="../../reveal/plugin/highlight/highlight.js"></script>
@@ -76,7 +172,7 @@
       pdfSeparateFragments: false,
       pdfExport: true,
       overview: true,
-      transition: 'slide',
+      transition: 'convex',
       autoAnimate: true,
       plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
     });

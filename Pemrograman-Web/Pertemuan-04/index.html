@@ -148,16 +148,17 @@ my-frontend/
         <p class="fragment fade-up">Saat ini, <strong>functional component</strong> + <strong>Hooks</strong> lebih umum dipakai.</p>
         <pre class="fragment fade-in"><code class="hljs javascript">
 // App.jsx
+// Komponen utama yang menampilkan pesan sederhana di halaman
 function App() {
   return (
     <div>
-      <h1>Hello, React!</h1>
-      <p>Ini komponen dasar React.</p>
+      <h1>Hello, React!</h1> {/* Menampilkan judul */}
+        <p>Ini komponen dasar React.</p> {/* Menampilkan paragraf penjelasan */}
     </div>
-  );
-}
-
-export default App;
+    );
+  }
+          
+export default App; // Mengekspor komponen App agar dapat digunakan di file lain          
 </code></pre>
       </section>
 

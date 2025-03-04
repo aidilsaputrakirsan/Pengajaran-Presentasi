@@ -182,23 +182,25 @@ export default App; // Mengekspor komponen App agar dapat digunakan di file lain
       <section data-transition="fade">
         <h2>📌 Contoh useState</h2>
         <pre class="fragment fade-in"><code class="hljs javascript">
-// Counter.jsx
-import { useState } from 'react';
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <p>Nilai count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>
-        Tambah
-      </button>
-    </div>
-  );
-}
-
-export default Counter;
+ // Counter.jsx
+ import { useState } from 'react'; // Mengimpor hook useState dari React untuk mengelola state
+          
+ // Komponen Counter untuk menampilkan dan mengubah nilai count
+  function Counter() {
+   // Mendeklarasikan state count dengan nilai awal 0
+     const [count, setCount] = useState(0);
+        return (
+          <div>
+             <p>Nilai count: {count}</p> {/* Menampilkan nilai count yang tersimpan di state */}
+          {/* Tombol yang menambahkan nilai count setiap kali diklik */}
+             <button onClick={() => setCount(count + 1)}>
+               Tambah
+             </button>
+          </div>
+          );
+    }         
+export default Counter; // Mengekspor komponen Counter agar dapat digunakan di file lain
+          
 </code></pre>
         <p class="fragment fade-up">Komponen <strong>Counter</strong> memiliki state <code>count</code> yang berubah tiap kali tombol ditekan.</p>
       </section>
@@ -208,28 +210,34 @@ export default Counter;
         <h2>🔎 Contoh useEffect</h2>
         <pre class="fragment fade-in"><code class="hljs javascript">
 // DataFetcher.jsx
-import { useState, useEffect } from 'react';
-
-function DataFetcher() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then((res) => res.json())
-      .then((result) => setData(result));
-  }, []); // kosong: jalankan sekali saat komponen mount
-
-  return (
-    <div>
-      <h2>Data Posts:</h2>
-      {data.map(item => (
-        <p key={item.id}>{item.title}</p>
-      ))}
-    </div>
-  );
-}
-
-export default DataFetcher;
+   import { useState, useEffect } from 'react'; // Mengimpor hook useState dan useEffect dari React
+      
+   // Komponen DataFetcher untuk mengambil dan menampilkan data dari API
+      function DataFetcher() {
+      // Mendeklarasikan state data dengan nilai awal berupa array kosong
+        const [data, setData] = useState([]);
+         
+         // useEffect dijalankan sekali saat komponen pertama kali dimuat (mount)
+         useEffect(() => {
+           // Melakukan pengambilan data dari API
+           fetch('https://jsonplaceholder.typicode.com/posts')
+             .then((res) => res.json()) // Mengubah response menjadi format JSON
+             .then((result) => setData(result)); // Menyimpan data yang diambil ke dalam state 'data'
+         }, []); // Array kosong memastikan efek hanya berjalan sekali (saat mount)
+          
+         return (
+           <div>
+             <h2>Data Posts:</h2> {/* Judul untuk daftar data yang ditampilkan */}
+              {data.map(item => (
+              // Menampilkan setiap judul dari data yang diambil, gunakan item.id sebagai key untuk tiap elemen
+               <p key={item.id}>{item.title}</p>
+              ))}
+           </div>
+         );
+      }
+          
+export default DataFetcher; // Mengekspor komponen DataFetcher agar dapat digunakan di file lain
+          
 </code></pre>
         <p class="fragment fade-up">
           <strong>useEffect</strong> dipakai untuk memanggil data (atau efek samping lain) saat komponen pertama kali dimuat.
